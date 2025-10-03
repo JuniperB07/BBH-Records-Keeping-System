@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>BBHRKS_Library</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\BBH Records Keeping System\bin\Debug\net8.0-windows7.0\TableEnums\tbAdditionals.cs" Link="tbAdditionals.cs" />
+    <Compile Include="..\BBH Records Keeping System\bin\Debug\net8.0-windows7.0\TableEnums\tbbillpreview_receipts.cs" Link="tbbillpreview_receipts.cs" />
+    <Compile Include="..\BBH Records Keeping System\bin\Debug\net8.0-windows7.0\TableEnums\tbBills.cs" Link="tbBills.cs" />
+    <Compile Include="..\BBH Records Keeping System\bin\Debug\net8.0-windows7.0\TableEnums\tbDeductions.cs" Link="tbDeductions.cs" />
+    <Compile Include="..\BBH Records Keeping System\bin\Debug\net8.0-windows7.0\TableEnums\tbElectricityBill.cs" Link="tbElectricityBill.cs" />
+    <Compile Include="..\BBH Records Keeping System\bin\Debug\net8.0-windows7.0\TableEnums\tbEmergency.cs" Link="tbEmergency.cs" />
+    <Compile Include="..\BBH Records Keeping System\bin\Debug\net8.0-windows7.0\TableEnums\tbInternetBill.cs" Link="tbInternetBill.cs" />
+    <Compile Include="..\BBH Records Keeping System\bin\Debug\net8.0-windows7.0\TableEnums\tbInternetPlans.cs" Link="tbInternetPlans.cs" />
+    <Compile Include="..\BBH Records Keeping System\bin\Debug\net8.0-windows7.0\TableEnums\tbMetadata.cs" Link="tbMetadata.cs" />
+    <Compile Include="..\BBH Records Keeping System\bin\Debug\net8.0-windows7.0\TableEnums\tbPaymentMethod.cs" Link="tbPaymentMethod.cs" />
+    <Compile Include="..\BBH Records Keeping System\bin\Debug\net8.0-windows7.0\TableEnums\tbpaymentpreview_receipts.cs" Link="tbpaymentpreview_receipts.cs" />
+    <Compile Include="..\BBH Records Keeping System\bin\Debug\net8.0-windows7.0\TableEnums\tbpayments.cs" Link="tbpayments.cs" />
+    <Compile Include="..\BBH Records Keeping System\bin\Debug\net8.0-windows7.0\TableEnums\tbRentalBill.cs" Link="tbRentalBill.cs" />
+    <Compile Include="..\BBH Records Keeping System\bin\Debug\net8.0-windows7.0\TableEnums\tbRooms.cs" Link="tbRooms.cs" />
+    <Compile Include="..\BBH Records Keeping System\bin\Debug\net8.0-windows7.0\TableEnums\tbTenants.cs" Link="tbTenants.cs" />
+    <Compile Include="..\BBH Records Keeping System\bin\Debug\net8.0-windows7.0\TableEnums\tbUsers.cs" Link="tbUsers.cs" />
+    <Compile Include="..\BBH Records Keeping System\bin\Debug\net8.0-windows7.0\TableEnums\tbWaterBill.cs" Link="tbWaterBill.cs" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="9.4.0" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\JunX.NET\JunX.NET.csproj" />
+  </ItemGroup>
+
+</Project>
+

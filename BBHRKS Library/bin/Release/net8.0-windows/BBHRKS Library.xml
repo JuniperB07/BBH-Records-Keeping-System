@@ -1,0 +1,1882 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BBHRKS Library</name>
+    </assembly>
+    <members>
+        <member name="T:BBHRKS.Global.Global">
+            <summary>
+            Provides data and functionalities across BBH Records Keeping System Forms.
+            </summary>
+        </member>
+        <member name="P:BBHRKS.Global.Global.TenantsList">
+            <summary>
+            Retrieves a sorted list of tenant names from the database in ascending order.
+            </summary>
+            <returns>
+            A <c>List&lt;string&gt;</c> containing tenant names.
+            </returns>
+        </member>
+        <member name="M:BBHRKS.Global.Global.Initialize(JunX.NET8.MySQL.DBConnect)">
+            <summary>
+            Establishes the execution context required for database operations.
+            </summary>
+            <param name="mySQLExecute">
+            The external execution handler used for command execution.
+            </param>
+        </member>
+        <member name="M:BBHRKS.Global.Global.SearchTenantsList(System.String)">
+            <summary>
+            Filters and sorts tenant names that contain the specified search value.
+            </summary>
+            <param name="Value">
+            The substring used to match tenant names.
+            </param>
+            <returns>
+            A <c>List&lt;string&gt;</c> containing matched tenant names in ascending order.
+            </returns>
+        </member>
+        <member name="M:BBHRKS.Global.Global.GetTenantID(System.String)">
+            <summary>
+            Retrieves the unique tenant ID based on the provided full name.
+            </summary>
+            <remarks>
+            Executes a parameterized SELECT query on the <c>tbtenants</c> table using the <c>@FullName</c> parameter.
+            If a matching record is found, the corresponding <c>TenantID</c> is returned; otherwise, returns <c>-1</c>.
+            </remarks>
+            <param name="TenantName">The full name of the tenant to search for.</param>
+            <returns>
+            The <c>TenantID</c> as an integer if found; otherwise <c>-1</c>.
+            </returns>
+        </member>
+        <member name="M:BBHRKS.Interface.Interface.CheckForEmptyField(System.Windows.Forms.Control[])">
+            <summary>
+            Checks whether any <see cref="T:System.Windows.Forms.Control"/> in the specified array contains an empty <c>Text</c> value.
+            </summary>
+            <param name="TextBoxes">An array of <see cref="T:System.Windows.Forms.Control"/> objects to inspect.</param>
+            <returns>
+            <c>true</c> if at least one control has an empty <c>Text</c> property; otherwise, <c>false</c>.
+            </returns>
+            <remarks>
+            This method iterates through the provided controls and returns early upon detecting an empty field.
+            Useful in BBHRKS modules for validating required inputs across mixed control types such as <c>TextBox</c>, <c>MaskedTextBox</c>, or <c>RichTextBox</c>.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="TextBoxes"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.NullReferenceException">
+            Thrown if any element in the <paramref name="TextBoxes"/> array is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:BBHRKS.Interface.Interface.ClearLabels(System.Windows.Forms.Label[])">
+            <summary>
+            Clears the text content of each <see cref="T:System.Windows.Forms.Label"/> control in the specified array, if the array is not null.
+            </summary>
+            <param name="Labels">An array of <see cref="T:System.Windows.Forms.Label"/> controls whose <c>Text</c> properties will be reset.</param>
+            <remarks>
+            This method checks whether the <paramref name="Labels"/> array is non-null before iterating.
+            Each label's <c>Text</c> property is set to an empty string, effectively clearing its display.
+            Commonly used to reset form fields or UI indicators in BBHRKS modules.
+            </remarks>
+            <exception cref="T:System.NullReferenceException">
+            Thrown if any element within the <paramref name="Labels"/> array is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:BBHRKS.Interface.Interface.ClearControlText(System.Windows.Forms.Control[])">
+            <summary>
+            Clears the text content of each <see cref="T:System.Windows.Forms.Control"/> in the specified array.
+            </summary>
+            <param name="controls">An array of <see cref="T:System.Windows.Forms.Control"/> objects whose <c>Text</c> properties will be reset.</param>
+            <remarks>
+            This method iterates through the provided controls and sets each control's <c>Text</c> property to an empty string.
+            Commonly used to reset form fields or UI elements in BBHRKS modules.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if the <paramref name="controls"/> array is <c>null</c>.
+            </exception>
+            <exception cref="T:System.NullReferenceException">
+            Thrown if any element in the <paramref name="controls"/> array is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:BBHRKS.Interface.Interface.ClearControlText(System.Collections.Generic.List{System.Windows.Forms.Control})">
+            <summary>
+            Clears the text of each control in the specified list.
+            </summary>
+            <param name="Controls">A list of <see cref="T:System.Windows.Forms.Control"/> objects whose <c>Text</c> property will be set to an empty string.</param>
+            <remarks>
+            This method is useful for resetting form fields such as labels, textboxes, or other controls with textual content.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.Interface.Interface.ClearComboBoxesItems(System.Windows.Forms.ComboBox[])">
+            <summary>
+            Clears all items from each <see cref="T:System.Windows.Forms.ComboBox"/> in the specified array.
+            </summary>
+            <param name="ComboBoxes">An array of <see cref="T:System.Windows.Forms.ComboBox"/> controls to be emptied.</param>
+            <remarks>
+            This method iterates through the provided combo boxes and removes all entries from each control.
+            Commonly used in BBHRKS modules to reset dropdowns before repopulating them with updated data.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="ComboBoxes"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.NullReferenceException">
+            Thrown if any element in the <paramref name="ComboBoxes"/> array is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:BBHRKS.Interface.Interface.FillDataGridView(System.Windows.Forms.DataGridView,System.String,MySql.Data.MySqlClient.MySqlConnection)">
+            <summary>
+            Executes a SQL SELECT command and binds the resulting data to a <see cref="T:System.Windows.Forms.DataGridView"/> control.
+            </summary>
+            <param name="DGVInterface">The <see cref="T:System.Windows.Forms.DataGridView"/> control to populate with query results.</param>
+            <param name="SQLSelectCommand">The SQL SELECT command string to execute.</param>
+            <param name="Connection">An open <see cref="T:MySql.Data.MySqlClient.MySqlConnection"/> used to perform the query.</param>
+            <remarks>
+            This method initializes a <see cref="T:MySql.Data.MySqlClient.MySqlDataAdapter"/> with the provided SQL command and connection,
+            fills a <see cref="T:System.Data.DataSet"/> with the results, and binds the first table to the <paramref name="DGVInterface"/>.
+            The control's <c>DataSource</c> is reset before binding to ensure clean refresh.
+            </remarks>
+            <exception cref="T:MySql.Data.MySqlClient.MySqlException">
+            Thrown if the SQL command fails to execute or the connection is invalid.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if the <paramref name="Connection"/> is closed or improperly configured.
+            </exception>
+        </member>
+        <member name="M:BBHRKS.Interface.Interface.FillComboBox(System.Windows.Forms.ComboBox,System.Collections.Generic.List{System.String})">
+            <summary>
+            Populates the specified <see cref="T:System.Windows.Forms.ComboBox"/> with a list of string items.
+            </summary>
+            <param name="comboBox">The <see cref="T:System.Windows.Forms.ComboBox"/> control to be filled.</param>
+            <param name="Items">A list of string values to add to the combo box.</param>
+            <remarks>
+            Clears any existing entries before adding the provided items.
+            Commonly used in BBHRKS modules to refresh dropdown options based on dynamic data or user context.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="comboBox"/> or <paramref name="Items"/> is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:BBHRKS.Interface.Interface.FillComboBox(System.Windows.Forms.ComboBox,System.String[])">
+            <summary>
+            Populates the specified <see cref="T:System.Windows.Forms.ComboBox"/> with a list of string items.
+            </summary>
+            <param name="comboBox">The <see cref="T:System.Windows.Forms.ComboBox"/> control to be filled.</param>
+            <param name="Items">A list of string values to add to the combo box.</param>
+            <remarks>
+            This method clears any existing entries before adding the provided items.
+            Commonly used in BBHRKS modules to refresh dropdown options based on dynamic data or user context.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="comboBox"/> or <paramref name="Items"/> is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:BBHRKS.Interface.Interface.GetAllControls(System.Windows.Forms.Control)">
+            <summary>
+            Recursively retrieves all child controls contained within the specified parent control.
+            </summary>
+            <param name="Parent">The root <see cref="T:System.Windows.Forms.Control"/> from which to begin the search.</param>
+            <returns>
+            A <see cref="T:System.Collections.Generic.List`1"/> containing all descendant controls, including those nested within containers.
+            </returns>
+            <remarks>
+            This method is useful for scenarios where controls are nested inside panels, group boxes, or other containers,
+            and you need to perform operations like filtering, resetting, or styling across the entire form hierarchy.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.Interface.Interface.SetControlEnabled(System.Windows.Forms.Control[],System.Boolean)">
+            <summary>
+            Sets the enabled state of each <see cref="T:System.Windows.Forms.Control"/> in the specified array.
+            </summary>
+            <param name="controls">An array of <see cref="T:System.Windows.Forms.Control"/> objects whose <c>Enabled</c> properties will be updated.</param>
+            <param name="enabled">A boolean value indicating whether the controls should be enabled or disabled.</param>
+            <remarks>
+            This method iterates through the provided controls and applies the specified enabled state.
+            Commonly used to toggle form interactivity in BBHRKS modules, such as locking fields during processing or enabling inputs after validation.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if the <paramref name="controls"/> array is <c>null</c>.
+            </exception>
+            <exception cref="T:System.NullReferenceException">
+            Thrown if any element in the <paramref name="controls"/> array is <c>null</c>.
+            </exception>
+        </member>
+        <member name="T:BBHRKS.Metadata.Metadata">
+            <summary>
+            Provides structured access to metadata values used across BBHRKS modules, including tenants, rooms, utilities, payments, and billing.
+            </summary>
+            <remarks>
+            The <c>Metadata</c> class organizes static metadata into nested categories, each exposing constants, value lists, and database-driven properties.
+            It supports both hardcoded enumerations (e.g., status labels) and dynamic retrieval from the <c>tbmetadata</c> table in <c>dbBBHRKS</c>.
+            This class is designed for centralized reference, reducing duplication and ensuring consistency across business logic and UI components.
+            </remarks>
+        </member>
+        <member name="P:BBHRKS.Metadata.Metadata.Water.Consumption.UnitPrice">
+            <summary>
+            Retrieves the unit price value from the <c>tbmetadata</c> table where category is <c>Water Consumption</c>
+            and details is <c>Unit Price</c>.
+            </summary>
+            <remarks>
+            This property establishes a new MySQL connection to the <c>dbBBHRKS</c> database, executes a SELECT query,
+            reads the result, and converts the first column to a <see cref="T:System.Double"/>. The connection and reader are closed after use.
+            </remarks>
+            <exception cref="T:MySql.Data.MySqlClient.MySqlException">
+            Thrown if the connection or command execution fails due to server issues, query errors, or other MySQL-related problems.
+            </exception>
+            <exception cref="T:System.InvalidCastException">
+            Thrown if the retrieved value cannot be converted to a <see cref="T:System.Double"/>.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Metadata.Metadata.Electricity.Consumption.UnitPrice">
+            <summary>
+            Retrieves the unit price value from the <c>tbmetadata</c> table where category is <c>Electricity Consumption</c>
+            and details is <c>Unit Price</c>.
+            </summary>
+            <remarks>
+            This property initializes a new MySQL connection to the <c>dbBBHRKS</c> database, executes a SELECT query,
+            reads the first result, and converts it to a <see cref="T:System.Double"/>. The connection and reader are closed after execution.
+            </remarks>
+            <exception cref="T:MySql.Data.MySqlClient.MySqlException">
+            Thrown if the connection or command execution fails due to server issues, query errors, or other MySQL-related problems.
+            </exception>
+            <exception cref="T:System.InvalidCastException">
+            Thrown if the retrieved value cannot be converted to a <see cref="T:System.Double"/>.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Metadata.Metadata.Payment.LastReceipt">
+            <summary>
+            Retrieves the last receipt number from the <c>tbmetadata</c> table where category is <c>Payment</c>
+            and details is <c>Last Receipt</c>.
+            </summary>
+            <remarks>
+            This property creates a new MySQL connection to the <c>dbBBHRKS</c> database, executes a SELECT query,
+            reads the first result, and converts it to an <see cref="T:System.Int32"/>. The connection and reader are explicitly closed and disposed after use.
+            </remarks>
+            <exception cref="T:MySql.Data.MySqlClient.MySqlException">
+            Thrown if the connection or command execution fails due to server issues, query errors, or other MySQL-related problems.
+            </exception>
+            <exception cref="T:System.InvalidCastException">
+            Thrown if the retrieved value cannot be converted to an <see cref="T:System.Int32"/>.
+            </exception>
+        </member>
+        <member name="M:BBHRKS.Metadata.Metadata.Payment.GenerateNewReceipt(System.DateTime)">
+            <summary>
+            Generates a new receipt number based on the current date, resetting the counter on January 1st if necessary.
+            </summary>
+            <param name="CurrentDate">The current date used to determine whether the receipt counter should be reset.</param>
+            <returns>
+            An incremented receipt number. If the date is January 1st and the last receipt is non-zero, the counter is reset before incrementing.
+            </returns>
+            <remarks>
+            This method opens a MySQL connection to the <c>dbBBHRKS</c> database and checks if the current date is January 1st.
+            If so, and the last receipt number is non-zero, it resets the <c>Last Receipt</c> value in the <c>tbmetadata</c> table to zero.
+            The connection is closed and disposed after execution. The receipt number is then incremented and returned.
+            </remarks>
+            <exception cref="T:MySql.Data.MySqlClient.MySqlException">
+            Thrown if the connection or command execution fails due to server issues, query errors, or other MySQL-related problems.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Metadata.Metadata.Payment.Method.PaymentMethods">
+            <summary>
+            Retrieves a sorted list of enabled payment methods from the database.
+            </summary>
+            <returns>
+            A <see cref="!:List&lt;string&gt;"/> containing all enabled payment method names from <c>tbpaymentmethod</c>,
+            sorted in ascending order by the <c>Method</c> column.
+            </returns>
+            <remarks>
+            This property executes a SELECT query on the <c>tbpaymentmethod</c> table, retrieving the <c>Method</c> column
+            where <c>Status='Enabled'</c>. The <c>Method</c> column is formatted as <c>VARCHAR</c>, and values are returned
+            as strings. Results are ordered using <c>ORDER BY Method ASC</c>. The command connection is configured via
+            <c>BBHRKS_DB.SetupMySQLCommandConnection</c>, and all resources are properly disposed after execution.
+            </remarks>
+            <exception cref="T:MySql.Data.MySqlClient.MySqlException">
+            Thrown if the database connection or command execution fails.
+            </exception>
+            <exception cref="T:System.InvalidCastException">
+            Thrown if the retrieved <c>VARCHAR</c> value cannot be converted to a string.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Metadata.Metadata.Internet.DueDate">
+            <summary>
+            Retrieves the next Internet due date based on the current date and the configured due day.
+            </summary>
+            <returns>
+            A <see cref="T:System.DateTime"/> value representing the next due date.
+            If today's day exceeds the configured due day, the result rolls over to the same day in the next month.
+            </returns>
+            <remarks>
+            This property queries the <c>tbmetadata</c> table for the Internet due day value under the condition
+            <c>category='Internet' AND details='Due Date'</c>. It then calculates the next due date by comparing
+            the current day with the configured due day, adjusting for month rollover and clamping to the last valid
+            day of the target month (including leap year handling).
+            </remarks>
+            <exception cref="T:MySql.Data.MySqlClient.MySqlException">
+            Thrown if the database connection or query execution fails.
+            </exception>
+            <exception cref="T:System.FormatException">
+            Thrown if the retrieved value cannot be converted to an integer.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Metadata.Metadata.Rental.MonthlyDue">
+            <summary>
+            Retrieves the configured monthly due amount for rental billing from the database.
+            </summary>
+            <returns>
+            A <see cref="T:System.Double"/> value representing the monthly rental charge.
+            </returns>
+            <remarks>
+            This property queries the <c>tbmetadata</c> table using the condition <c>mid=7</c> to fetch the value associated with rental billing.
+            The result is parsed as a double and returned. The connection is properly initialized, opened, and disposed after execution.
+            </remarks>
+            <exception cref="T:MySql.Data.MySqlClient.MySqlException">
+            Thrown if the database connection or command execution fails.
+            </exception>
+            <exception cref="T:System.FormatException">
+            Thrown if the retrieved value cannot be converted to a double.
+            </exception>
+        </member>
+        <member name="M:BBHRKS.Metadata.Metadata.ListValues(System.String[])">
+            <summary>
+            Converts an array of strings into a list of strings.
+            </summary>
+            <param name="Values">The array of string values to be copied into the list.</param>
+            <returns>
+            A <see cref="T:System.Collections.Generic.List`1"/> containing all elements from the input array.
+            </returns>
+            <remarks>
+            This method iterates through the input array and adds each element to a newly instantiated list.
+            </remarks>
+        </member>
+        <member name="P:BBHRKS.MySQL.Database.Connection">
+            <summary>
+            Gets the active MySQL connection used by the BBH Records Keeping System.
+            </summary>
+            <remarks>
+            This static property provides access to the underlying <see cref="T:MySql.Data.MySqlClient.MySqlConnection"/> instance.
+            Ensure the connection is properly initialized before accessing this property.
+            </remarks>
+            <returns>
+            The current <see cref="T:MySql.Data.MySqlClient.MySqlConnection"/> object.
+            </returns>
+        </member>
+        <member name="M:BBHRKS.MySQL.Database.Initialize">
+            <summary>
+            Initializes the database connection for BBHRKS operations.
+            </summary>
+            <remarks>
+            Configures the connection string and attempts to open the connection if it is not already active.
+            This method ensures that the system is ready to execute database commands and handle data transactions.
+            Any connection errors are displayed through a message dialog.
+            </remarks>
+            <exception cref="T:MySql.Data.MySqlClient.MySqlException">
+            Thrown if the connection attempt fails due to server issues, authentication errors, or configuration problems.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if the connection state is invalid or the connection object is misconfigured.
+            </exception>
+        </member>
+        <member name="M:BBHRKS.MySQL.Database.SetupMySQLCommandConnection(MySql.Data.MySqlClient.MySqlCommand,MySql.Data.MySqlClient.MySqlConnection,System.Data.CommandType)">
+            <summary>
+            Configures a <see cref="T:MySql.Data.MySqlClient.MySqlCommand"/> with the specified connection and command type.
+            </summary>
+            <param name="Command">The <see cref="T:MySql.Data.MySqlClient.MySqlCommand"/> instance to configure.</param>
+            <param name="Connection">The <see cref="T:MySql.Data.MySqlClient.MySqlConnection"/> to associate with the command.</param>
+            <param name="Type">The <see cref="T:System.Data.CommandType"/> indicating how the command text is interpreted.</param>
+            <remarks>
+            This method sets the <c>Connection</c> and <c>CommandType</c> properties of the provided command object.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.MySQL.Database.ExtractToList(MySql.Data.MySqlClient.MySqlConnection,MySql.Data.MySqlClient.MySqlCommand,System.String)">
+            <summary>
+            Executes a SQL SELECT command and extracts the first column of each row into a list of strings.
+            </summary>
+            <param name="Connection">An active <see cref="T:MySql.Data.MySqlClient.MySqlConnection"/> used to execute the query.</param>
+            <param name="Command">A <see cref="T:MySql.Data.MySqlClient.MySqlCommand"/> instance whose command text will be set and executed.</param>
+            <param name="SelectCommand">The SQL SELECT statement to execute.</param>
+            <returns>
+            A <see cref="T:System.Collections.Generic.List`1"/> containing the string representations of the first column from each result row.
+            </returns>
+            <remarks>
+            This method sets the command text, executes the query, and reads each row from the result set.
+            Only the first column of each row is extracted. The result is commonly used to populate UI elements such as combo boxes or list views in BBHRKS modules.
+            </remarks>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if the connection is not open or the command is improperly configured.
+            </exception>
+            <exception cref="T:MySql.Data.MySqlClient.MySqlException">
+            Thrown if the query execution fails due to syntax errors or connection issues.
+            </exception>
+        </member>
+        <member name="M:BBHRKS.MySQL.Database.Tables.TableList(MySql.Data.MySqlClient.MySqlConnection)">
+            <summary>
+            Retrieves a list of all table names within the specified database schema.
+            </summary>
+            <param name="DBConnection">
+            An active MySQL connection targeting the desired database.
+            </param>
+            <returns>
+            A list of table names available in the database schema.
+            </returns>
+            <remarks>
+            Opens the connection if not already open, executes a metadata query against the <c>information_schema</c>,  
+            and collects all table names associated with the target schema.  
+            This method is useful for dynamically inspecting database structure or validating table existence.
+            </remarks>
+            <exception cref="T:System.Exception">
+            Thrown if the connection fails to open or the query execution encounters an error.
+            </exception>
+        </member>
+        <member name="T:BBHRKS.MySQL.Generate">
+            <summary>
+            Provides static methods and supporting types for constructing SQL command strings dynamically.
+            </summary>
+            <remarks>
+            The <c>Generate</c> class includes utility functions for building SQL <c>SELECT</c>, <c>INSERT</c>, <c>UPDATE</c>, and <c>DELETE</c> statements.
+            It also defines supporting enumerations and structures for data typing, sorting, and update metadata.
+            Designed for use in modular database operations where command text needs to be assembled programmatically.
+            </remarks>
+        </member>
+        <member name="T:BBHRKS.MySQL.Generate.DataTypes">
+            <summary>
+            Represents supported data types for metadata classification or value interpretation.
+            </summary>
+            <remarks>
+            This enumeration defines common primitive types used for parsing, validation, or dynamic type handling.
+            </remarks>
+        </member>
+        <member name="F:BBHRKS.MySQL.Generate.DataTypes.Int">
+            <summary>
+            Represents a 32-bit signed integer value.
+            </summary>
+        </member>
+        <member name="F:BBHRKS.MySQL.Generate.DataTypes.Double">
+            <summary>
+            Represents a double-precision floating-point value.
+            </summary>
+        </member>
+        <member name="F:BBHRKS.MySQL.Generate.DataTypes.String">
+            <summary>
+            Represents a sequence of Unicode characters.
+            </summary>
+        </member>
+        <member name="F:BBHRKS.MySQL.Generate.DataTypes.DateTime">
+            <summary>
+            Represents a date and time value.
+            </summary>
+        </member>
+        <member name="T:BBHRKS.MySQL.Generate.SortBy">
+            <summary>
+            Specifies sorting direction for SQL queries or data operations.
+            </summary>
+            <remarks>
+            This enumeration defines sorting behavior for ordered results, typically used in <c>ORDER BY</c> clauses.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.MySQL.Generate.SelectAllCommand(System.String,System.String)">
+            <summary>
+            Constructs a SQL SELECT command string that retrieves all columns from the specified table.
+            </summary>
+            <param name="TableName">The name of the table to query.</param>
+            <param name="WhereStatement">An optional WHERE clause to filter results. If empty, no filtering is applied.</param>
+            <returns>
+            A formatted SQL SELECT command string using <c>SELECT *</c> syntax.
+            </returns>
+            <remarks>
+            This method builds a SQL SELECT statement that targets all columns in the specified table.
+            If a <c>WhereStatement</c> is provided, it appends a <c>WHERE</c> clause to the query.
+            The final command string is terminated with a semicolon.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.MySQL.Generate.SelectCommand(System.String[],System.String,System.String)">
+            <summary>
+            Constructs an SQL SELECT command string using the specified columns, table name, and optional WHERE clause.
+            </summary>
+            <param name="SelectColumns">An array of column names to include in the SELECT statement.</param>
+            <param name="FromTable">The name of the table to query.</param>
+            <param name="WhereStatement">
+            An optional WHERE clause to filter the results. If empty or <c>null</c>, no filtering is applied.
+            </param>
+            <returns>
+            A formatted SQL SELECT command string.
+            </returns>
+            <remarks>
+            This method dynamically builds an SQL query by concatenating column names, the target table, and an optional WHERE clause.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.MySQL.Generate.SelectCommand(System.String,System.String,System.String)">
+            <summary>
+            Constructs a basic SQL SELECT command string using the specified column, table, and optional WHERE clause.
+            </summary>
+            <param name="SelectColumn">The name of the column(s) to select from the table.</param>
+            <param name="FromTable">The name of the table to query.</param>
+            <param name="WhereStatement">
+            An optional WHERE clause to filter the results. If omitted or empty, no filtering is applied.
+            </param>
+            <returns>
+            A complete SQL SELECT command string ending with a semicolon.
+            </returns>
+            <remarks>
+            This method is useful for dynamically generating simple SQL queries in BBH workflows.
+            It does not support joins, aliases, or parameterization—use with caution to avoid SQL injection.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.MySQL.Generate.SelectCommand(System.String[],System.String,System.String,System.String,BBHRKS.MySQL.Generate.SortBy)">
+            <summary>
+            Constructs a SQL SELECT command string using specified columns, table name, optional WHERE clause, and optional sorting.
+            </summary>
+            <param name="SelectColumns">An array of column names to include in the SELECT clause.</param>
+            <param name="FromTable">The name of the table to query.</param>
+            <param name="WhereStatement">An optional WHERE clause to filter results. If empty, no filtering is applied.</param>
+            <param name="SortColumn">The column name to apply sorting on, if sorting is enabled.</param>
+            <param name="Sort">The sorting direction, specified by the <see cref="T:BBHRKS.MySQL.Generate.SortBy"/> enum. Defaults to <c>None</c>.</param>
+            <returns>
+            A formatted SQL SELECT command string.
+            </returns>
+            <remarks>
+            This method builds a SQL SELECT statement by listing the selected columns, specifying the source table,
+            appending a WHERE clause if provided, and applying ORDER BY sorting if enabled.
+            Sorting uses standard SQL syntax and supports ascending or descending order.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.MySQL.Generate.UpdateCommand(System.String,System.String[],System.String[],BBHRKS.MySQL.Generate.DataTypes[],System.String)">
+            <summary>
+            Constructs a SQL UPDATE command string using the specified table, columns, values, data types, and optional WHERE clause.
+            </summary>
+            <param name="Table">The name of the table to update.</param>
+            <param name="Columns">An array of column names to be updated.</param>
+            <param name="Values">An array of values to assign to the corresponding columns.</param>
+            <param name="Types">An array of <see cref="T:BBHRKS.MySQL.Generate.DataTypes"/> indicating how each value should be formatted.</param>
+            <param name="WhereCondition">
+            An optional WHERE clause to restrict which rows are updated. If empty, all rows will be affected.
+            </param>
+            <returns>
+            A formatted SQL UPDATE command string.
+            </returns>
+            <remarks>
+            This method builds a SQL UPDATE statement by pairing each column with its corresponding value,
+            applying apostrophes for string and datetime types, and appending a WHERE clause if provided.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.MySQL.Generate.UpdateCommand(System.String,BBHRKS.MySQL.Generate.UpdateInfo[],System.String)">
+            <summary>
+            Constructs a SQL UPDATE command string using the specified table name, update values, and optional WHERE clause.
+            </summary>
+            <param name="Table">The name of the table to update.</param>
+            <param name="UpdateValues">
+            An array of <see cref="T:BBHRKS.MySQL.Generate.UpdateInfo"/> structures containing column names, values, and data types for the update operation.
+            </param>
+            <param name="WhereStatement">
+            An optional WHERE clause to restrict which rows are updated. If empty, all rows will be affected.
+            </param>
+            <returns>
+            A formatted SQL UPDATE command string.
+            </returns>
+            <remarks>
+            This method builds a SQL UPDATE statement by iterating through the <see cref="T:BBHRKS.MySQL.Generate.UpdateInfo"/> array,
+            formatting each value according to its <see cref="T:BBHRKS.MySQL.Generate.DataTypes"/> type, and appending a WHERE clause if provided.
+            Apostrophes are automatically applied to string and datetime values.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.MySQL.Generate.InsertIntoCommand(System.String,System.String[],BBHRKS.MySQL.Generate.DataTypes[],System.String[])">
+            <summary>
+            Constructs a SQL INSERT command string for inserting values into the specified table.
+            </summary>
+            <param name="TableName">The name of the table to insert into.</param>
+            <param name="Values">An array of values to be inserted. Each value must correspond to a defined <see cref="T:BBHRKS.MySQL.Generate.DataTypes"/> entry.</param>
+            <param name="Types">An array of <see cref="T:BBHRKS.MySQL.Generate.DataTypes"/> indicating the data type of each value. Used to format values correctly in SQL.</param>
+            <param name="Columns">
+            An optional array of column names to insert into. If <c>null</c>, the command assumes positional mapping to all columns.
+            </param>
+            <returns>
+            A formatted SQL <c>INSERT INTO</c> command string with properly quoted and typed values.
+            </returns>
+            <remarks>
+            This method builds a SQL INSERT statement by optionally specifying column names and formatting each value
+            according to its declared <see cref="T:BBHRKS.MySQL.Generate.DataTypes"/>. String and DateTime values are enclosed in single quotes.
+            Numeric types are inserted directly. The final command string is terminated with a semicolon.
+            </remarks>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="Values"/> and <paramref name="Types"/> arrays do not match in length.
+            </exception>
+        </member>
+        <member name="M:BBHRKS.MySQL.Generate.InsertIntoCommand(System.String,BBHRKS.MySQL.Generate.InsertInfo[])">
+            <summary>
+            Constructs a SQL <c>INSERT INTO</c> command using the specified table name and structured insert data.
+            </summary>
+            <param name="TableName">The name of the target table.</param>
+            <param name="InsertData">An array of <see cref="T:BBHRKS.MySQL.Generate.InsertInfo"/> objects containing column names, values, and data types.</param>
+            <returns>
+            A formatted SQL <c>INSERT</c> statement as a string.
+            </returns>
+            <remarks>
+            This method builds a parameterless SQL command by iterating through the provided insert data.
+            String and date-time values are wrapped in single quotes; numeric types are inserted directly.
+            Commonly used in BBHRKS modules for dynamic record creation based on structured input.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="TableName"/> or <paramref name="InsertData"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if <paramref name="InsertData"/> contains unsupported or uninitialized type values.
+            </exception>
+        </member>
+        <member name="M:BBHRKS.MySQL.Generate.DeleteCommand(System.String,System.String)">
+            <summary>
+            Constructs a SQL DELETE command string for removing records from the specified table.
+            </summary>
+            <param name="TableName">The name of the table from which records will be deleted.</param>
+            <param name="WhereStatement">
+            An optional WHERE clause to filter which records are deleted. If empty, all records in the table will be removed.
+            </param>
+            <returns>
+            A formatted SQL <c>DELETE FROM</c> command string.
+            </returns>
+            <remarks>
+            This method builds a SQL DELETE statement targeting the specified table. If a <c>WhereStatement</c> is provided,
+            it appends a <c>WHERE</c> clause to restrict deletion to matching rows. If omitted, the command deletes all rows.
+            The final command string is terminated with a semicolon.
+            </remarks>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="TableName"/> is null or empty.
+            </exception>
+        </member>
+        <member name="M:BBHRKS.MySQL.Generate.TruncateCommand(System.String)">
+             <summary>
+             Generates a SQL command string to truncate all records from the specified table.
+             </summary>
+             <param name="TableName">The name of the table to be truncated.</param>
+             <returns>
+             A <see cref="T:System.String"/> containing the SQL <c>TRUNCATE TABLE</c> command for the given table.
+             </returns>
+             <remarks>
+             This method constructs a raw SQL statement that removes all rows from the specified table.
+             It is intended for use in scenarios where full table clearance is required, such as resetting staging data or clearing logs.
+            
+             <b>Warning:</b> The <c>TRUNCATE</c> command is irreversible, bypasses triggers, and resets auto-increment counters.
+             Use with extreme caution, especially in production environments.
+             </remarks>
+        </member>
+        <member name="T:BBHRKS.MySQL.Generate.UpdateInfo">
+            <summary>
+            Represents metadata for constructing SQL update operations, including column identity, value, and type.
+            </summary>
+            <remarks>
+            This structure supports flexible initialization for either alias-based referencing or direct value assignment.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.MySQL.Generate.UpdateInfo.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BBHRKS.MySQL.Generate.UpdateInfo"/> struct using a column name and alias reference.
+            </summary>
+            <param name="Column">The name of the column to be updated.</param>
+            <param name="ColumnAlias">An alias used to reference the column in external contexts.</param>
+            <remarks>
+            This constructor sets the <c>DataType</c> to <see cref="F:BBHRKS.MySQL.Generate.DataTypes.Int"/> by default and initializes other fields to empty strings.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.MySQL.Generate.UpdateInfo.#ctor(System.String,System.String,BBHRKS.MySQL.Generate.DataTypes)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BBHRKS.MySQL.Generate.UpdateInfo"/> struct using a column name, value, and data type.
+            </summary>
+            <param name="Column">The name of the column to be updated.</param>
+            <param name="ColumnValue">The value to assign to the specified column.</param>
+            <param name="ValueType">The data type of the value, used to determine SQL formatting.</param>
+            <remarks>
+            This constructor sets the <c>TableName</c> and <c>Alias</c> fields to empty strings by default.
+            </remarks>
+        </member>
+        <member name="T:BBHRKS.MySQL.Generate.InsertInfo">
+            <summary>
+            Represents a structured unit of data for insertion into a database table.
+            </summary>
+        </member>
+        <member name="M:BBHRKS.MySQL.Generate.InsertInfo.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BBHRKS.MySQL.Generate.InsertInfo"/> struct with default values.
+            </summary>
+            <remarks>
+            Sets <c>Column</c> and <c>Value</c> to empty strings, and assigns <c>DataTypes.Int</c> as the default type.
+            Useful for placeholder initialization or deferred assignment in BBHRKS-style insert routines.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.MySQL.Generate.InsertInfo.#ctor(System.String,System.String,BBHRKS.MySQL.Generate.DataTypes)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BBHRKS.MySQL.Generate.InsertInfo"/> struct with the specified column name, value, and data type.
+            </summary>
+            <param name="column">The name of the column to insert into.</param>
+            <param name="value">The value to be inserted.</param>
+            <param name="type">The data type classification for the value.</param>
+        </member>
+        <member name="T:BBHRKS.Payments.Payments">
+            <summary>
+            Provides functionalities and data for BBH Records Keeping System - Payments
+            </summary>
+        </member>
+        <member name="P:BBHRKS.Payments.Payments.TenantName">
+            <summary>
+            Gets or sets the name of the tenant associated with the current payment context.
+            </summary>
+        </member>
+        <member name="P:BBHRKS.Payments.Payments.TransactionDT">
+            <summary>
+            Gets or sets the date and time of the current transaction within the payment context.
+            </summary>
+            <value>
+            A <c>DateTime</c> representing when the transaction occurred.
+            </value>
+        </member>
+        <member name="P:BBHRKS.Payments.Payments.ORInUse">
+            <summary>
+            Gets or sets the official receipt (OR) number currently in use for the active transaction.
+            </summary>
+            <value>
+            A <c>string</c> representing the active OR number.
+            </value>
+        </member>
+        <member name="P:BBHRKS.Payments.Payments.AmountPaid">
+            <summary>
+            Gets or sets the amount paid for the current transaction.
+            </summary>
+            <value>
+            A <c>double</c> representing the payment amount entered or processed.
+            </value>
+        </member>
+        <member name="P:BBHRKS.Payments.Payments.PaymentMethod">
+            <summary>
+            Gets or sets the selected payment method for the current transaction.
+            </summary>
+            <value>
+            A <c>string</c> representing the payment method (e.g., Cash, GCash, Bank Transfer).
+            </value>
+        </member>
+        <member name="P:BBHRKS.Payments.Payments.SelectedBillSubtotal">
+            <summary>
+            Retrieves the subtotal amount from the current bill overview in the payment context.
+            </summary>
+            <returns>
+            A <c>double</c> representing the base amount of the bill before adjustments.
+            </returns>
+        </member>
+        <member name="P:BBHRKS.Payments.Payments.SelectedBillBalance">
+            <summary>
+            Retrieves the remaining amount due from the current bill overview in the payment context.
+            </summary>
+            <returns>
+            A <c>double</c> representing the bill's outstanding balance.
+            </returns>
+        </member>
+        <member name="P:BBHRKS.Payments.Payments.SelectedBillStatus">
+            <summary>
+            Retrieves the current payment status from the active bill overview in the payment context.
+            </summary>
+            <returns>
+            A <c>string</c> representing the bill's status (e.g., Unpaid, Partial, Paid).
+            </returns>
+        </member>
+        <member name="P:BBHRKS.Payments.Payments.SelectedBillDueDate">
+            <summary>
+            Gets the due date of the currently selected bill based on the active invoice and bill type.
+            </summary>
+            <value>
+            A <c>DateTime</c> representing the bill's due date.
+            </value>
+        </member>
+        <member name="P:BBHRKS.Payments.Payments.InvoiceOverallTotal">
+            <summary>
+            Computes the total amount due for the current invoice, including rent, utilities, and internet charges.
+            </summary>
+            <returns>
+            A <c>double</c> representing the overall invoice subtotal.
+            </returns>
+        </member>
+        <member name="P:BBHRKS.Payments.Payments.Credits">
+            <summary>
+            Gets the credit amount available for the current transaction, typically used to offset future payments.
+            </summary>
+            <value>
+            A <c>double</c> representing the available credit balance.
+            </value>
+        </member>
+        <member name="P:BBHRKS.Payments.Payments.Change">
+            <summary>
+            Gets the current change amount available for the transaction.
+            </summary>
+            <value>
+            A <c>double</c> representing the excess amount paid, typically returned or convertible to credits.
+            </value>
+        </member>
+        <member name="P:BBHRKS.Payments.Payments.TransactionBalance">
+            <summary>
+            Gets the remaining balance for the current transaction after applying the amount paid.
+            </summary>
+            <value>
+            A <c>double</c> representing the unpaid portion of the bill, or zero if fully paid or overpaid.
+            </value>
+        </member>
+        <member name="P:BBHRKS.Payments.Payments.PaymentSubmissionStatus">
+            <summary>
+            Indicates whether the current payment has been successfully submitted and confirmed.
+            </summary>
+            <value>
+            A <c>bool</c> representing the submission status of the payment.
+            </value>
+        </member>
+        <member name="P:BBHRKS.Payments.Payments.SelectedBillType">
+            <summary>
+            Sets the active bill type used to determine payment context and data source.
+            </summary>
+            <value>
+            A <c>string</c> representing the selected bill type (e.g., Water, Electricity, Rental, Internet).
+            </value>
+        </member>
+        <member name="P:BBHRKS.Payments.Payments.PaymentConfirmed">
+            <summary>
+            Sets the confirmation status of the current payment transaction.
+            </summary>
+            <value>
+            A <c>bool</c> indicating whether the payment has been confirmed.
+            </value>
+        </member>
+        <member name="P:BBHRKS.Payments.Payments.LastOR">
+            <summary>
+            Retrieves the last official receipt (OR) number from metadata and resets it to zero on January 1st if the stored OR year differs from the current transaction year.
+            </summary>
+            <returns>
+            An <c>int</c> representing the last OR number, or zero if reset due to year change.
+            </returns>
+        </member>
+        <member name="P:BBHRKS.Payments.Payments.TenantID">
+            <summary>
+            Retrieves the unique identifier of the tenant based on the current payment context.
+            </summary>
+            <returns>
+            An <c>int</c> representing the tenant's ID, or <c>0</c> if no match is found.
+            </returns>
+        </member>
+        <member name="P:BBHRKS.Payments.Payments.InvoiceNumber">
+            <summary>
+            Retrieves the active invoice number associated with the current tenant in the payment context.
+            </summary>
+            <returns>
+            A <c>string</c> representing the invoice number, or an empty string if no active invoice is found.
+            </returns>
+        </member>
+        <member name="P:BBHRKS.Payments.Payments.InvoiceDate">
+            <summary>
+            Retrieves the billing date associated with the current invoice in the payment context.
+            </summary>
+            <returns>
+            A <c>DateTime</c> value representing the invoice date, or a default fallback if no invoice is available.
+            </returns>
+        </member>
+        <member name="P:BBHRKS.Payments.Payments.SelectedBillPaymentsReceived">
+            <summary>
+            Gets the total amount received for the selected bill type and invoice by summing all recorded payments.
+            </summary>
+            <value>
+            A <c>double</c> representing the cumulative payments received for the current bill.
+            </value>
+        </member>
+        <member name="P:BBHRKS.Payments.Payments.RentUtilitiesTotal">
+            <summary>
+            Computes the combined subtotal of water, electricity, and rental bills in the current payment context.
+            </summary>
+            <returns>
+            A <c>double</c> representing the total amount for rent and utilities.
+            </returns>
+        </member>
+        <member name="P:BBHRKS.Payments.Payments.InternetTotal">
+            <summary>
+            Retrieves the subtotal amount of the internet bill in the current payment context.
+            </summary>
+            <returns>
+            A <c>double</c> representing the base amount of the internet bill.
+            </returns>
+        </member>
+        <member name="P:BBHRKS.Payments.Payments.InvoiceStatus">
+            <summary>
+            Retrieves the current payment status of the invoice from the billing records.
+            </summary>
+            <returns>
+            A <c>string</c> representing the invoice status (e.g., Unpaid, Partial, Paid).
+            </returns>
+        </member>
+        <member name="P:BBHRKS.Payments.Payments.TotalPaymentsReceived">
+            <summary>
+            Computes the total amount received across all bill types by subtracting balances from subtotals.
+            </summary>
+            <returns>
+            A <c>double</c> representing the sum of payments received for water, electricity, rental, and internet bills.
+            </returns>
+        </member>
+        <member name="P:BBHRKS.Payments.Payments.HasTransactionCredits">
+            <summary>
+            Indicates whether the current context has available transaction credits.
+            </summary>
+            <remarks>
+            Returns <c>true</c> if the internal <c>_credits</c> value is greater than zero; otherwise, returns <c>false</c>.
+            </remarks>
+            <returns>
+            <c>true</c> if transaction credits are available; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:BBHRKS.Payments.Payments.Initialize">
+            <summary>
+            Sets up the shared execution context for database operations using a global reference.
+            </summary>
+        </member>
+        <member name="M:BBHRKS.Payments.Payments.Clear">
+            <summary>
+            Resets the current payment context by clearing the tenant name, setting the transaction timestamp to now, and resetting the selected bill type.
+            </summary>
+        </member>
+        <member name="M:BBHRKS.Payments.Payments.GenerateOR">
+            <summary>
+            Generates a new official receipt (OR) number using the current transaction date and the next OR sequence.
+            </summary>
+            <returns>
+            A <c>string</c> representing the formatted OR number in the pattern <c>BBH-PyyyyMM####</c>.
+            </returns>
+        </member>
+        <member name="M:BBHRKS.Payments.Payments.ORExists(System.String)">
+            <summary>
+            Checks whether a given official receipt (OR) number already exists in the payments table.
+            </summary>
+            <param name="OR">The OR number to verify.</param>
+            <returns>
+            <c>true</c> if the OR number exists; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:BBHRKS.Payments.Payments.ValidateAmountPaid(System.String)">
+            <summary>
+            Validates the entered amount paid by checking for empty input, numeric format, and non-negative value.
+            </summary>
+            <param name="AmountPaidEntry">The string input representing the amount paid.</param>
+            <returns>
+            <c>true</c> if the input is a valid non-negative number; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:BBHRKS.Payments.Payments.ConvertChangeToCredits">
+            <summary>
+            Converts the current change amount into credits if the payment is confirmed and change is available.
+            </summary>
+            <remarks>
+            Displays an error message if the payment has not been confirmed or if no change is available.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.Payments.Payments.ConvertCreditsToChange">
+            <summary>
+            Converts the available credits into change if the payment is confirmed and credits are present.
+            </summary>
+            <remarks>
+            Displays an error message if the payment has not been confirmed or if no credits are available.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.Payments.Payments.CalculateAmounts">
+            <summary>
+            Calculates the change and transaction balance based on the amount paid and bill subtotal.
+            </summary>
+            <remarks>
+            Sets change if the amount paid exceeds the subtotal, or transaction balance if underpaid.
+            Resets credits to zero on each invocation.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.Payments.Payments.ReadyAmountPaidForInsert">
+            <summary>
+            Prepares the payment amount for insertion by capping it to the bill balance if necessary.
+            </summary>
+            <remarks>
+            Ensures that the recorded payment does not exceed the remaining balance.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.Payments.Payments.EvaluateSelectedBillStatus">
+            <summary>
+            Determines the billing status based on the payment amount relative to the bill balance.
+            </summary>
+            <returns>
+            A status string indicating whether the bill is paid, partially paid, or unpaid.
+            </returns>
+        </member>
+        <member name="M:BBHRKS.Payments.Payments.UpdateOverallBillStatus">
+            <summary>
+            Updates the overall bill status by evaluating individual bill types and applying a unified status if consistent.
+            </summary>
+            <remarks>
+            Assigns a partial status if any bill type differs, otherwise applies the shared status across all.
+            Commits the result to the database using a structured update command.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.Payments.Payments.UpdateLastOR">
+            <summary>
+            Updates the stored reference number by incrementing its value and committing the change to metadata.
+            </summary>
+            <remarks>
+            Executes a database update targeting the metadata entry associated with official receipt tracking.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.Payments.Payments.GetInvoiceFromReceipt(System.String)">
+            <summary>
+            Retrieves the invoice number associated with the specified official receipt number.
+            </summary>
+            <remarks>
+            This method assumes that all related transactions have already been saved to the database.
+            Calling this before transaction persistence may result in null or invalid data.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.Payments.Payments.HasDeductionRecord(System.String)">
+            <summary>
+            Determines whether a deduction record exists for the specified bill type under the current tenant.
+            </summary>
+            <param name="BillType">The bill type to filter deduction records by.</param>
+            <remarks>
+            Executes a SELECT query against the <c>tbdeductions</c> table using the current <c>TenantID</c> and the provided <paramref name="BillType"/>.
+            Returns <c>true</c> if at least one matching record is found; otherwise, returns <c>false</c>.
+            </remarks>
+            <returns>
+            <c>true</c> if a deduction record exists for the given bill type; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:BBHRKS.Payments.Payments.BillOverview">
+            <summary>
+            Represents a summary of a invoice's financial state within the payment context.
+            </summary>
+        </member>
+        <member name="P:BBHRKS.Payments.Payments.BillOverview.Subtotal">
+            <summary>
+            The Subtotal of the invoice.
+            </summary>
+        </member>
+        <member name="P:BBHRKS.Payments.Payments.BillOverview.Balance">
+            <summary>
+            The Bill Balance of the invoice.
+            </summary>
+        </member>
+        <member name="P:BBHRKS.Payments.Payments.BillOverview.Status">
+            <summary>
+            The Status of the invoice
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:BBHRKS.Payments.Payments.BillOverview.#ctor(System.Double,System.Double,System.String,System.DateTime)" -->
+        <member name="M:BBHRKS.Payments.Payments.GetBillOverview">
+            <summary>
+            Retrieves the bill overview for the selected bill type and invoice number, including subtotal, balance, status, and due date.
+            </summary>
+            <returns>
+            A <c>BillOverview</c> object containing the financial and status details of the current bill.
+            </returns>
+        </member>
+        <member name="T:BBHRKS.Reports.InvoicePage1">
+            <summary>
+            Provides ReportViewer Parameter values for BBH Records Keeping System Bill Invoice Page 1.
+            </summary>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage1.Connection">
+            <summary>
+            Sets the active <c>MySqlConnection</c> instance used for executing SQL commands.
+            </summary>
+            <param name="value">
+            A valid <c>MySqlConnection</c> object representing the target database connection.
+            </param>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage1.PreviousBillNumber">
+            <summary>
+            Retrieves the bill number associated with the tenant's previous billing cycle, based on the due date.
+            Executes a parameterized SQL <c>SELECT</c> command to query the <c>tbbills</c> table.
+            </summary>
+            <returns>
+            A <c>string</c> containing the bill number if a matching record is found; otherwise, an empty string.
+            </returns>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage1.InvoiceNumber">
+            <summary>
+            Gets or sets the invoice number associated with the current transaction context.
+            </summary>
+            <returns>
+            A string representing the invoice number.
+            </returns>
+            <remarks>
+            This property must be set before accessing or using other properties under this class,  
+            as it serves as the primary reference for invoice-related operations and data retrieval.
+            </remarks>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage1.TenantName">
+            <summary>
+            Gets the full name of the tenant associated with the current <c>BillNumber</c>.
+            </summary>
+            <returns>
+            A string containing the tenant's full name.
+            </returns>
+            <remarks>
+            This property dynamically executes a SELECT query to retrieve the tenant's name from the database.  
+            It depends on a valid <c>TenantID</c> and an initialized execution context.  
+            The <c>InvoiceNumber</c> property must be set before accessing this property or others under this class.
+            </remarks>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the result set is empty.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage1.Room">
+            <summary>
+            Gets the room assignment of the tenant associated with the current <c>TenantID</c>.
+            </summary>
+            <returns>
+            A string containing the room identifier assigned to the tenant.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the result set is empty.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage1.RentType">
+            <summary>
+            Gets the rent type assigned to the tenant associated with the current <c>TenantID</c>.
+            </summary>
+            <returns>
+            A string representing the tenant's rent type.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the result set is empty.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage1.TenancyStatus">
+            <summary>
+            Gets the tenancy status of the tenant associated with the current <c>TenantID</c>.
+            </summary>
+            <returns>
+            A string representing the tenant's tenancy status.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the result set is empty.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage1.InvoiceDate">
+            <summary>
+            Gets the billing date associated with the current <c>InvoiceNumber</c>.
+            </summary>
+            <returns>
+            A <c>DateTime</c> value representing the invoice date.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the result set is empty.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage1.DueDate">
+            <summary>
+            Gets the due date of the bill associated with the current <c>InvoiceNumber</c>.
+            </summary>
+            <returns>
+            A <c>DateTime</c> value representing the bill's due date.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the result set is empty.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage1.PreviousBillTotal">
+            <summary>
+            Gets the total amount of the previous bill associated with <c>PreviousBillNumber</c>.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the previous bill total. Returns 0 if no previous bill is found.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the result set is invalid.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage1.PreviousPaymentsReceived">
+            <summary>
+            Gets the total amount of payments received for the previous bill across all bill types.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the sum of payments for water, electricity, rental, and internet.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if any payment retrieval operation fails or returns invalid data.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage1.PreviousBillBalance">
+            <summary>
+            Gets the remaining balance of the previous bill after subtracting received payments.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the outstanding balance.
+            </returns>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage1.RentalUtilitiesCharges">
+            <summary>
+            Gets the combined subtotal of rental, water, and electricity charges for the current <c>InvoiceNumber</c>.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the total rental and utilities charges.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if any SQL execution fails or the result set is invalid.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage1.InternetCharges">
+            <summary>
+            Gets the subtotal of internet charges for the current <c>InvoiceNumber</c>.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the internet bill subtotal.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the result set is invalid.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage1.TotalCurrentCharges">
+            <summary>
+            Gets the total current charges by summing rental, utilities, and internet charges for the current <c>InvoiceNumber</c>.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the total current bill charges.
+            </returns>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage1.TotalAmountDue">
+            <summary>
+            Gets the total amount due by summing the previous bill balance and current charges.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the total amount payable.
+            </returns>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage1.InternetDueDate">
+            <summary>
+            Gets the due date of the internet bill associated with the current <c>InvoiceNumber</c>.
+            </summary>
+            <returns>
+            A <c>DateTime</c> value representing the internet bill's due date.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the result set is invalid.
+            </exception>
+        </member>
+        <member name="M:BBHRKS.Reports.InvoicePage1.Initialize">
+            <summary>
+            Initializes the internal execution handler using the current database connection.
+            </summary>
+        </member>
+        <member name="T:BBHRKS.Reports.InvoicePage2">
+            <summary>
+            Provides ReportViewer Parameter values for BBH Records Keeping System Bill Invoice Page 2.
+            </summary>
+            <remarks>
+            This class can only function properly after <c>InvoicePage1</c> is initialized and its required properties are set.
+            </remarks>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage2.PreviousWaterCharges">
+            <summary>
+            Gets the subtotal of water charges from the previous bill identified by <c>PreviousBillNumber</c>.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the previous water bill subtotal.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the result set is invalid.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage2.PreviousWaterPayments">
+            <summary>
+            Gets the total amount of payments made toward the previous water bill.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the sum of all water bill payments for <c>PreviousBillNumber</c>.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the data reader encounters an error.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage2.PreviousElectricityCharges">
+            <summary>
+            Gets the subtotal of electricity charges from the previous bill identified by <c>PreviousBillNumber</c>.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the previous electricity bill subtotal.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the result set is invalid.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage2.PreviousElectricityPayments">
+            <summary>
+            Gets the total amount of payments made toward the previous electricity bill.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the sum of all electricity bill payments for <c>PreviousBillNumber</c>.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the data reader encounters an error.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage2.PreviousRentalCharges">
+            <summary>
+            Gets the subtotal of rental charges from the previous bill identified by <c>PreviousBillNumber</c>.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the previous rental bill subtotal.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the result set is invalid.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage2.PreviousRentalPayments">
+            <summary>
+            Gets the total amount of payments made toward the previous rental bill.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the sum of all rental bill payments for <c>PreviousBillNumber</c>.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the data reader encounters an error.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage2.PreviousInternetCharges">
+            <summary>
+            Gets the subtotal of internet charges from the previous bill identified by <c>PreviousBillNumber</c>.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the previous internet bill subtotal.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the result set is invalid.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage2.PreviousInternetPayments">
+            <summary>
+            Gets the total amount of payments made toward the previous internet bill.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the sum of all internet bill payments for <c>PreviousBillNumber</c>.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the data reader encounters an error.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage2.PreviousBalance">
+            <summary>
+            Gets the total outstanding balance from the previous bill by subtracting payments from charges across all bill types.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the cumulative unpaid amount for water, electricity, rental, and internet.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if any underlying property access or calculation fails due to invalid data or execution errors.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage2.WaterPreviousReading">
+            <summary>
+            Gets the previous water meter reading for the current <c>InvoiceNumber</c>.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the previous water reading. Returns 0 if no record is found.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the result set is invalid.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage2.WaterPresentReading">
+            <summary>
+            Gets the present water meter reading for the current <c>InvoiceNumber</c>.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the present water reading. Returns 0 if no record is found.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the result set is invalid.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage2.WaterConsumption">
+            <summary>
+            Gets the formatted water consumption value for the current <c>InvoiceNumber</c>, including its unit.
+            </summary>
+            <returns>
+            A <c>string</c> representing the water consumption amount followed by its unit (e.g., "15 m³").
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the result set is invalid.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage2.WaterConsumptionCharge">
+            <summary>
+            Gets the current charge for water consumption associated with the current <c>InvoiceNumber</c>.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the water consumption charge.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the result set is invalid.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage2.WaterDeductions">
+            <summary>
+            Gets the total deductions applied to the water bill for the current <c>InvoiceNumber</c>.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the water bill deductions. Returns 0 if no record is found.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the result set is invalid.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage2.WaterAmountDue">
+            <summary>
+            Gets the net amount due for water charges by subtracting deductions from the current consumption charge.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the payable water amount.
+            </returns>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage2.ElectricityPreviousReading">
+            <summary>
+            Gets the previous electricity meter reading for the current <c>InvoiceNumber</c>.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the previous electricity reading. Returns 0 if no record is found.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the result set is invalid.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage2.ElectricityPresentReading">
+            <summary>
+            Gets the present electricity meter reading for the current <c>InvoiceNumber</c>.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the present electricity reading. Returns 0 if no record is found.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the result set is invalid.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage2.ElectricityConsumption">
+            <summary>
+            Gets the formatted electricity consumption value for the current <c>InvoiceNumber</c>, including its unit.
+            </summary>
+            <returns>
+            A <c>string</c> representing the electricity consumption amount followed by its unit (e.g., "120 kWh").
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the result set is invalid.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage2.ElectricityConsumptionCharge">
+            <summary>
+            Gets the current charge for electricity consumption associated with the current <c>InvoiceNumber</c>.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the electricity consumption charge. Returns 0 if no record is found.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the result set is invalid.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage2.ElectricityDeductions">
+            <summary>
+            Gets the total deductions applied to the electricity bill for the current <c>InvoiceNumber</c>.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the electricity bill deductions. Returns 0 if no record is found.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the result set is invalid.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage2.ElectricityAmountDue">
+            <summary>
+            Gets the net amount due for electricity charges by subtracting deductions from the current consumption charge.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the payable electricity amount.
+            </returns>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage2.RentalMonthlyCharge">
+            <summary>
+            Gets the monthly rental charge associated with the current <c>InvoiceNumber</c>.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the rental amount due for the current billing cycle. Returns 0 if no record is found.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the result set is invalid.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage2.RentalAdditionals">
+            <summary>
+            Gets the total additional charges applied to the rental bill for the current <c>InvoiceNumber</c>.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the rental bill's additional charges. Returns 0 if no record is found.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the result set is invalid.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage2.RentalDeductions">
+            <summary>
+            Gets the total deductions applied to the rental bill for the current <c>InvoiceNumber</c>.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the rental bill deductions. Returns 0 if no record is found.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the result set is invalid.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage2.RentalAmountDue">
+            <summary>
+            Gets the net amount due for rental charges by adding monthly and additional charges, then subtracting deductions.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the total payable rental amount.
+            </returns>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage2.InternetPlan">
+            <summary>
+            Gets the name of the internet plan assigned to the tenant.
+            </summary>
+            <returns>
+            A <c>string</c> representing the tenant's internet plan.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the result set is invalid.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage2.InternetMonthlyCharge">
+            <summary>
+            Gets the monthly subscription fee for internet service associated with the current <c>InvoiceNumber</c>.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the internet subscription charge. Returns 0 if no record is found.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the result set is invalid.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage2.InternetDeductions">
+            <summary>
+            Gets the total deductions applied to the internet bill for the current <c>InvoiceNumber</c>.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the internet bill deductions. Returns 0 if no record is found.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the SQL execution fails or the result set is invalid.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage2.InternetAmountDue">
+            <summary>
+            Gets the net amount due for internet service by subtracting deductions from the monthly subscription charge.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the total payable internet amount.
+            </returns>
+        </member>
+        <member name="M:BBHRKS.Reports.InvoicePage2.Initialize">
+            <summary>
+            Initializes the execution context by assigning shared connection and executor instances from <c>InvoicePage1</c>.
+            </summary>
+            <exception cref="T:System.Exception">
+            Thrown if the source connection or executor is invalid or inaccessible.
+            </exception>
+        </member>
+        <member name="T:BBHRKS.Reports.InvoicePage3">
+            <summary>
+            Provides ReportViewer Parameter values for BBH Records Keeping System Bill Invoice Page 3.
+            </summary>
+            <remarks>
+            This class can only function properly after <c>InvoicePage1</c> and <c>InvoicePage2</c> is initialized and its required properties are set.
+            </remarks>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage3.AdditionalCharges">
+            <summary>
+            Retrieves a formatted list of additional charges applied to the current tenant.
+            </summary>
+            <remarks>
+            Executes a SELECT query against the <c>tbadditionals</c> table using the current <c>TenantID</c>.
+            Each record includes the enforcement date and charge details, formatted as:
+            <c>[MMM-d-yyyy] Details</c>. If no records are found, returns <c>"N/A"</c>.
+            </remarks>
+            <returns>
+            A newline-separated string of additional charges with dates, or <c>"N/A"</c> if none exist.
+            </returns>
+        </member>
+        <member name="T:BBHRKS.Reports.InvoicePage4">
+            <summary>
+            Provides ReportViewer Parameter values for BBH Records Keeping System Bill Invoice Page 4.
+            </summary>
+            <remarks>
+            This class can only function properly after <c>InvoicePage1</c> and <c>InvoicePage2</c> is initialized and its required properties are set.
+            </remarks>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage4.PreviousBillNumber">
+            <summary>
+            Gets the bill number from the previous billing cycle as provided by <c>InvoicePage1</c>.
+            </summary>
+            <returns>
+            A <c>string</c> representing the previous bill number.
+            </returns>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage4.PreviousInvoiceDate">
+            <summary>
+            Retrieves the billing date of the previous invoice by executing a SQL <c>SELECT</c> command against the <c>tbbills</c> table.
+            </summary>
+            <returns>
+            A <c>DateTime</c> value representing the billing date of the previous invoice if found; otherwise, the current system date and time.
+            </returns>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage4.PreviousDueDate">
+            <summary>
+            Retrieves the due date of the previous bill by executing a SQL <c>SELECT</c> command against the <c>tbbills</c> table.
+            </summary>
+            <returns>
+            A <c>DateTime</c> value representing the due date of the previous bill if found; otherwise, the current system date and time.
+            </returns>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage4.PreviousInvoiceStatus">
+            <summary>
+            Evaluates the payment status of the previous invoice by comparing the total amount due with the payments received.
+            </summary>
+            <returns>
+            A <c>string</c> representing the invoice status: <c>Paid</c>, <c>Partial</c>, or <c>Unpaid</c>, based on the computed balance.
+            </returns>
+        </member>
+        <member name="P:BBHRKS.Reports.InvoicePage4.TotalPaymentsReceived">
+            <summary>
+            Gets the total amount of payments received for the previous billing cycle from <c>InvoicePage1</c>.
+            </summary>
+            <returns>
+            A <c>double</c> value representing the total payments received.
+            </returns>
+        </member>
+        <member name="M:BBHRKS.Reports.InvoicePage4.Initialize">
+            <summary>
+            Sets up the shared execution context required for invoice-related operations.
+            </summary>
+        </member>
+        <member name="M:BBHRKS.Reports.InvoicePage4.FillBillPreviewReceiptsTable(System.Int32@)">
+            <summary>
+            Loads receipt records associated with the previous bill and inserts them into the bill preview receipts table.
+            </summary>
+            <param name="Rows">
+            Outputs the total number of receipt records processed.
+            </param>
+        </member>
+        <member name="T:BBHRKS.Reports.PaymentsPage1">
+            <summary>
+            Provides ReportViewer Parameter values for BBH Records Keeping System - Payments Preview
+            </summary>
+        </member>
+        <member name="P:BBHRKS.Reports.PaymentsPage1.InvoiceNumber">
+            <summary>
+            Stores the current invoice number used for transaction tracking.
+            </summary>
+            <remarks>
+            Acts as a reference identifier for billing operations and metadata updates.
+            </remarks>
+        </member>
+        <member name="P:BBHRKS.Reports.PaymentsPage1.ReceiptNumber">
+            <summary>
+            Stores the current receipt number used for official transaction referencing.
+            </summary>
+            <remarks>
+            Acts as a unique identifier for payment records and metadata updates.
+            </remarks>
+        </member>
+        <member name="P:BBHRKS.Reports.PaymentsPage1.Connection">
+            <summary>
+            Assigns the active MySQL connection to the internal execution context.
+            </summary>
+            <remarks>
+            Used to bind the external connection source before executing database commands.
+            </remarks>
+        </member>
+        <member name="P:BBHRKS.Reports.PaymentsPage1.EnableAllInvoice">
+            <summary>
+            Enables or disables the global invoice flag for batch operations.
+            </summary>
+            <remarks>
+            Used to toggle invoice-wide logic across modules, such as status evaluation or export behavior.
+            </remarks>
+        </member>
+        <member name="P:BBHRKS.Reports.PaymentsPage1.TenantName">
+            <summary>
+            Retrieves the full name of the tenant associated with the current invoice.
+            </summary>
+        </member>
+        <member name="P:BBHRKS.Reports.PaymentsPage1.RoomNumber">
+            <summary>
+            Retrieves the room number assigned to the tenant associated with the current invoice.
+            </summary>
+        </member>
+        <member name="P:BBHRKS.Reports.PaymentsPage1.TenancyStatus">
+            <summary>
+            Retrieves the tenancy status of the tenant associated with the current invoice.
+            </summary>
+        </member>
+        <member name="P:BBHRKS.Reports.PaymentsPage1.Numeric_TotalAmountReceived">
+            <summary>
+            Calculates the total amount received for the current invoice, optionally scoped by receipt number.
+            </summary>
+            <remarks>
+            If the global invoice flag is disabled, the calculation is restricted to the current receipt.
+            Otherwise, it aggregates all payments tied to the invoice number across multiple receipts.
+            </remarks>
+        </member>
+        <member name="P:BBHRKS.Reports.PaymentsPage1.Words_TotalAmountReceived">
+            <summary>
+            Converts the total amount received into its full word representation.
+            </summary>
+            <remarks>
+            Formats the numeric value into pesos and centavos, using word-based currency phrasing for display or reporting.
+            </remarks>
+        </member>
+        <member name="P:BBHRKS.Reports.PaymentsPage1.PaymentMethod">
+            <summary>
+            Retrieves the payment method used for the current invoice, or returns "Various" if multiple methods are detected.
+            </summary>
+            <remarks>
+            If the global invoice flag is disabled, the method is resolved per receipt.
+            Otherwise, it aggregates all payment methods tied to the invoice and returns "Various" if inconsistencies are found.
+            </remarks>
+        </member>
+        <member name="P:BBHRKS.Reports.PaymentsPage1.ReceiptCount">
+            <summary>
+            Counts the number of payment entries associated with the current invoice.
+            </summary>
+            <remarks>
+            If the global invoice flag is disabled, the count is scoped to the current receipt.
+            Otherwise, it aggregates all payments tied to the invoice number.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.Reports.PaymentsPage1.Initialize">
+            <summary>
+            Initializes the execution context by binding the active database connection to the command executor.
+            </summary>
+            <remarks>
+            Prepares the system for executing SQL commands by instantiating the MySQL execution engine.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.Reports.PaymentsPage1.PreparePaymentsPreviewTable">
+            <summary>
+            Populates the payments preview table with receipt metadata for the current invoice.
+            </summary>
+            <remarks>
+            Executes a conditional query based on the global invoice flag, retrieves receipt details, and inserts them into the preview table for reporting or display.
+            </remarks>
+        </member>
+        <member name="P:BBHRKS.Reports.PaymentsPage1.TenantID">
+            <summary>
+            Retrieves the tenant ID associated with the current invoice number.
+            </summary>
+        </member>
+        <member name="M:BBHRKS.Reports.PaymentsPage1.ConvertNumberToWords(System.Int64)">
+            <summary>
+            Converts a numeric value into its corresponding word representation.
+            </summary>
+        </member>
+        <member name="M:BBHRKS.UserManagement.UserManagement.UserExists(System.String,JunX.NET8.MySQL.MySQLExecute)">
+            <summary>
+            Determines whether a user with the specified username exists in the database.
+            </summary>
+            <param name="Username">The username to search for. Cannot be null or empty.</param>
+            <param name="Execute">An instance of the MySQLExecute class used to execute the database query. Cannot be null.</param>
+            <returns>true if a user with the specified username exists; otherwise, false.</returns>
+        </member>
+        <member name="M:BBHRKS.UserManagement.UserManagement.GenerateUserKey(System.String)">
+            <summary>
+            Generates a unique user key based on the specified username.
+            </summary>
+            <param name="Username">The username to use as the basis for generating the user key. Cannot be null.</param>
+            <returns>A string representing the generated user key for the specified username.</returns>
+        </member>
+        <member name="T:BBHRKS.Utilities.Utilities.TenantsMenuAction">
+            <summary>
+            Defines the set of actions available in the tenant menu interface.
+            </summary>
+        </member>
+        <member name="T:BBHRKS.Utilities.Utilities.TenantsMenu">
+            <summary>
+            Represents a structured menu context for tenant-related operations, including the intended action and associated tenant name.
+            </summary>
+        </member>
+        <member name="M:BBHRKS.Utilities.Utilities.TenantsMenu.#ctor(BBHRKS.Utilities.Utilities.TenantsMenuAction,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BBHRKS.Utilities.Utilities.TenantsMenu"/> class with the specified action and tenant name.
+            </summary>
+            <param name="action">
+            The action to be performed by the menu, represented by a <see cref="T:BBHRKS.Utilities.Utilities.TenantsMenuAction"/> enumeration.
+            Defaults to <c>TenantsMenuAction.None</c> if not specified.
+            </param>
+            <param name="tenantName">
+            An optional tenant name associated with the menu context. Defaults to an empty string if not specified.
+            </param>
+            <remarks>
+            This constructor sets the <c>Action</c> and <c>TenantName</c> properties based on the provided parameters.
+            It is typically used to initialize menu behavior for tenant-related operations in BBHRKS modules.
+            </remarks>
+        </member>
+        <member name="P:BBHRKS.Utilities.Utilities.TMenuAction">
+            <summary>
+            Gets or sets the current tenant menu context, including the selected action and associated tenant name.
+            </summary>
+            <value>
+            A <see cref="T:BBHRKS.Utilities.Utilities.TenantsMenu"/> structure representing the active state of tenant-related operations.
+            </value>
+            <remarks>
+            This static property provides controlled access to an internal store that maintains the current tenant menu state.
+            It is commonly used across BBHRKS modules to coordinate form behavior, menu routing, and tenant-specific workflows.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.Utilities.Utilities.FillEmptyField(System.String)">
+            <summary>
+            Replaces an empty string with a default placeholder value.
+            </summary>
+            <param name="field">The input string to evaluate.</param>
+            <returns>
+            <c>"N/A"</c> if the input is empty; otherwise, returns the original string.
+            </returns>
+            <remarks>
+            Commonly used in BBHRKS modules to ensure display consistency when optional fields are left blank.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="field"/> is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:BBHRKS.Utilities.Utilities.GenerateInvoiceNumber(System.Int32)">
+            <summary>
+            Generates a unique invoice number for a tenant using their ID and the current timestamp.
+            </summary>
+            <param name="TenantID">The numeric identifier of the tenant.</param>
+            <returns>
+            A formatted invoice number string in the pattern <c>BBH-B####yyyyMMddHHmmss</c>, where:
+            <list type="bullet">
+            <item><description><c>####</c> is the zero-padded tenant ID (e.g., 0007)</description></item>
+            <item><description><c>yyyyMMddHHmmss</c> is the current date and time in 24-hour format</description></item>
+            </list>
+            </returns>
+            <remarks>
+            This method ensures invoice uniqueness by combining tenant identity with a precise timestamp.
+            Useful for logging, billing, and audit tracking within BBH workflows.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.Utilities.Utilities.GeneratePDFOutputPath(System.String,System.DateTime)">
+            <summary>
+            Generates a full file path for saving a tenant-specific billing invoice as a PDF.
+            Ensures the target directory exists by creating it if necessary.
+            </summary>
+            <param name="TenantName">
+            The name of the tenant, used to create a subfolder and personalize the filename.
+            </param>
+            <param name="DueDate">
+            The billing due date, formatted as "MMMM_yyyy" and embedded in the filename.
+            </param>
+            <returns>
+            A <c>string</c> representing the full file path for the PDF invoice, including folder and filename.
+            </returns>
+            <exception cref="T:System.IO.IOException">
+            Thrown if the directory cannot be created due to an I/O error.
+            </exception>
+            <exception cref="T:System.UnauthorizedAccessException">
+            Thrown if the application lacks permission to create the directory or write to the path.
+            </exception>
+        </member>
+    </members>
+</doc>

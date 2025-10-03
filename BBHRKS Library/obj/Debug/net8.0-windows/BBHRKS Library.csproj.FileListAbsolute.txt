@@ -1,0 +1,18 @@
+C:\Users\USER\Documents\Visual Studio\C#\BBHRKS Library\bin\Debug\net8.0-windows\BBHRKS Library.deps.json
+C:\Users\USER\Documents\Visual Studio\C#\BBHRKS Library\bin\Debug\net8.0-windows\BBHRKS Library.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBHRKS Library\bin\Debug\net8.0-windows\BBHRKS Library.pdb
+C:\Users\USER\Documents\Visual Studio\C#\BBHRKS Library\bin\Debug\net8.0-windows\BBHRKS Library.xml
+C:\Users\USER\Documents\Visual Studio\C#\BBHRKS Library\bin\Debug\net8.0-windows\JunX.NET.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBHRKS Library\bin\Debug\net8.0-windows\JunX.NET.pdb
+C:\Users\USER\Documents\Visual Studio\C#\BBHRKS Library\bin\Debug\net8.0-windows\JunX.NET.xml
+C:\Users\USER\Documents\Visual Studio\C#\BBHRKS Library\obj\Debug\net8.0-windows\BBHRKS Library.csproj.AssemblyReference.cache
+C:\Users\USER\Documents\Visual Studio\C#\BBHRKS Library\obj\Debug\net8.0-windows\BBHRKS Library.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\Documents\Visual Studio\C#\BBHRKS Library\obj\Debug\net8.0-windows\BBHRKS Library.AssemblyInfoInputs.cache
+C:\Users\USER\Documents\Visual Studio\C#\BBHRKS Library\obj\Debug\net8.0-windows\BBHRKS Library.AssemblyInfo.cs
+C:\Users\USER\Documents\Visual Studio\C#\BBHRKS Library\obj\Debug\net8.0-windows\BBHRKS Library.csproj.CoreCompileInputs.cache
+C:\Users\USER\Documents\Visual Studio\C#\BBHRKS Library\obj\Debug\net8.0-windows\BBHRKS L.5DEFA730.Up2Date
+C:\Users\USER\Documents\Visual Studio\C#\BBHRKS Library\obj\Debug\net8.0-windows\BBHRKS Library.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBHRKS Library\obj\Debug\net8.0-windows\refint\BBHRKS Library.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBHRKS Library\obj\Debug\net8.0-windows\BBHRKS Library.xml
+C:\Users\USER\Documents\Visual Studio\C#\BBHRKS Library\obj\Debug\net8.0-windows\BBHRKS Library.pdb
+C:\Users\USER\Documents\Visual Studio\C#\BBHRKS Library\obj\Debug\net8.0-windows\ref\BBHRKS Library.dll
