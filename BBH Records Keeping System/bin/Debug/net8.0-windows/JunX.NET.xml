@@ -1,0 +1,2373 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JunX.NET</name>
+    </assembly>
+    <members>
+        <member name="T:JunX.NET8.EncryptionService.EncryptionService">
+            <summary>
+            Provides methods for encrypting and decrypting text using symmetric encryption with a key derived from a
+            passphrase.
+            </summary>
+            <remarks>The encryption and decryption operations use the AES algorithm with a key and initialization
+            vector (IV) derived from the provided passphrase. The same passphrase must be used for both encryption and
+            decryption to ensure correct results. This class is not intended for use with large data streams or files.
+            Thread safety is not guaranteed; create a separate instance for each thread if used concurrently.</remarks>
+        </member>
+        <member name="M:JunX.NET8.EncryptionService.EncryptionService.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the EncryptionService class using the specified key material.
+            </summary>
+            <remarks>The provided key is hashed internally to generate cryptographic keys. Use a strong,
+            unpredictable value for best security.</remarks>
+            <param name="Key">The secret key material used to derive the encryption key and initialization vector. Cannot be null or
+            empty.</param>
+        </member>
+        <member name="M:JunX.NET8.EncryptionService.EncryptionService.Encrypt(System.String)">
+            <summary>
+            Encrypts the specified plain text using AES encryption and returns the result as a Base64-encoded string.
+            </summary>
+            <param name="Text">The plain text to encrypt. Cannot be null.</param>
+            <returns>A Base64-encoded string representing the encrypted form of the input text.</returns>
+            <exception cref="T:JunX.NET8.EncryptionService.InvalidTextParameterException">Thrown if the input text is invalid or if a cryptographic error occurs during encryption.</exception>
+        </member>
+        <member name="M:JunX.NET8.EncryptionService.EncryptionService.Decrypt(System.String)">
+            <summary>
+            Decrypts the specified Base64-encoded string using the configured AES key and IV.
+            </summary>
+            <param name="Text">The Base64-encoded string to decrypt. Must represent data encrypted with the corresponding AES key and IV.</param>
+            <returns>The decrypted plaintext string.</returns>
+            <exception cref="T:JunX.NET8.EncryptionService.InvalidTextParameterException">Thrown if the input is not a valid Base64 string or if decryption fails due to an invalid key, IV, or
+            corrupted data.</exception>
+        </member>
+        <member name="T:JunX.NET8.EncryptionService.InvalidTextParameterException">
+            <summary>
+            The exception that is thrown when a text parameter is invalid or does not meet required criteria.
+            </summary>
+            <remarks>Use this exception to indicate that a method or operation has received a text-based argument
+            that is not valid, such as being null, empty, or failing validation rules. This exception is intended to provide
+            clearer error handling for invalid text input scenarios.</remarks>
+        </member>
+        <member name="M:JunX.NET8.EncryptionService.InvalidTextParameterException.#ctor">
+            <summary>
+            Initializes a new instance of the InvalidTextParameterException class.
+            </summary>
+        </member>
+        <member name="M:JunX.NET8.EncryptionService.InvalidTextParameterException.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the InvalidTextParameterException class with a specified error message.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+        </member>
+        <member name="M:JunX.NET8.EncryptionService.InvalidTextParameterException.#ctor(System.String,System.Exception)">
+            <summary>
+            Initializes a new instance of the InvalidTextParameterException class with a specified error message and a
+            reference to the inner exception that is the cause of this exception.
+            </summary>
+            <param name="message">The message that describes the error.</param>
+            <param name="inner">The exception that is the cause of the current exception, or a null reference if no inner exception is
+            specified.</param>
+        </member>
+        <member name="M:JunX.NET8.EncryptionService.InvalidTextParameterException.ToString">
+            <summary>
+            Returns a string that represents the current object.
+            </summary>
+            <returns>A string that represents the current object.</returns>
+        </member>
+        <member name="T:JunX.NET8.MySQL.Construct">
+            <summary>
+            Provides method that will construct various MySQL Command strings.
+            </summary>
+        </member>
+        <member name="M:JunX.NET8.MySQL.Construct.SelectAllCommand(System.String,System.String)">
+            <summary>
+            Generates a SQL <c>SELECT</c> statement that retrieves all columns from the specified table.
+            </summary>
+            <param name="From">
+            The name of the table to query.
+            </param>
+            <param name="Where">
+            An optional SQL <c>WHERE</c> clause to filter the results.
+            </param>
+            <returns>
+            A complete SQL <c>SELECT</c> command string.
+            </returns>
+        </member>
+        <member name="M:JunX.NET8.MySQL.Construct.SelectCommand(System.String,System.String,System.String)">
+            <summary>
+            Generates a SQL <c>SELECT</c> statement with the specified column and optional filtering.
+            </summary>
+            <param name="Select">
+            The column to include in the <c>SELECT</c> clause.
+            </param>
+            <param name="From">
+            The name of the table to query.
+            </param>
+            <param name="Where">
+            An optional SQL <c>WHERE</c> clause to filter the results.
+            </param>
+            <returns>
+            A complete SQL <c>SELECT</c> command string.
+            </returns>
+        </member>
+        <member name="M:JunX.NET8.MySQL.Construct.SelectCommand(System.String[],System.String,System.String)">
+            <summary>
+            Generates a SQL <c>SELECT</c> statement with multiple specified columns and optional filtering.
+            </summary>
+            <param name="Select">
+            An array of column names or expressions to include in the <c>SELECT</c> clause.
+            </param>
+            <param name="From">
+            The name of the table to query.
+            </param>
+            <param name="Where">
+            An optional SQL <c>WHERE</c> clause to filter the results.
+            </param>
+            <returns>
+            A complete SQL <c>SELECT</c> command string.
+            </returns>
+        </member>
+        <member name="M:JunX.NET8.MySQL.Construct.SelectAliasCommand(JunX.NET8.MySQL.SelectAsMetadata,System.String,System.String)">
+            <summary>
+            Constructs a SQL SELECT statement that assigns an alias to a single column.
+            </summary>
+            <param name="AliasMetadata">
+            Contains the column name to select and the alias to assign.
+            </param>
+            <param name="From">
+            The name of the table to select from.
+            </param>
+            <param name="Where">
+            Optional WHERE clause to filter the result set. If omitted, no filtering is applied.
+            </param>
+            <returns>
+            A complete SQL SELECT statement string with aliasing and optional filtering.
+            </returns>
+        </member>
+        <member name="M:JunX.NET8.MySQL.Construct.SelectAliasCommand(JunX.NET8.MySQL.SelectAsMetadata[],System.String,System.String)">
+            <summary>
+            Constructs a SQL SELECT statement that assigns aliases to multiple columns.
+            </summary>
+            <param name="AliasMetadata">
+            An array of column-to-alias mappings to include in the SELECT clause.
+            </param>
+            <param name="From">
+            The name of the table to select from.
+            </param>
+            <param name="Where">
+            Optional WHERE clause to filter the result set. If omitted, no filtering is applied.
+            </param>
+            <returns>
+            A complete SQL SELECT statement string with aliasing and optional filtering.
+            </returns>
+        </member>
+        <member name="M:JunX.NET8.MySQL.Construct.SelectAliasOrderByCommand(JunX.NET8.MySQL.SelectAsMetadata,System.String,System.String,JunX.NET8.MySQL.MySQLOrderBy,System.String)">
+            <summary>
+            Constructs a SQL SELECT statement that assigns an alias to a single column and applies ordering.
+            </summary>
+            <param name="AliasMetadata">
+            Contains the column name to select and the alias to assign.
+            </param>
+            <param name="From">
+            The name of the table to select from.
+            </param>
+            <param name="OrderBy">
+            The column name used to order the result set.
+            </param>
+            <param name="OrderMode">
+            The ordering direction, typically <c>ASC</c> or <c>DESC</c>.
+            </param>
+            <param name="Where">
+            Optional WHERE clause to filter the result set. If omitted, no filtering is applied.
+            </param>
+            <returns>
+            A complete SQL SELECT statement string with aliasing, optional filtering, and ordering.
+            </returns>
+            <remarks>
+            This method builds a SQL query that selects a single column with an alias using the <c>AS</c> keyword,  
+            includes a FROM clause, conditionally appends a WHERE clause, and applies an ORDER BY clause.  
+            Useful for generating readable and sorted result sets in dynamic SQL construction.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.Construct.SelectAliasOrderByCommand(JunX.NET8.MySQL.SelectAsMetadata[],System.String,System.String,JunX.NET8.MySQL.MySQLOrderBy,System.String)">
+            <summary>
+            Constructs a SQL SELECT statement that assigns aliases to multiple columns and applies ordering.
+            </summary>
+            <param name="AliasMetadata">
+            An array of column-to-alias mappings to include in the SELECT clause.
+            </param>
+            <param name="From">
+            The name of the table to select from.
+            </param>
+            <param name="OrderBy">
+            The column name used to order the result set.
+            </param>
+            <param name="OrderMode">
+            The ordering direction, typically <c>ASC</c> or <c>DESC</c>.
+            </param>
+            <param name="Where">
+            Optional WHERE clause to filter the result set. If omitted, no filtering is applied.
+            </param>
+            <returns>
+            A complete SQL SELECT statement string with aliasing, optional filtering, and ordering.
+            </returns>
+            <remarks>
+            This method builds a SQL query that selects multiple columns with aliases using the <c>AS</c> keyword,  
+            includes a FROM clause, conditionally appends a WHERE clause, and applies an ORDER BY clause.  
+            Useful for generating readable and sorted result sets in dynamic SQL construction.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.Construct.SelectDistinctCommand(System.String,System.String)">
+            <summary>
+            Generates a SQL <c>SELECT DISTINCT</c> statement for the specified column or expression.
+            </summary>
+            <param name="SelectDistinct">
+            The column or expression to include in the <c>SELECT DISTINCT</c> clause.
+            </param>
+            <param name="From">
+            The name of the table to query.
+            </param>
+            <returns>
+            A complete SQL <c>SELECT DISTINCT</c> command string.
+            </returns>
+        </member>
+        <member name="M:JunX.NET8.MySQL.Construct.SelectDistinctCommand(System.String[],System.String)">
+            <summary>
+            Generates a SQL <c>SELECT DISTINCT</c> statement with multiple specified columns.
+            </summary>
+            <param name="SelectDistinct">
+            An array of column names or expressions to include in the <c>SELECT DISTINCT</c> clause.
+            </param>
+            <param name="From">
+            The name of the table to query.
+            </param>
+            <returns>
+            A complete SQL <c>SELECT DISTINCT</c> command string.
+            </returns>
+        </member>
+        <member name="M:JunX.NET8.MySQL.Construct.SelectOrderByCommand(System.String,System.String,System.String,JunX.NET8.MySQL.MySQLOrderBy,System.String)">
+            <summary>
+            Generates a SQL <c>SELECT</c> statement with optional filtering and ordering.
+            </summary>
+            <param name="Select">
+            The columns or expressions to include in the <c>SELECT</c> clause.
+            </param>
+            <param name="From">
+            The name of the table to query.
+            </param>
+            <param name="OrderBy">
+            The column or expression to use for ordering the results.
+            </param>
+            <param name="OrderMode">
+            The sort direction, typically <c>ASC</c> or <c>DESC</c>.
+            </param>
+            <param name="Where">
+            An optional SQL <c>WHERE</c> clause to filter the results.
+            </param>
+            <returns>
+            A complete SQL <c>SELECT</c> command string.
+            </returns>
+        </member>
+        <member name="M:JunX.NET8.MySQL.Construct.SelectOrderByCommand(System.String[],System.String,System.String,JunX.NET8.MySQL.MySQLOrderBy,System.String)">
+            <summary>
+            Generates a SQL <c>SELECT</c> statement with multiple specified columns and ordering.
+            </summary>
+            <param name="Select">
+            An array of column names or expressions to include in the <c>SELECT</c> clause.
+            </param>
+            <param name="From">
+            The name of the table to query.
+            </param>
+            <param name="OrderBy">
+            The column or expression to use for ordering the results.
+            </param>
+            <param name="OrderMode">
+            The sort direction, typically <c>ASC</c> or <c>DESC</c>.
+            </param>
+            <param name="Where">
+            An optional SQL <c>WHERE</c> clause to filter the results.
+            </param>
+            <returns>
+            A complete SQL <c>SELECT</c> command string.
+            </returns>
+        </member>
+        <member name="M:JunX.NET8.MySQL.Construct.InsertIntoCommand(System.String,JunX.NET8.MySQL.InsertColumnMetadata)">
+            <summary>
+            Generates a SQL <c>INSERT INTO</c> statement for a single column and value.
+            </summary>
+            <param name="InsertInto">
+            The name of the table to insert into.
+            </param>
+            <param name="InsertMetadata">
+            The metadata containing the column name, data type, and value to insert.
+            </param>
+            <returns>
+            A complete SQL <c>INSERT INTO</c> command string.
+            </returns>
+        </member>
+        <member name="M:JunX.NET8.MySQL.Construct.InsertIntoCommand(System.String,JunX.NET8.MySQL.InsertColumnMetadata[])">
+            <summary>
+            Generates a SQL <c>INSERT INTO</c> statement for multiple columns and values.
+            </summary>
+            <param name="InsertInto">
+            The name of the table to insert into.
+            </param>
+            <param name="InsertMetadata">
+            An array of metadata containing column names, data types, and values to insert.
+            </param>
+            <returns>
+            A complete SQL <c>INSERT INTO</c> command string.
+            </returns>
+        </member>
+        <member name="M:JunX.NET8.MySQL.Construct.UpdateCommand(System.String,JunX.NET8.MySQL.UpdateColumnMetadata,System.String)">
+            <summary>
+            Constructs a parameter-safe SQL UPDATE command string using the specified table, column metadata, and optional WHERE clause.
+            </summary>
+            <param name="Update">The name of the table to update.</param>
+            <param name="UpdateMetadata">Metadata describing the column and value to update.</param>
+            <param name="Where">Optional WHERE clause to filter affected rows.</param>
+            <returns>
+            A <c>string</c> containing the complete SQL UPDATE command.
+            </returns>
+        </member>
+        <member name="M:JunX.NET8.MySQL.Construct.UpdateCommand(System.String,JunX.NET8.MySQL.UpdateColumnMetadata[],System.String)">
+            <summary>
+            Generates a SQL <c>UPDATE</c> statement for one or more columns.
+            </summary>
+            <param name="Update">
+            The name of the table to update.
+            </param>
+            <param name="UpdateMetadata">
+            An array of metadata containing column names, data types, and new values to assign.
+            </param>
+            <param name="Where">
+            An optional SQL <c>WHERE</c> clause to filter which rows are updated.
+            <b>Warning:</b> Omitting this parameter will update <i>all</i> rows in the table.
+            </param>
+            <returns>
+            A complete SQL <c>UPDATE</c> command string.
+            </returns>
+        </member>
+        <member name="M:JunX.NET8.MySQL.Construct.DeleteCommand(System.String,System.String)">
+            <summary>
+            Generates a SQL <c>DELETE</c> statement for the specified table.
+            </summary>
+            <param name="From">
+            The name of the table from which to delete rows.
+            </param>
+            <param name="Where">
+            An optional SQL <c>WHERE</c> clause to filter which rows are deleted.
+            </param>
+            <returns>
+            A complete SQL <c>DELETE</c> command string.
+            </returns>
+            <remarks>
+            <b>Warning:</b> Omitting the <paramref name="Where"/> clause will delete <i>all</i> rows from the specified table.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.Construct.InnerJoinCommand(JunX.NET8.MySQL.JoinMetadata,System.String,System.String,JunX.NET8.MySQL.JoinMetadata,JunX.NET8.MySQL.JoinMetadata,System.String)">
+            <summary>
+            Generates a SQL <c>SELECT</c> statement with an <c>INNER JOIN</c> clause.
+            </summary>
+            <param name="Select">
+            The table and column to include in the <c>SELECT</c> clause.
+            </param>
+            <param name="From">
+            The name of the primary table to query.
+            </param>
+            <param name="InnerJoin">
+            The name of the table to join.
+            </param>
+            <param name="OnLeft">
+            The table and column on the left side of the join condition.
+            </param>
+            <param name="OnRight">
+            The table and column on the right side of the join condition.
+            </param>
+            <param name="Where">
+            An optional SQL <c>WHERE</c> clause to filter the results.
+            </param>
+            <returns>
+            A complete SQL <c>SELECT</c> command string with an <c>INNER JOIN</c>.
+            </returns>
+            <remarks>
+            <b>Warning:</b> Omitting the <paramref name="Where"/> clause will return all matching rows from the joined tables.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.Construct.InnerJoinCommand(JunX.NET8.MySQL.JoinMetadata[],System.String,System.String,JunX.NET8.MySQL.JoinMetadata,JunX.NET8.MySQL.JoinMetadata,System.String)">
+            <summary>
+            Generates a SQL <c>SELECT</c> statement with multiple columns and an <c>INNER JOIN</c> clause.
+            </summary>
+            <param name="Select">
+            An array of table and column metadata to include in the <c>SELECT</c> clause.
+            </param>
+            <param name="From">
+            The name of the primary table to query.
+            </param>
+            <param name="InnerJoin">
+            The name of the table to join.
+            </param>
+            <param name="OnLeft">
+            The table and column on the left side of the join condition.
+            </param>
+            <param name="OnRight">
+            The table and column on the right side of the join condition.
+            </param>
+            <param name="Where">
+            An optional SQL <c>WHERE</c> clause to filter the results.
+            </param>
+            <returns>
+            A complete SQL <c>SELECT</c> command string with an <c>INNER JOIN</c>.
+            </returns>
+            <remarks>
+            <b>Warning:</b> Omitting the <paramref name="Where"/> clause will return all matching rows from the joined tables.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.Construct.InnerJoinAliasCommand(JunX.NET8.MySQL.JoinMetadata,System.String,System.String,JunX.NET8.MySQL.JoinMetadata,JunX.NET8.MySQL.JoinMetadata,System.String)">
+            <summary>
+            Constructs a SQL inner join command with an aliased select column.
+            </summary>
+            <param name="SelectWithAlias">The column to select with aliasing metadata.</param>
+            <param name="From">The base table to select from.</param>
+            <param name="InnerJoin">The table to join with.</param>
+            <param name="OnLeft">The left-side join condition metadata.</param>
+            <param name="OnRight">The right-side join condition metadata.</param>
+            <param name="Where">An optional WHERE clause to filter results.</param>
+            <returns>A complete SQL inner join command string.</returns>
+            <remarks>
+            This method builds a SQL statement using metadata-driven inputs for modular query construction.
+            Ensure that aliasing and join conditions are properly scoped to avoid ambiguous references.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.Construct.InnerJoinAliasCommand(JunX.NET8.MySQL.JoinMetadata[],System.String,System.String,JunX.NET8.MySQL.JoinMetadata,JunX.NET8.MySQL.JoinMetadata,System.String)">
+            <summary>
+            Constructs a SQL inner join command with multiple aliased select columns.
+            </summary>
+            <param name="SelectWithAlias">An array of metadata describing the columns to select and alias.</param>
+            <param name="From">The base table to select from.</param>
+            <param name="InnerJoin">The table to join with.</param>
+            <param name="OnLeft">The left-side join condition metadata.</param>
+            <param name="OnRight">The right-side join condition metadata.</param>
+            <param name="Where">An optional WHERE clause to filter results.</param>
+            <returns>A complete SQL inner join command string.</returns>
+            <remarks>
+            This method builds a SQL statement using metadata-driven inputs for modular query construction.
+            It supports multiple aliased columns and ensures proper comma separation in the SELECT clause.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.Construct.TruncateCommand(System.String)">
+            <summary>
+            Generates a SQL command string to truncate all rows from the specified table.
+            </summary>
+            <param name="Table">
+            The name of the table to truncate. This should be a valid SQL table identifier.
+            </param>
+            <returns>
+            A <c>string</c> containing the SQL <c>TRUNCATE TABLE</c> command for the given table.
+            </returns>
+            <warning>
+            This command will irreversibly delete all data from the table without triggering <c>DELETE</c> triggers or logging individual row deletions.
+            Use with extreme caution, especially in production environments.
+            </warning>
+        </member>
+        <member name="M:JunX.NET8.MySQL.Construct.AppendOrderBy(System.String,System.String,JunX.NET8.MySQL.MySQLOrderBy)">
+            <summary>
+            Appends an ORDER BY clause to an existing SQL command string.
+            </summary>
+            <param name="CommandString">The base SQL command string to modify.</param>
+            <param name="OrderBy">The column name to order by.</param>
+            <param name="OrderMode">The ordering mode (e.g., ASC or DESC).</param>
+            <returns>A modified SQL command string with an appended ORDER BY clause.</returns>
+            <remarks>
+            If the original command ends with a semicolon, it is removed before appending the ORDER BY clause.
+            This ensures syntactic correctness and avoids malformed SQL statements.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.Construct.SQLSafeValue(JunX.NET8.MySQL.MySQLDataType,System.String)">
+            <summary>
+            Formats a value for safe inclusion in a SQL statement based on its MySQL data type,
+            escaping single quotes when necessary.
+            </summary>
+            <param name="dType">
+            The MySQL data type of the value.
+            </param>
+            <param name="value">
+            The value to format.
+            </param>
+            <returns>
+            The formatted value as a string.
+            </returns>
+        </member>
+        <member name="T:JunX.NET8.MySQL.DBConnect">
+            <summary>
+            Provides additional functionalities for connecting, querying, and manipulating MySQL Databases.
+            </summary>
+        </member>
+        <member name="M:JunX.NET8.MySQL.DBConnect.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <c>DBConnect</c> class using the specified connection string,
+            and attempts to open the database connection immediately.
+            </summary>
+            <param name="ConnString">
+            A valid MySQL connection string used to configure and open the internal <see cref="T:MySql.Data.MySqlClient.MySqlConnection"/>.
+            </param>
+            <remarks>
+            This constructor sets both the internal connection and command string to the provided value.
+            It attempts to open the connection immediately, and throws a descriptive exception if the connection fails.
+            Use this overload when you want automatic connection initialization upon instantiation.
+            </remarks>
+            <exception cref="T:System.Exception">
+            Thrown when the connection attempt fails. The inner exception contains the original error details.
+            </exception>
+        </member>
+        <member name="M:JunX.NET8.MySQL.DBConnect.#ctor(MySql.Data.MySqlClient.MySqlConnection)">
+            <summary>
+            Initializes a new instance of the <c>DBConnect</c> class using an existing <see cref="T:MySql.Data.MySqlClient.MySqlConnection"/>.
+            </summary>
+            <param name="Connection">
+            A preconfigured <see cref="T:MySql.Data.MySqlClient.MySqlConnection"/> instance to be used by this class.
+            </param>
+            <remarks>
+            This constructor allows external injection of a connection object, enabling reuse across components or testing scenarios.
+            It does not open the connection or modify its state. Ensure the connection is properly initialized and opened before use.
+            </remarks>
+        </member>
+        <member name="P:JunX.NET8.MySQL.DBConnect.ConnectionString">
+            <summary>
+            Gets or sets the database connection string used by this instance.
+            </summary>
+            <value>
+            A <see cref="T:System.String"/> representing the connection string for the underlying database connection.
+            </value>
+            <remarks>
+            Setting this property updates the internal connection string reference but does not automatically reconfigure or reopen the connection.
+            Use this in conjunction with connection lifecycle methods to ensure consistency.
+            </remarks>
+        </member>
+        <member name="P:JunX.NET8.MySQL.DBConnect.Connection">
+            <summary>
+            Gets the active <see cref="T:MySql.Data.MySqlClient.MySqlConnection"/> instance used by this class.
+            </summary>
+            <value>
+            A read-only <see cref="T:MySql.Data.MySqlClient.MySqlConnection"/> object representing the current database connection.
+            </value>
+            <remarks>
+            This property exposes the underlying connection for advanced operations such as transaction handling,
+            command execution, or diagnostics. It does not enforce connection state checks; ensure the connection is open
+            before use.
+            </remarks>
+        </member>
+        <member name="P:JunX.NET8.MySQL.DBConnect.State">
+            <summary>
+            Gets the current <see cref="T:System.Data.ConnectionState"/> of the underlying database connection.
+            </summary>
+            <value>
+            A <see cref="T:System.Data.ConnectionState"/> value indicating whether the connection is open, closed, connecting, executing, or broken.
+            </value>
+            <remarks>
+            Use this property to check the readiness of the <c>MySqlConnection</c> before executing commands or transactions.
+            It reflects the live state of the connection and can be used for defensive programming or logging.
+            </remarks>
+        </member>
+        <member name="P:JunX.NET8.MySQL.DBConnect.CommandString">
+            <summary>
+            Gets or sets the SQL command text used by this instance.
+            </summary>
+            <value>
+            A <see cref="T:System.String"/> representing the raw SQL command to be executed against the database.
+            </value>
+            <remarks>
+            This property stores the command string independently of the <c>MySqlCommand</c> object.
+            Use it to configure or inspect the intended query before execution.
+            </remarks>
+        </member>
+        <member name="P:JunX.NET8.MySQL.DBConnect.Reader">
+            <summary>
+            Gets the current <see cref="T:MySql.Data.MySqlClient.MySqlDataReader"/> instance used to traverse query results.
+            </summary>
+            <value>
+            A read-only <see cref="T:MySql.Data.MySqlClient.MySqlDataReader"/> object representing the active result set from the last executed SQL command.
+            </value>
+            <remarks>
+            This property exposes the internal reader for advanced result traversal, field inspection, or manual iteration.
+            Ensure the reader is properly initialized and not closed before accessing its members.
+            </remarks>
+        </member>
+        <member name="P:JunX.NET8.MySQL.DBConnect.Adapter">
+            <summary>
+            Gets the current <see cref="T:MySql.Data.MySqlClient.MySqlDataAdapter"/> instance used for data population and synchronization.
+            </summary>
+            <value>
+            A read-only <see cref="T:MySql.Data.MySqlClient.MySqlDataAdapter"/> object configured with the current SQL SELECT command and connection.
+            </value>
+            <remarks>
+            This property exposes the internal adapter for operations such as filling a <c>DataSet</c> or <c>DataTable</c>.
+            Ensure that the adapter is properly initialized via <c>ExecuteAdapter()</c> before use.
+            </remarks>
+        </member>
+        <member name="P:JunX.NET8.MySQL.DBConnect.DataSet">
+            <summary>
+            Gets the current <see cref="P:JunX.NET8.MySQL.DBConnect.DataSet"/> instance used to store query results retrieved via the data adapter.
+            </summary>
+            <value>
+            A read-only <see cref="P:JunX.NET8.MySQL.DBConnect.DataSet"/> object containing the in-memory representation of one or more result tables.
+            </value>
+            <remarks>
+            This property exposes the internal dataset for inspection, binding, or transformation.
+            Ensure it has been populated via the <c>ExecuteDataSet()</c> method before accessing its contents.
+            </remarks>
+        </member>
+        <member name="P:JunX.NET8.MySQL.DBConnect.HasRows">
+            <summary>
+            Indicates whether the internal <see cref="T:MySql.Data.MySqlClient.MySqlDataReader"/> of the current
+            instance of <see cref="T:JunX.NET8.MySQL.DBConnect"/> contains one or more rows.
+            </summary>
+            <value>
+            <c>true</c> if the reader has at least one row; otherwise, <c>false</c>.
+            </value>
+            <remarks>
+            This property wraps the <see cref="P:MySql.Data.MySqlClient.MySqlDataReader.HasRows"/> member to expose row presence status.
+            Useful for pre-checking before attempting to read or extract data from the result set.
+            </remarks>
+        </member>
+        <member name="P:JunX.NET8.MySQL.DBConnect.Values">
+            <summary>
+            Gets the list of string values extracted from the current data context.
+            </summary>
+            <value>
+            A <see cref="T:System.Collections.Generic.List`1"/> containing the string representations of the extracted values.
+            </value>
+            <remarks>
+            This property exposes the internally populated value list, typically hydrated from a data reader or query result.
+            Use this to access the raw string values after execution or traversal logic has completed.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.DBConnect.Open">
+            <summary>
+            Opens the database connection if it is not already open.
+            </summary>
+            <remarks>
+            This method checks the current <see cref="T:System.Data.ConnectionState"/> of the underlying <c>MySqlConnection</c>.
+            If the connection is closed or broken, it reassigns the connection string and attempts to open the connection.
+            Any exceptions encountered during the open operation are wrapped in a new <see cref="T:System.Exception"/> with a descriptive message.
+            </remarks>
+            <exception cref="T:System.Exception">
+            Thrown when the connection attempt fails. The inner exception contains the original error details.
+            </exception>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:JunX.NET8.MySQL.DBConnect.CloseAll" -->
+        <member name="M:JunX.NET8.MySQL.DBConnect.CloseReader">
+            <summary>
+            Closes the active <see cref="T:MySql.Data.MySqlClient.MySqlDataReader"/> if it is open.
+            </summary>
+            <remarks>
+            This method calls <c>Close()</c> on the internal <c>MySqlDataReader</c> instance.
+            Ensure that the reader is not already closed or disposed before invoking this method to avoid runtime exceptions.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.DBConnect.Dispose">
+            <summary>
+            Asynchronously disposes of all managed database resources used by this instance.
+            </summary>
+            <remarks>
+            This method disposes the command, adapter, connection, and dataset objects.
+            If the <see cref="T:MySql.Data.MySqlClient.MySqlDataReader"/> is not null and still open, it is closed asynchronously using <c>CloseAsync()</c>.
+            Use this method to ensure proper cleanup of database-related resources in asynchronous workflows.
+            </remarks>
+            <returns>
+            A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous dispose operation.
+            </returns>
+        </member>
+        <member name="M:JunX.NET8.MySQL.DBConnect.Reset">
+            <summary>
+            Resets the database connection by closing it if open, reassigning the connection string, and reopening it.
+            </summary>
+            <remarks>
+            This method ensures the connection is refreshed with the current internal connection string.
+            If the connection is already open, it is closed first to avoid state conflicts. Then the connection string is reassigned,
+            and the connection is reopened. Use this to reinitialize the connection after configuration changes or transient failures.
+            </remarks>
+            <exception cref="T:System.Exception">
+            May propagate exceptions from <c>Open()</c> if the connection fails to reopen.
+            </exception>
+        </member>
+        <member name="M:JunX.NET8.MySQL.DBConnect.ExecuteReader">
+            <summary>
+            Executes the current SQL SELECT command and initializes the <see cref="T:MySql.Data.MySqlClient.MySqlDataReader"/> for result traversal.
+            </summary>
+            <remarks>
+            This method performs several validations before execution:
+            <list type="bullet">
+            <item>Ensures the database connection is open.</item>
+            <item>Validates that the command string is not null or empty.</item>
+            <item>Checks that the command is a valid SQL SELECT statement.</item>
+            </list>
+            If all checks pass, it creates a new <see cref="T:MySql.Data.MySqlClient.MySqlCommand"/> and executes it using <c>ExecuteReader()</c>.
+            Any exceptions during execution are wrapped with a descriptive message.
+            </remarks>
+            <exception cref="T:System.Exception">
+            Thrown when the connection is closed, the command string is invalid, the command is not a SELECT,
+            or the query execution fails. The inner exception contains the original error details.
+            </exception>
+        </member>
+        <member name="M:JunX.NET8.MySQL.DBConnect.ExecuteReader(JunX.NET8.MySQL.ParametersMetadata)">
+            <summary>
+            Executes a parameterized SQL SELECT command and initializes the <see cref="T:MySql.Data.MySqlClient.MySqlDataReader"/> for result traversal.
+            </summary>
+            <param name="Parameter">
+            A <see cref="T:JunX.NET8.MySQL.ParametersMetadata"/> object containing the parameter name and value to be injected into the SQL command.
+            </param>
+            <remarks>
+            This method performs several validations before execution:
+            <list type="bullet">
+            <item>Ensures the database connection is open.</item>
+            <item>Validates that the command string is not null or empty.</item>
+            <item>Checks that the command is a valid SQL SELECT statement.</item>
+            </list>
+            If all checks pass, it creates a new <see cref="T:MySql.Data.MySqlClient.MySqlCommand"/>, clears existing parameters, adds the provided parameter,
+            and executes the command using <c>ExecuteReader()</c>. Any exceptions are wrapped with a descriptive message.
+            </remarks>
+            <exception cref="T:System.Exception">
+            Thrown when the connection is closed, the command string is invalid, the command is not a SELECT,
+            or the query execution fails. The inner exception contains the original error details.
+            </exception>
+        </member>
+        <member name="M:JunX.NET8.MySQL.DBConnect.ExecuteReader(JunX.NET8.MySQL.ParametersMetadata[])">
+            <summary>
+            Executes a parameterized SQL SELECT command using the provided array of parameters,
+            and initializes the <see cref="T:MySql.Data.MySqlClient.MySqlDataReader"/> for result traversal.
+            </summary>
+            <param name="Parameters">
+            An array of <see cref="T:JunX.NET8.MySQL.ParametersMetadata"/> objects representing the parameter names and values
+            to be injected into the SQL command.
+            </param>
+            <remarks>
+            This method performs several validations before execution:
+            <list type="bullet">
+            <item>Ensures the database connection is open.</item>
+            <item>Validates that the command string is not null or empty.</item>
+            <item>Checks that the command is a valid SQL SELECT statement.</item>
+            </list>
+            If all checks pass, it creates a new <see cref="T:MySql.Data.MySqlClient.MySqlCommand"/>, clears existing parameters,
+            adds each parameter from the array, and executes the command using <c>ExecuteReader()</c>.
+            Any exceptions are wrapped with a descriptive message.
+            </remarks>
+            <exception cref="T:System.Exception">
+            Thrown when the connection is closed, the command string is invalid, the command is not a SELECT,
+            or the query execution fails. The inner exception contains the original error details.
+            </exception>
+        </member>
+        <member name="M:JunX.NET8.MySQL.DBConnect.ExecuteNonQuery">
+            <summary>
+            Executes the current SQL command that does not return any result set, such as INSERT, UPDATE, or DELETE.
+            </summary>
+            <remarks>
+            This method validates that the command string is not null or whitespace before execution.
+            It creates a new <see cref="T:MySql.Data.MySqlClient.MySqlCommand"/> using the current connection and command string,
+            and executes it using <c>ExecuteNonQuery()</c>. Any exceptions encountered during execution
+            are wrapped with a descriptive error message.
+            </remarks>
+            <exception cref="T:System.Exception">
+            Thrown when the command string is missing or the query execution fails.
+            The inner exception contains the original error details.
+            </exception>
+        </member>
+        <member name="M:JunX.NET8.MySQL.DBConnect.ExecuteNonQuery(JunX.NET8.MySQL.ParametersMetadata)">
+            <summary>
+            Executes a parameterized SQL command that does not return a result set, such as INSERT, UPDATE, or DELETE.
+            </summary>
+            <param name="Parameter">
+            A <see cref="T:JunX.NET8.MySQL.ParametersMetadata"/> object containing the name and value of the parameter to be injected into the SQL command.
+            </param>
+            <remarks>
+            This method validates that the command string is not null or whitespace before execution.
+            It creates a new <see cref="T:MySql.Data.MySqlClient.MySqlCommand"/>, clears any existing parameters, adds the provided parameter,
+            and executes the command using <c>ExecuteNonQuery()</c>. Any exceptions encountered during execution
+            are wrapped with a descriptive error message.
+            </remarks>
+            <exception cref="T:System.Exception">
+            Thrown when the command string is missing or the query execution fails.
+            The inner exception contains the original error details.
+            </exception>
+        </member>
+        <member name="M:JunX.NET8.MySQL.DBConnect.ExecuteNonQuery(JunX.NET8.MySQL.ParametersMetadata[])">
+            <summary>
+            Executes a parameterized SQL command that does not return a result set, such as INSERT, UPDATE, or DELETE.
+            </summary>
+            <param name="Parameters">
+            An array of <see cref="T:JunX.NET8.MySQL.ParametersMetadata"/> objects representing the parameter names and values
+            to be injected into the SQL command.
+            </param>
+            <remarks>
+            This method validates that the command string is not null or whitespace before execution.
+            It creates a new <see cref="T:MySql.Data.MySqlClient.MySqlCommand"/>, clears any existing parameters, adds each parameter from the array,
+            and executes the command using <c>ExecuteNonQuery()</c>. Any exceptions encountered during execution
+            are wrapped with a descriptive error message.
+            </remarks>
+            <exception cref="T:System.Exception">
+            Thrown when the command string is missing or the query execution fails.
+            The inner exception contains the original error details.
+            </exception>
+        </member>
+        <member name="M:JunX.NET8.MySQL.DBConnect.ExecuteAdapter">
+            <summary>
+            Initializes a <see cref="T:MySql.Data.MySqlClient.MySqlDataAdapter"/> with the current SQL SELECT command and active connection.
+            </summary>
+            <remarks>
+            This method validates that the database connection is open and that the command string represents a valid SQL SELECT statement.
+            It then creates a new <see cref="T:MySql.Data.MySqlClient.MySqlDataAdapter"/> and assigns a <see cref="T:MySql.Data.MySqlClient.MySqlCommand"/> as its <c>SelectCommand</c>.
+            Use this method to prepare the adapter for data population into a <c>DataSet</c> or <c>DataTable</c>.
+            </remarks>
+            <exception cref="T:System.Exception">
+            Thrown when the connection is not open or the command string is not a valid SQL SELECT statement.
+            </exception>
+        </member>
+        <member name="M:JunX.NET8.MySQL.DBConnect.ExecuteAdapter(JunX.NET8.MySQL.ParametersMetadata)">
+            <summary>
+            Initializes a <see cref="T:MySql.Data.MySqlClient.MySqlDataAdapter"/> with a parameterized SQL SELECT command and the current connection.
+            </summary>
+            <param name="Parameter">
+            A <see cref="T:JunX.NET8.MySQL.ParametersMetadata"/> object containing the name and value of the parameter to be injected into the SQL command.
+            </param>
+            <remarks>
+            This method ensures the connection is open and the command string is a valid SQL SELECT statement.
+            It creates a new <see cref="T:MySql.Data.MySqlClient.MySqlCommand"/>, clears any existing parameters, adds the provided parameter,
+            and assigns it as the <c>SelectCommand</c> of a new <see cref="T:MySql.Data.MySqlClient.MySqlDataAdapter"/>.
+            Use this method to prepare the adapter for data population into a <c>DataSet</c> or <c>DataTable</c> with parameterized queries.
+            </remarks>
+            <exception cref="T:System.Exception">
+            Thrown when the connection is not open or the command string is not a valid SQL SELECT statement.
+            </exception>
+        </member>
+        <member name="M:JunX.NET8.MySQL.DBConnect.ExecuteAdapter(JunX.NET8.MySQL.ParametersMetadata[])">
+            <summary>
+            Initializes a <see cref="T:MySql.Data.MySqlClient.MySqlDataAdapter"/> with a parameterized SQL SELECT command and the current connection.
+            </summary>
+            <param name="Parameters">
+            An array of <see cref="T:JunX.NET8.MySQL.ParametersMetadata"/> objects representing the parameter names and values
+            to be injected into the SQL command.
+            </param>
+            <remarks>
+            This method ensures the connection is open and the command string is a valid SQL SELECT statement.
+            It creates a new <see cref="T:MySql.Data.MySqlClient.MySqlCommand"/>, clears any existing parameters, adds each parameter from the array,
+            and assigns it as the <c>SelectCommand</c> of a new <see cref="T:MySql.Data.MySqlClient.MySqlDataAdapter"/>.
+            Use this method to prepare the adapter for data population into a <c>DataSet</c> or <c>DataTable</c>
+            with dynamic, parameterized queries.
+            </remarks>
+            <exception cref="T:System.Exception">
+            Thrown when the connection is not open or the command string is not a valid SQL SELECT statement.
+            </exception>
+        </member>
+        <member name="M:JunX.NET8.MySQL.DBConnect.ExecuteDataSet">
+            <summary>
+            Executes the current SQL SELECT command and fills the internal <see cref="P:JunX.NET8.MySQL.DBConnect.DataSet"/> with the result.
+            </summary>
+            <remarks>
+            This method ensures the database connection is open and the command string is a valid SQL SELECT statement.
+            It initializes a new <see cref="T:MySql.Data.MySqlClient.MySqlDataAdapter"/>, assigns a <see cref="T:MySql.Data.MySqlClient.MySqlCommand"/> as its <c>SelectCommand</c>,
+            and populates the internal <see cref="P:JunX.NET8.MySQL.DBConnect.DataSet"/> using <c>Fill()</c>.
+            Use this method to hydrate the dataset for binding, transformation, or inspection.
+            </remarks>
+            <exception cref="T:System.Exception">
+            Thrown when the connection is not open or the command string is not a valid SQL SELECT statement.
+            </exception>
+        </member>
+        <member name="M:JunX.NET8.MySQL.DBConnect.ExecuteDataSet(JunX.NET8.MySQL.ParametersMetadata)">
+            <summary>
+            Executes a parameterized SQL SELECT command and fills the internal <see cref="P:JunX.NET8.MySQL.DBConnect.DataSet"/> with the result.
+            </summary>
+            <param name="Parameter">
+            A <see cref="T:JunX.NET8.MySQL.ParametersMetadata"/> object containing the name and value of the parameter to be injected into the SQL command.
+            </param>
+            <remarks>
+            This method delegates to <c>ExecuteAdapter(Parameter)</c> to configure the <see cref="T:MySql.Data.MySqlClient.MySqlDataAdapter"/> with the parameterized command.
+            It then populates the internal <see cref="P:JunX.NET8.MySQL.DBConnect.DataSet"/> using <c>Fill()</c>.
+            Use this method to hydrate the dataset for binding, transformation, or inspection with parameterized queries.
+            </remarks>
+            <exception cref="T:System.Exception">
+            May propagate exceptions from adapter execution or dataset filling if the query fails or the connection is invalid.
+            </exception>
+        </member>
+        <member name="M:JunX.NET8.MySQL.DBConnect.ExecuteDataSet(JunX.NET8.MySQL.ParametersMetadata[])">
+            <summary>
+            Executes a parameterized SQL SELECT command and fills the internal <see cref="P:JunX.NET8.MySQL.DBConnect.DataSet"/> with the result.
+            </summary>
+            <param name="Parameters">
+            An array of <see cref="T:JunX.NET8.MySQL.ParametersMetadata"/> objects representing the parameter names and values
+            to be injected into the SQL command.
+            </param>
+            <remarks>
+            This method delegates to <c>ExecuteAdapter(Parameters)</c> to configure the <see cref="T:MySql.Data.MySqlClient.MySqlDataAdapter"/> with the parameterized command.
+            It then populates the internal <see cref="P:JunX.NET8.MySQL.DBConnect.DataSet"/> using <c>Fill()</c>.
+            Use this method to hydrate the dataset for binding, transformation, or inspection with dynamic, parameterized queries.
+            </remarks>
+            <exception cref="T:System.Exception">
+            May propagate exceptions from adapter execution or dataset filling if the query fails or the connection is invalid.
+            </exception>
+        </member>
+        <member name="M:JunX.NET8.MySQL.DBConnect.GetValues">
+            <summary>
+            Extracts all field values from the current <see cref="T:MySql.Data.MySqlClient.MySqlDataReader"/> and stores them as strings in the internal value list.
+            </summary>
+            <remarks>
+            Clears the existing value list before reading. If the reader is closed or contains no rows, an exception is thrown.
+            Iterates through each row and field, converting each value to a string and appending it to the internal list.
+            Automatically closes the reader after traversal to ensure proper resource cleanup.
+            Use this method to hydrate <see cref="P:JunX.NET8.MySQL.DBConnect.Values"/> after executing a query.
+            </remarks>
+            <exception cref="T:System.Exception">
+            Thrown if the reader is closed, contains no rows, or if an error occurs during value extraction.
+            </exception>
+        </member>
+        <member name="M:JunX.NET8.MySQL.DBConnect.IsSelectCommand">
+            <summary>
+            Determines whether the current SQL command string represents a SELECT statement.
+            </summary>
+            <returns>
+            <c>true</c> if the command string contains the keyword "SELECT"; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:JunX.NET8.MySQL.MySQLEngine">
+            <summary>
+            Specifies the available storage engines supported by MySQL for table creation and data management.
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLEngine.MEMORY">
+            <summary>
+            Hash based, stored in memory, useful for temporary tables
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLEngine.MRG_MYISAM">
+            <summary>
+            	Collection of identical MyISAM tables
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLEngine.CSV">
+            <summary>
+            	CSV storage engine
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLEngine.FEDERATED">
+            <summary>
+            Federated MySQL storage engine
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLEngine.PERFORMANCE_SCHEMA">
+            <summary>
+            Performance Schema
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLEngine.MyISAM">
+            <summary>
+            	MyISAM storage engine
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLEngine.InnoDB">
+            <summary>
+            Supports transactions, row-level locking, and foreign keys
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLEngine.ndbinfo">
+            <summary>
+            MySQL Cluster system information storage engine
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLEngine.BLACKHOLE">
+            <summary>
+            	/dev/null storage engine (anything you write to it disappears)
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLEngine.ARCHIVE">
+            <summary>
+            Archive storage engine
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLEngine.ndbcluster">
+            <summary>
+            Clustered, fault-tolerant tables
+            </summary>
+        </member>
+        <member name="T:JunX.NET8.MySQL.MySQLCharsets">
+            <summary>
+            Defines supported character sets for MySQL database encoding.
+            </summary>
+        </member>
+        <member name="T:JunX.NET8.MySQL.MySQLCollation">
+            <summary>
+            Defines supported MySQL collations for character set comparison and sorting behavior.
+            </summary>
+        </member>
+        <member name="T:JunX.NET8.MySQL.MySQLDataType">
+            <summary>
+            Defines supported MySQL data types for column definitions during table creation.
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLDataType.Char">
+            <summary>
+            	A FIXED length string (can contain letters, numbers, and special characters).
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLDataType.VarChar">
+            <summary>
+            A VARIABLE length string (can contain letters, numbers, and special characters). 
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLDataType.TinyText">
+            <summary>
+            Holds a string with a maximum length of 255 characters
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLDataType.Text">
+            <summary>
+            Holds a string with a maximum length of 65,535 bytes
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLDataType.LongText">
+            <summary>
+            Holds a string with a maximum length of 4,294,967,295 characters
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLDataType.MediumText">
+            <summary>
+            	Holds a string with a maximum length of 16,777,215 characters
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLDataType.TinyInt">
+            <summary>
+            	A very small integer. Signed range is from -128 to 127. Unsigned range is from 0 to 255.
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLDataType.Bool">
+            <summary>
+            Zero is considered as false, nonzero values are considered as true.
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLDataType.SmallInt">
+            <summary>
+            A small integer. Signed range is from -32768 to 32767. Unsigned range is from 0 to 65535.
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLDataType.MediumInt">
+            <summary>
+            	A medium integer. Signed range is from -8388608 to 8388607. Unsigned range is from 0 to 16777215.
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLDataType.Int">
+            <summary>
+            A medium integer. Signed range is from -2147483648 to 2147483647. Unsigned range is from 0 to 4294967295.
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLDataType.BigInt">
+            <summary>
+            A large integer. Signed range is from -9223372036854775808 to 9223372036854775807. Unsigned range is from 0 to 18446744073709551615.
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLDataType.Float">
+            <summary>
+            A floating point number. The total number of digits is specified in size. 
+            The number of digits after the decimal point is specified in the d parameter. 
+            This syntax is deprecated in MySQL 8.0.17, and it will be removed in future MySQL versions
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLDataType.Double">
+            <summary>
+            A normal-size floating point number. The total number of digits is specified in size.
+            The number of digits after the decimal point is specified in the <c>d</c> parameter
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLDataType.Decimal">
+            <summary>
+            An exact fixed-point number.
+            The total number of digits is specified in <c>size</c>.
+            The number of digits after the decimal point is specified in the <c>d</c> parameter.
+            The maximum number for size is 65.
+            The maximum number for <c>d</c> is 30.
+            The default value for <c>size</c> is 10.
+            The default value for <c>d</c> is 0.
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLDataType.Date">
+            <summary>
+            A date. Format: YYYY-MM-DD.
+            The supported range is from '1000-01-01' to '9999-12-31'
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLDataType.DateTime">
+            <summary>
+            A date and time combination.
+            Format: YYYY-MM-DD hh:mm:ss.
+            The supported range is from '1000-01-01 00:00:00' to '9999-12-31 23:59:59'.
+            Adding DEFAULT and ON UPDATE in the column definition to get automatic initialization and updating to the current date and time
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLDataType.Timestamp">
+            <summary>
+            A timestamp.
+            <c>TIMESTAMP</c> values are stored as the number of seconds since the Unix epoch ('1970-01-01 00:00:00' UTC).
+            Format: YYYY-MM-DD hh:mm:ss.
+            The supported range is from '1970-01-01 00:00:01' UTC to '2038-01-09 03:14:07' UTC.
+            Automatic initialization and updating to the current date and time can be specified using DEFAULT CURRENT_TIMESTAMP and ON UPDATE CURRENT_TIMESTAMP in the column definition
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLDataType.Time">
+            <summary>
+            A time. Format: hh:mm:ss.
+            The supported range is from '-838:59:59' to '838:59:59'
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLDataType.Year">
+            <summary>
+            A year in four-digit format. Values allowed in four-digit format: 1901 to 2155, and 0000.
+            MySQL 8.0 does not support year in two-digit format.
+            </summary>
+        </member>
+        <member name="T:JunX.NET8.MySQL.MySQLDefaultMode">
+            <summary>
+            Specifies how default values should be applied to MySQL column definitions during table creation.
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLDefaultMode.None">
+            <summary>
+            Sets no default value for the column. The column will follow MySQL's implicit default behavior.
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLDefaultMode.Null">
+            <summary>
+            Explicitly sets the column's default value to <c>NULL</c>.
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLDefaultMode.AsDefined">
+            <summary>
+            Applies a user-defined default value, such as a literal or function (e.g., <c>'active'</c>, <c>NOW()</c>).
+            </summary>
+        </member>
+        <member name="T:JunX.NET8.MySQL.MySQLOrderBy">
+            <summary>
+            Specifies the ordering mode to be used in generating MySQL <c>SELECT</c> commands.
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLOrderBy.ASC">
+            <summary>
+            Sets the ordering mode to Ascending.
+            </summary>
+        </member>
+        <member name="F:JunX.NET8.MySQL.MySQLOrderBy.DESC">
+            <summary>
+            Sets the ordering mode to Descending
+            </summary>
+        </member>
+        <member name="T:JunX.NET8.MySQL.MySQLLogicalOperators">
+            <summary>
+            Represents logical operators used in MySQL conditional expressions.
+            </summary>
+        </member>
+        <member name="T:JunX.NET8.MySQL.MySQLDatabase">
+            <summary>
+            Provides additional functionality for manipulating MySQL Databases.
+            </summary>
+        </member>
+        <member name="M:JunX.NET8.MySQL.MySQLDatabase.DatabaseExists(System.String,System.String,System.String,System.String)">
+            <summary>
+            Checks whether a specified MySQL database exists on the target server using provided credentials.
+            </summary>
+            <param name="Server">
+            The hostname or IP address of the MySQL server.
+            </param>
+            <param name="User">
+            The username used to authenticate with the MySQL server.
+            </param>
+            <param name="Database">
+            The name of the database to verify for existence.
+            </param>
+            <param name="Password">
+            The password for the specified user account. Optional; defaults to an empty string.
+            </param>
+            <returns>
+            <c>true</c> if the database exists; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:JunX.NET8.MySQL.MySQLDatabase.CreateDatabase(MySql.Data.MySqlClient.MySqlConnection,System.String,JunX.NET8.MySQL.MySQLCharsets,JunX.NET8.MySQL.MySQLCollation)">
+            <summary>
+            Creates a new MySQL database with the specified name, character set, and collation if it does not already exist.
+            </summary>
+            <param name="DBConnection">
+            An active <c>MySqlConnection</c> object used to execute the database creation command.
+            </param>
+            <param name="DBName">
+            The name of the database to be created.
+            </param>
+            <param name="Charset">
+            The character set to be applied to the new database, defined by the <c>MySQLCharsets</c> enum.
+            </param>
+            <param name="Collation">
+            The collation to be applied to the new database, defined by the <c>MySQLCollation</c> enum.
+            </param>
+            <exception cref="T:System.Exception">
+            Thrown when the database creation fails due to a SQL or connection error.
+            </exception>
+        </member>
+        <member name="T:JunX.NET8.MySQL.MySQLExecute">
+            <summary>
+            Provides a modular wrapper for executing MySQL commands, managing connections, and retrieving data using <see cref="T:MySql.Data.MySqlClient.MySqlDataReader"/>.
+            </summary>
+            <remarks>
+            This class encapsulates connection handling, command execution, and reader lifecycle management for MySQL operations.  
+            It supports both default and parameterized initialization, and exposes methods for opening, closing, resetting, and disposing resources.  
+            Use <see cref="P:JunX.NET8.MySQL.MySQLExecute.CommandString"/> to assign the SQL query, <see cref="M:JunX.NET8.MySQL.MySQLExecute.Open"/> to establish the connection, and <see cref="!:DataReader"/> to execute and retrieve results.  
+            Caller is responsible for consuming and disposing the reader appropriately.  
+            <b>Note:</b> This class is not thread-safe and assumes single-command execution per instance.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.MySQLExecute.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:JunX.NET8.MySQL.MySQLExecute"/> class with default MySQL connection, command, and adapter objects.
+            </summary>
+        </member>
+        <member name="M:JunX.NET8.MySQL.MySQLExecute.#ctor(MySql.Data.MySqlClient.MySqlConnection)">
+            <summary>
+            Initializes a new instance of the <see cref="T:JunX.NET8.MySQL.MySQLExecute"/> class using the specified MySQL connection.
+            </summary>
+            <param name="Connection">
+            The <see cref="T:MySql.Data.MySqlClient.MySqlConnection"/> to associate with the command and adapter.
+            </param>
+        </member>
+        <member name="M:JunX.NET8.MySQL.MySQLExecute.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:JunX.NET8.MySQL.MySQLExecute"/> class using the specified connection string.
+            </summary>
+            <param name="connectionString">
+            The connection string used to configure the MySQL connection.
+            </param>
+        </member>
+        <member name="P:JunX.NET8.MySQL.MySQLExecute.ConnectionString">
+            <summary>
+            Gets or sets the MySQL connection string used to establish a database connection.
+            </summary>
+        </member>
+        <member name="P:JunX.NET8.MySQL.MySQLExecute.Connection">
+            <summary>
+            Gets the active <see cref="T:MySql.Data.MySqlClient.MySqlConnection"/> instance associated with this class.
+            </summary>
+        </member>
+        <member name="P:JunX.NET8.MySQL.MySQLExecute.Adapter">
+            <summary>
+            Gets the current <c>MySqlDataAdapter</c> instance used for executing SELECT queries.
+            </summary>
+            <returns>
+            A configured <c>MySqlDataAdapter</c> bound to the active SQL command and connection.
+            </returns>
+            <remarks>
+            This property exposes the internal data adapter prepared by <c>ExecuteSelectToAdapter()</c>.  
+            It can be used to fill <c>DataTable</c> or <c>DataSet</c> objects for reporting, binding, or further processing.
+            </remarks>
+        </member>
+        <member name="P:JunX.NET8.MySQL.MySQLExecute.Reader">
+            <summary>
+            Gets a <c>MySqlDataReader</c> instance for executing the current command string.
+            </summary>
+            <returns>
+            A <c>MySqlDataReader</c> containing the result set of the executed command.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown if the command string is not set or the connection is not open.
+            </exception>
+        </member>
+        <member name="P:JunX.NET8.MySQL.MySQLExecute.DataSet">
+            <summary>
+            Gets the current <c>DataSet</c> instance populated by the most recent SELECT query.
+            </summary>
+            <returns>
+            A <c>DataSet</c> containing the result of the executed SQL command.
+            </returns>
+            <remarks>
+            This property exposes the internal dataset prepared by <c>ExecuteSelectToDataSet()</c>.  
+            It can be used for multi-table data binding, reporting, or offline data manipulation workflows.
+            </remarks>
+        </member>
+        <member name="P:JunX.NET8.MySQL.MySQLExecute.CommandString">
+            <summary>
+            Sets the SQL command string to be executed by this instance.
+            </summary>
+        </member>
+        <member name="P:JunX.NET8.MySQL.MySQLExecute.GetValues">
+            <summary>
+            Gets the list of string values retrieved from the most recent read operation.
+            </summary>
+            <returns>
+            A <see cref="T:System.Collections.Generic.List`1"/> containing the extracted column values.
+            </returns>
+        </member>
+        <member name="P:JunX.NET8.MySQL.MySQLExecute.HasRows">
+            <summary>
+            Determines whether the result set contains any data.
+            </summary>
+            <returns>
+            <c>true</c> if the result set has at least one value; otherwise, <c>false</c>.
+            </returns>
+            <remarks>
+            This method checks whether any values have been collected from a previously executed query.  
+            It is typically used to verify that a SELECT operation returned data before attempting to access it.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.MySQLExecute.Open">
+            <summary>
+            Opens a new MySQL connection using the configured connection string.
+            </summary>
+            <exception cref="T:System.Exception">
+            Thrown when the connection attempt fails.
+            </exception>
+        </member>
+        <member name="M:JunX.NET8.MySQL.MySQLExecute.Close">
+            <summary>
+            Closes the active MySQL data reader and connection if currently open.
+            </summary>
+            <remarks>
+            <b>Warning:</b> This method will silently return if the connection is not open.
+            Ensure the reader is fully consumed or explicitly closed before invoking this method to avoid incomplete disposal or runtime exceptions.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.MySQLExecute.DisposeAsync">
+            <summary>
+            Asynchronously releases all resources used by the current instance of <see cref="T:JunX.NET8.MySQL.MySQLExecute"/>.
+            </summary>
+            <returns>
+            A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous dispose operation.
+            </returns>
+            <remarks>
+            Disposes the command, adapter, and connection synchronously.  
+            Closes the reader asynchronously if it is still open.  
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.MySQLExecute.ResetConnectionString(System.String)">
+            <summary>
+            Resets the internal MySQL connection string and applies it to the active connection.
+            </summary>
+            <param name="connectionString">
+            The new connection string to assign. Defaults to an empty string.
+            </param>
+            <remarks>
+            Closes the current connection before updating the connection string.
+            Caller must reopen the connection manually if needed.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.MySQLExecute.ExecuteSelect">
+            <summary>
+            Executes a SQL SELECT command without parameters and collects all column values from all rows into a flat list of strings.
+            </summary>
+            <remarks>
+            Validates that the database connection is open and the command string is a valid SELECT statement.  
+            Executes the query and reads each row returned by the result set.  
+            For every row, each column value is converted to a string and added to a sequential list.  
+            This method is suitable for simple queries where all data can be flattened into a single list of string values.
+            </remarks>
+            <exception cref="T:System.Exception">
+            Thrown if the connection is closed, the command string is missing or invalid, the query returns no rows, or execution fails.
+            </exception>
+        </member>
+        <member name="M:JunX.NET8.MySQL.MySQLExecute.ExecuteSelect(JunX.NET8.MySQL.ParametersMetadata)">
+            <summary>
+            Executes a SQL SELECT command with a single parameter and collects all column values from all rows into a flat list of strings.
+            </summary>
+            <param name="Parameter">
+            The parameter to bind to the SQL query, including its name and value.
+            </param>
+            <remarks>
+            Validates that the database connection is open and the command string is a valid SELECT statement.  
+            Executes the query and reads each row returned by the result set.  
+            For every row, each column value is converted to a string and added sequentially to a list.  
+            This method is suitable for simple queries where all data can be flattened into a single list of string values.
+            </remarks>
+            <exception cref="T:System.Exception">
+            Thrown if the connection is closed, the command string is missing or invalid, the query returns no rows, or execution fails.
+            </exception>
+        </member>
+        <member name="M:JunX.NET8.MySQL.MySQLExecute.ExecuteSelect(JunX.NET8.MySQL.ParametersMetadata[])">
+            <summary>
+            Executes a SQL SELECT command with multiple parameters and collects all column values from all rows into a flat list of strings.
+            </summary>
+            <param name="Parameters">
+            An array of parameter definitions, each containing a name and value to be bound to the query.
+            </param>
+            <remarks>
+            Validates that the database connection is active and the command string represents a valid SELECT statement.  
+            Binds all provided parameters to the query before execution.  
+            If the query returns rows, each column value from every row is converted to a string and added sequentially to a list.  
+            This method is suitable for queries where the result set can be flattened into a single list of string values.
+            </remarks>
+            <exception cref="T:System.Exception">
+            Thrown if the connection is closed, the command string is missing or invalid, the query returns no rows, or execution fails.
+            </exception>
+        </member>
+        <member name="M:JunX.NET8.MySQL.MySQLExecute.ExecuteNonQuery">
+            <summary>
+            Executes the configured SQL command that does not return any result set, such as INSERT, UPDATE, or DELETE.
+            </summary>
+            <exception cref="T:System.Exception">
+            Thrown when the command execution fails due to connection issues, invalid syntax, or runtime errors.
+            </exception>
+            <remarks>
+            Initializes a new <see cref="T:MySql.Data.MySqlClient.MySqlCommand"/> using the configured command string and connection.  
+            Executes the command using <see cref="M:MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery"/> and disposes the command afterward.  
+            This method is intended for SQL operations that modify data but do not return rows.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.MySQLExecute.ExecuteNonQuery(JunX.NET8.MySQL.ParametersMetadata)">
+            <summary>
+            Executes the configured SQL command with a single parameter and does not return any result set.
+            </summary>
+            <param name="Parameter">
+            A <see cref="T:JunX.NET8.MySQL.ParametersMetadata"/> instance containing the name and value of the SQL parameter to bind.
+            </param>
+        </member>
+        <member name="M:JunX.NET8.MySQL.MySQLExecute.ExecuteNonQuery(JunX.NET8.MySQL.ParametersMetadata[])">
+            <summary>
+            Executes the configured SQL command with multiple parameters and does not return any result set.
+            </summary>
+            <param name="Parameters">
+            An array of <see cref="T:JunX.NET8.MySQL.ParametersMetadata"/> instances, each containing a parameter name and value to bind to the command.
+            </param>
+        </member>
+        <member name="M:JunX.NET8.MySQL.MySQLExecute.ExecuteSelectToAdapter">
+            <summary>
+            Prepares and resets the data adapter for executing a SQL SELECT command against the active database connection.
+            </summary>
+            <remarks>
+            Validates that the connection is open and the command string represents a valid SELECT statement.  
+            Disposes any previously assigned <c>MySqlDataAdapter</c> instance to release resources,  
+            then initializes a new adapter and assigns the current command string as its <c>SelectCommand</c>.  
+            This method is typically used for populating datasets or binding data to UI components.
+            </remarks>
+            <exception cref="T:System.Exception">
+            Thrown if the connection is closed or the command string is not a valid SQL SELECT statement.
+            </exception>
+        </member>
+        <member name="M:JunX.NET8.MySQL.MySQLExecute.ExecuteSelectToDataSet">
+            <summary>
+            Executes a SQL SELECT command and fills a new <c>DataSet</c> with the result.
+            </summary>
+            <remarks>
+            Validates that the database connection is open and the command string is a valid SELECT statement.  
+            Disposes any previously assigned <c>MySqlDataAdapter</c> and <c>DataSet</c> instances to release resources.  
+            Initializes a new adapter and dataset, assigns the current command string to the adapter,  
+            and populates the dataset with the query result.  
+            This method is typically used for multi-table data binding, reporting, or offline data manipulation.
+            </remarks>
+            <exception cref="T:System.Exception">
+            Thrown if the connection is closed or the command string is not a valid SQL SELECT statement.
+            </exception>
+        </member>
+        <member name="M:JunX.NET8.MySQL.MySQLExecute.ClearValues">
+            <summary>
+            Removes all values from the collection, resetting it to an empty state.
+            </summary>
+        </member>
+        <member name="M:JunX.NET8.MySQL.MySQLExecute.IsSelectCommand">
+            <summary>
+            Determines whether the current SQL command string represents a SELECT statement.
+            </summary>
+            <returns>
+            <c>true</c> if the command string contains the keyword "SELECT"; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:JunX.NET8.MySQL.MySQLTables">
+            <summary>
+            Provides additional functionality for manipulating MySQL Database Tables.
+            </summary>
+        </member>
+        <member name="M:JunX.NET8.MySQL.MySQLTables.CreateTableCommand(System.String,JunX.NET8.MySQL.ColumnInformation[],JunX.NET8.MySQL.AutoIncrement,JunX.NET8.MySQL.PrimaryKey,JunX.NET8.MySQL.MySQLEngine,JunX.NET8.MySQL.MySQLCharsets,JunX.NET8.MySQL.MySQLCollation)">
+            <summary>
+            Generates a MySQL <c>CREATE TABLE</c> command string using the specified table metadata.
+            </summary>
+            <param name="TableName">
+            The name of the table to be created.
+            </param>
+            <param name="Columns">
+            An array of <c>ColumnInformation</c> structs defining the table's columns, types, nullability, and default values.
+            </param>
+            <param name="AIColumn">
+            An <c>AutoIncrement</c> struct specifying whether a column should be marked as <c>AUTO_INCREMENT</c>.
+            </param>
+            <param name="PKColumn">
+            A <c>PrimaryKey</c> struct indicating whether a column should be designated as the table's primary key.
+            </param>
+            <param name="Engine">
+            The MySQL storage engine to be used for the table (e.g., <c>InnoDB</c>, <c>MyISAM</c>).
+            </param>
+            <param name="Charset">
+            The character set to be applied to the table (e.g., <c>utf8mb4</c>).
+            </param>
+            <param name="Collation">
+            The collation to be applied to the table (e.g., <c>utf8mb4_0900_ai_ci</c>).
+            </param>
+            <returns>
+            A fully constructed MySQL <c>CREATE TABLE</c> command string.
+            </returns>
+        </member>
+        <member name="M:JunX.NET8.MySQL.MySQLTables.GetColumns(MySql.Data.MySqlClient.MySqlConnection,System.String,System.String)">
+            <summary>
+            Retrieves the list of column names from a specified MySQL table.
+            </summary>
+            <param name="DBConnection">
+            An active <c>MySqlConnection</c> used to query the <c>INFORMATION_SCHEMA</c>.
+            </param>
+            <param name="DBName">
+            The name of the database containing the target table.
+            </param>
+            <param name="TableName">
+            The name of the table whose columns are to be retrieved.
+            </param>
+            <returns>
+            A <c>List&lt;string&gt;</c> containing the names of all columns in the specified table.
+            </returns>
+        </member>
+        <member name="M:JunX.NET8.MySQL.MySQLTables.GenerateEnumFromList(System.Collections.Generic.List{System.String},System.String)">
+            <summary>
+            Generates a C# <c>enum</c> definition from a list of string values.
+            </summary>
+            <param name="Items">
+            A list of strings representing the desired enum members. Each item will be sanitized
+            by replacing spaces and hyphens with underscores to ensure valid C# identifiers.
+            </param>
+            <param name="EnumName">
+            The name of the enum to be generated. This will be used as the type name in the output code.
+            </param>
+            <returns>
+            A formatted C# <c>enum</c> declaration as a string, suitable for writing to a <c>.cs</c> file.
+            </returns>
+        </member>
+        <member name="T:JunX.NET8.MySQL.SQLBuilder">
+            <summary>
+            Provides a fluent interface for constructing SQL command strings.
+            </summary>
+            <remarks>
+            Designed for modular query composition using chainable methods like <c>AddWhere</c> and <c>AddOrderBy</c>.
+            Use <c>ToString()</c> to retrieve the final SQL command.
+            </remarks>
+        </member>
+        <member name="T:JunX.NET8.MySQL.SQLBuilder.SQLSelect">
+            <summary>
+            Provides a fluent interface for constructing SQL SELECT command strings.
+            </summary>
+        </member>
+        <member name="M:JunX.NET8.MySQL.SQLBuilder.SQLSelect.Column(System.String)">
+            <summary>
+            Appends a column name to the SELECT clause of the SQL query.
+            </summary>
+            <param name="ColumnName">The name of the column to include in the result set.</param>
+            <returns>The current <see cref="T:JunX.NET8.MySQL.SQLBuilder.SQLSelect"/> instance for fluent chaining.</returns>
+            <remarks>
+            This method builds the SELECT clause by appending column names one at a time.
+            It automatically inserts the <c>SELECT</c> keyword on the first call and separates subsequent columns with commas.
+            Call this method repeatedly to include multiple columns in the query.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.SQLBuilder.SQLSelect.Columns(System.String[])">
+            <summary>
+            Appends multiple column names to the SELECT clause of the SQL statement.
+            </summary>
+            <param name="ColumnNames">An array of column names to include in the result set.</param>
+            <returns>The current <see cref="T:JunX.NET8.MySQL.SQLBuilder.SQLSelect"/> instance for fluent chaining.</returns>
+            <remarks>
+            This method initializes the SELECT clause with <c>SELECT</c> on first use, and appends each column name separated by commas.
+            It ensures correct syntax by avoiding redundant commas and supports dynamic column selection.
+            Use this for unqualified column names.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.SQLBuilder.SQLSelect.Column(System.String,System.String)">
+            <summary>
+            Appends a fully qualified column name to the SELECT clause using the specified table and column.
+            </summary>
+            <param name="Table">The name of the table that owns the column.</param>
+            <param name="ColumnName">The name of the column to include in the result set.</param>
+            <returns>The current <see cref="T:JunX.NET8.MySQL.SQLBuilder.SQLSelect"/> instance for fluent chaining.</returns>
+            <remarks>
+            This method builds the SELECT clause by appending <c>[Table].[ColumnName]</c>.
+            It automatically inserts the <c>SELECT</c> keyword on the first call and separates subsequent columns with commas.
+            Use this for disambiguating columns in multi-table queries or joins.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.SQLBuilder.SQLSelect.Columns(JunX.NET8.MySQL.SelectMetadata[])">
+            <summary>
+            Appends multiple fully qualified column names to the SELECT clause using metadata.
+            </summary>
+            <param name="QualifiedColumns">An array of <see cref="T:JunX.NET8.MySQL.SelectMetadata"/> objects representing table-qualified columns.</param>
+            <returns>The current <see cref="T:JunX.NET8.MySQL.SQLBuilder.SQLSelect"/> instance for fluent chaining.</returns>
+            <remarks>
+            This method initializes the SELECT clause with <c>SELECT</c> on first use, and appends each <c>[Table].[Column]</c> pair separated by commas.
+            It ensures correct syntax and supports metadata-driven column selection for multi-table queries or joins.
+            Use this when building queries dynamically with structured column metadata.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.SQLBuilder.SQLSelect.From(System.String)">
+            <summary>
+            Appends a FROM clause to the SQL SELECT statement, specifying the source table.
+            </summary>
+            <param name="Table">The name of the table to select data from.</param>
+            <returns>The current <see cref="T:JunX.NET8.MySQL.SQLBuilder.SQLSelect"/> instance for fluent chaining.</returns>
+            <remarks>
+            This method adds <c>FROM [Table]</c> to the SQL command. 
+            It should follow one or more <see cref="M:JunX.NET8.MySQL.SQLBuilder.SQLSelect.Column(System.String)"/> calls to complete the SELECT clause.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.SQLBuilder.SQLSelect.Where(System.String,JunX.NET8.MySQL.MySQLLogicalOperators)">
+            <summary>
+            Appends a condition to the WHERE clause of the SQL SELECT statement, optionally prefixed by a logical operator.
+            </summary>
+            <param name="Condition">The condition to apply for filtering results.</param>
+            <param name="LogicalOperator">
+            The logical operator to prepend before the condition (e.g., <c>AND</c>, <c>OR</c>). 
+            Defaults to <see cref="F:JunX.NET8.MySQL.MySQLLogicalOperators.None"/> for the first condition.
+            </param>
+            <returns>The current <see cref="T:JunX.NET8.MySQL.SQLBuilder.SQLSelect"/> instance for fluent chaining.</returns>
+            <remarks>
+            This method builds the WHERE clause incrementally. 
+            It automatically inserts the <c>WHERE</c> keyword on the first call and prepends logical operators on subsequent calls.
+            Use this to construct complex filter logic with multiple conditions.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.SQLBuilder.SQLSelect.StartGroupedWhere">
+            <summary>
+            Begins a grouped condition block within the WHERE clause by appending an opening parenthesis.
+            </summary>
+            <returns>The current <see cref="T:JunX.NET8.MySQL.SQLBuilder.SQLSelect"/> instance for fluent chaining.</returns>
+            <remarks>
+            Use this method to start a logical grouping of conditions, such as nested filters or compound expressions.
+            Pair it with <see cref="M:JunX.NET8.MySQL.SQLBuilder.SQLSelect.EndGroupedWhere"/> to close the group.
+            Example: <c>.Where("A = 1").StartGroupedWhere().Where("B = 2", AND).Where("C = 3", OR).EndGroupedWhere()</c>
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.SQLBuilder.SQLSelect.EndGroupedWhere">
+            <summary>
+            Ends a grouped condition block within the WHERE clause by appending a closing parenthesis.
+            </summary>
+            <returns>The current <see cref="T:JunX.NET8.MySQL.SQLBuilder.SQLSelect"/> instance for fluent chaining.</returns>
+            <remarks>
+            Use this method to close a logical grouping of conditions started with <see cref="M:JunX.NET8.MySQL.SQLBuilder.SQLSelect.StartGroupedWhere"/>.
+            Grouped conditions allow for nested expressions and compound filters in SQL queries.
+            Ensure that each opening parenthesis has a matching closing call to maintain valid syntax.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.SQLBuilder.SQLSelect.Distinct(System.String)">
+            <summary>
+            Begins a SELECT DISTINCT statement for the specified column, eliminating duplicate values.
+            </summary>
+            <param name="Column">The name of the column to apply DISTINCT on.</param>
+            <returns>The current <see cref="T:JunX.NET8.MySQL.SQLBuilder.SQLSelect"/> instance for fluent chaining.</returns>
+            <remarks>
+            This method initializes the SELECT clause with <c>SELECT DISTINCT [Column]</c>, ensuring only unique values are returned.
+            It flags the SELECT clause as initialized, preventing redundant keyword insertion in subsequent <see cref="M:JunX.NET8.MySQL.SQLBuilder.SQLSelect.Column(System.String)"/> calls.
+            Use this when selecting a single column with uniqueness enforced.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.SQLBuilder.SQLSelect.As(System.String)">
+            <summary>
+            Appends an alias to the most recently added column or expression in the SELECT clause.
+            </summary>
+            <param name="Alias">The alias name to assign, enclosed in single quotes.</param>
+            <returns>The current <see cref="T:JunX.NET8.MySQL.SQLBuilder.SQLSelect"/> instance for fluent chaining.</returns>
+            <remarks>
+            This method appends <c>AS 'Alias'</c> to the SQL command, allowing you to rename columns or expressions in the result set.
+            It should be called immediately after a <see cref="M:JunX.NET8.MySQL.SQLBuilder.SQLSelect.Column(System.String)"/> or expression to ensure proper placement.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.SQLBuilder.SQLSelect.OrderBy(System.String,JunX.NET8.MySQL.MySQLOrderBy)">
+            <summary>
+            Appends an ORDER BY clause to the SQL SELECT statement using the specified column and sort direction.
+            </summary>
+            <param name="Column">The name of the column to sort by.</param>
+            <param name="OrderMode">
+            The sort direction, specified as a <see cref="T:JunX.NET8.MySQL.MySQLOrderBy"/> value (e.g., <c>ASC</c> or <c>DESC</c>).
+            </param>
+            <returns>The current <see cref="T:JunX.NET8.MySQL.SQLBuilder.SQLSelect"/> instance for fluent chaining.</returns>
+            <remarks>
+            This method adds <c>ORDER BY [Column] [OrderMode]</c> to the SQL command.
+            Use it to control the result set's sort order based on one or more columns.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.SQLBuilder.SQLSelect.Min(System.String)">
+            <summary>
+            Begins a SELECT statement that returns the minimum value of the specified column.
+            </summary>
+            <param name="Column">The name of the column to apply the MIN aggregate function to.</param>
+            <returns>The current <see cref="T:JunX.NET8.MySQL.SQLBuilder.SQLSelect"/> instance for fluent chaining.</returns>
+            <remarks>
+            This method initializes the SELECT clause with <c>SELECT MIN([Column])</c>, 
+            allowing you to retrieve the smallest value from the specified column.
+            It flags the SELECT clause as initialized, preventing redundant keyword insertion in subsequent column calls.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.SQLBuilder.SQLSelect.Max(System.String)">
+            <summary>
+            Begins a SELECT statement that returns the maximum value of the specified column.
+            </summary>
+            <param name="Column">The name of the column to apply the MAX aggregate function to.</param>
+            <returns>The current <see cref="T:JunX.NET8.MySQL.SQLBuilder.SQLSelect"/> instance for fluent chaining.</returns>
+            <remarks>
+            This method initializes the SELECT clause with <c>SELECT MAX([Column])</c>, 
+            allowing you to retrieve the largest value from the specified column.
+            It flags the SELECT clause as initialized, preventing redundant keyword insertion in subsequent column calls.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.SQLBuilder.SQLSelect.Count(System.String)">
+            <summary>
+            Begins a SELECT statement that returns the count of non-null values in the specified column.
+            </summary>
+            <param name="Column">The name of the column to apply the COUNT aggregate function to.</param>
+            <returns>The current <see cref="T:JunX.NET8.MySQL.SQLBuilder.SQLSelect"/> instance for fluent chaining.</returns>
+            <remarks>
+            This method initializes the SELECT clause with <c>SELECT COUNT([Column])</c>, 
+            allowing you to retrieve the number of non-null entries in the specified column.
+            It flags the SELECT clause as initialized, preventing redundant keyword insertion in subsequent column calls.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.SQLBuilder.SQLSelect.Sum(System.String)">
+            <summary>
+            Begins a SELECT statement that returns the sum of values in the specified column.
+            </summary>
+            <param name="Column">The name of the column to apply the SUM aggregate function to.</param>
+            <returns>The current <see cref="T:JunX.NET8.MySQL.SQLBuilder.SQLSelect"/> instance for fluent chaining.</returns>
+            <remarks>
+            This method initializes the SELECT clause with <c>SELECT SUM([Column])</c>, 
+            allowing you to compute the total of numeric values in the specified column.
+            It flags the SELECT clause as initialized, preventing redundant keyword insertion in subsequent column calls.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.SQLBuilder.SQLSelect.Avg(System.String)">
+            <summary>
+            Begins a SELECT statement that returns the average value of the specified column.
+            </summary>
+            <param name="Column">The name of the column to apply the AVG aggregate function to.</param>
+            <returns>The current <see cref="T:JunX.NET8.MySQL.SQLBuilder.SQLSelect"/> instance for fluent chaining.</returns>
+            <remarks>
+            This method initializes the SELECT clause with <c>SELECT AVG([Column])</c>, 
+            allowing you to compute the mean of numeric values in the specified column.
+            It flags the SELECT clause as initialized, preventing redundant keyword insertion in subsequent column calls.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.SQLBuilder.SQLSelect.InnerJoin(System.String,JunX.NET8.MySQL.JoinMetadata,JunX.NET8.MySQL.JoinMetadata)">
+            <summary>
+            Appends an INNER JOIN clause to the SQL SELECT statement using metadata for join conditions.
+            </summary>
+            <param name="Table">The name of the table to join.</param>
+            <param name="Left">Metadata describing the left side of the join condition (table and column).</param>
+            <param name="Right">Metadata describing the right side of the join condition (table and column).</param>
+            <returns>The current <see cref="T:JunX.NET8.MySQL.SQLBuilder.SQLSelect"/> instance for fluent chaining.</returns>
+            <remarks>
+            This method appends <c>INNER JOIN [Table] ON [Left.Table].[Left.Column] = [Right.Table].[Right.Column]</c>
+            to the SQL command. It enables metadata-driven join construction for clean and modular query building.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.SQLBuilder.SQLSelect.LeftJoin(System.String,JunX.NET8.MySQL.JoinMetadata,JunX.NET8.MySQL.JoinMetadata)">
+            <summary>
+            Appends a LEFT JOIN clause to the SQL SELECT statement using metadata for join conditions.
+            </summary>
+            <param name="Table">The name of the table to join.</param>
+            <param name="Left">Metadata describing the left side of the join condition (table and column).</param>
+            <param name="Right">Metadata describing the right side of the join condition (table and column).</param>
+            <returns>The current <see cref="T:JunX.NET8.MySQL.SQLBuilder.SQLSelect"/> instance for fluent chaining.</returns>
+            <remarks>
+            This method appends <c>LEFT JOIN [Table] ON [Left.Table].[Left.Column] = [Right.Table].[Right.Column]</c>
+            to the SQL command. It enables metadata-driven join construction for clean and modular query building.
+            Use this when you want to include all rows from the left table and matched rows from the right table.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.SQLBuilder.SQLSelect.RightJoin(System.String,JunX.NET8.MySQL.JoinMetadata,JunX.NET8.MySQL.JoinMetadata)">
+            <summary>
+            Appends a RIGHT JOIN clause to the SQL SELECT statement using metadata for join conditions.
+            </summary>
+            <param name="Table">The name of the table to join.</param>
+            <param name="Left">Metadata describing the left side of the join condition (table and column).</param>
+            <param name="Right">Metadata describing the right side of the join condition (table and column).</param>
+            <returns>The current <see cref="T:JunX.NET8.MySQL.SQLBuilder.SQLSelect"/> instance for fluent chaining.</returns>
+            <remarks>
+            This method appends <c>RIGHT JOIN [Table] ON [Left.Table].[Left.Column] = [Right.Table].[Right.Column]</c>
+            to the SQL command. It enables metadata-driven join construction for clean and modular query building.
+            Use this when you want to include all rows from the right table and matched rows from the left table.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.SQLBuilder.SQLSelect.FullOuterJoin(System.String,JunX.NET8.MySQL.JoinMetadata,JunX.NET8.MySQL.JoinMetadata)">
+            <summary>
+            Appends a FULL OUTER JOIN clause to the SQL SELECT statement using metadata for join conditions.
+            </summary>
+            <param name="Table">The name of the table to join.</param>
+            <param name="Left">Metadata describing the left side of the join condition (table and column).</param>
+            <param name="Right">Metadata describing the right side of the join condition (table and column).</param>
+            <returns>The current <see cref="T:JunX.NET8.MySQL.SQLBuilder.SQLSelect"/> instance for fluent chaining.</returns>
+            <remarks>
+            This method appends <c>FULL OUTER JOIN [Table] ON [Left.Table].[Left.Column] = [Right.Table].[Right.Column]</c>
+            to the SQL command. It enables metadata-driven join construction for comprehensive result sets that include all rows from both tables.
+            Use this when you need to preserve unmatched rows from both sides of the join.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.MySQL.SQLBuilder.SQLSelect.ToString">
+            <summary>
+            Returns the complete SQL command as a string, terminated with a semicolon.
+            </summary>
+            <returns>A string representation of the constructed SQL statement.</returns>
+            <remarks>
+            This method appends a semicolon to the current SQL command for execution readiness.
+            Useful for logging, debugging, or passing the final query to a database engine.
+            </remarks>
+        </member>
+        <member name="T:JunX.NET8.MySQL.ColumnInformation">
+            <summary>
+            Represents metadata for a single column in a MySQL table definition.
+            </summary>
+        </member>
+        <member name="P:JunX.NET8.MySQL.ColumnInformation.ColumnName">
+            <summary>
+            Gets or sets the name of the column.
+            </summary>
+        </member>
+        <member name="P:JunX.NET8.MySQL.ColumnInformation.Type">
+            <summary>
+            Gets or sets the MySQL data type assigned to the column.
+            </summary>
+        </member>
+        <member name="P:JunX.NET8.MySQL.ColumnInformation.Nullable">
+            <summary>
+            Gets or sets a value indicating whether the column allows <c>NULL</c> values.
+            </summary>
+        </member>
+        <member name="P:JunX.NET8.MySQL.ColumnInformation.Default">
+            <summary>
+            Gets or sets the default value mode for the column.
+            </summary>
+        </member>
+        <member name="P:JunX.NET8.MySQL.ColumnInformation.Length">
+            <summary>
+            Gets or sets the length constraint for the column, applicable to types like <c>VARCHAR</c> or <c>DECIMAL</c>.
+            </summary>
+        </member>
+        <member name="P:JunX.NET8.MySQL.ColumnInformation.DefaultValue">
+            <summary>
+            Gets or sets the literal default value to be applied when <c>Default</c> is set to <c>AsDefined</c>.
+            </summary>
+        </member>
+        <member name="M:JunX.NET8.MySQL.ColumnInformation.#ctor(System.String,JunX.NET8.MySQL.MySQLDataType,System.Boolean,System.Int32,JunX.NET8.MySQL.MySQLDefaultMode,System.String)">
+            <summary>
+            Initializes a new instance of the <c>ColumnInformation</c> struct with the specified column metadata.
+            </summary>
+            <param name="Name">
+            The name of the column to be defined in the table schema.
+            </param>
+            <param name="DataType">
+            The MySQL data type assigned to the column, represented by the <c>MySQLDataType</c> enum.
+            </param>
+            <param name="IsNullable">
+            Indicates whether the column allows <c>NULL</c> values. Defaults to <c>false</c>.
+            </param>
+            <param name="TypeLength">
+            The length constraint for the column, applicable to types like <c>VARCHAR</c>, <c>DECIMAL</c>, etc. Defaults to <c>0</c>.
+            </param>
+            <param name="DefaultMode">
+            Specifies how the default value should be applied, using the <c>MySQLDefaultMode</c> enum. Defaults to <c>None</c>.
+            </param>
+            <param name="DefValue">
+            The literal default value to assign when <c>DefaultMode</c> is set to <c>AsDefined</c>. Defaults to an empty string.
+            </param>
+        </member>
+        <member name="T:JunX.NET8.MySQL.AutoIncrement">
+            <summary>
+            Represents auto-increment configuration for a MySQL table column.
+            </summary>
+        </member>
+        <member name="P:JunX.NET8.MySQL.AutoIncrement.Enabled">
+            <summary>
+            Gets or sets a value indicating whether auto-increment is enabled for the table.
+            </summary>
+        </member>
+        <member name="P:JunX.NET8.MySQL.AutoIncrement.Column">
+            <summary>
+            Gets or sets the name of the column that should be configured as auto-increment.
+            </summary>
+        </member>
+        <member name="M:JunX.NET8.MySQL.AutoIncrement.#ctor(System.Boolean,System.String)">
+            <summary>
+            Initializes a new instance of the <c>AutoIncrement</c> struct with the specified auto-increment settings.
+            </summary>
+            <param name="AIEnabled">
+            Indicates whether auto-increment is enabled for the table.
+            </param>
+            <param name="ColumnName">
+            The name of the column to apply auto-increment to. Defaults to an empty string if unspecified.
+            </param>
+        </member>
+        <member name="T:JunX.NET8.MySQL.PrimaryKey">
+            <summary>
+            Represents primary key configuration for a MySQL table column.
+            </summary>
+        </member>
+        <member name="P:JunX.NET8.MySQL.PrimaryKey.Enabled">
+            <summary>
+            Gets or sets a value indicating whether a primary key is enabled for the table.
+            </summary>
+        </member>
+        <member name="P:JunX.NET8.MySQL.PrimaryKey.Column">
+            <summary>
+            Gets or sets the name of the column designated as the primary key.
+            </summary>
+        </member>
+        <member name="M:JunX.NET8.MySQL.PrimaryKey.#ctor(System.Boolean,System.String)">
+            <summary>
+            Initializes a new instance of the <c>PrimaryKey</c> struct with the specified settings.
+            </summary>
+            <param name="PKEnabled">Indicates whether the primary key is enabled.</param>
+            <param name="ColumnName">The name of the column to be used as the primary key. Defaults to an empty string.</param>
+        </member>
+        <member name="T:JunX.NET8.MySQL.InsertColumnMetadata">
+            <summary>
+            Represents metadata for a column to be inserted into a SQL table.
+            </summary>
+        </member>
+        <member name="P:JunX.NET8.MySQL.InsertColumnMetadata.Column">
+            <summary>
+            The name of the column to insert into.
+            </summary>
+        </member>
+        <member name="P:JunX.NET8.MySQL.InsertColumnMetadata.DataType">
+            <summary>
+            The SQL data type of the column.
+            </summary>
+        </member>
+        <member name="P:JunX.NET8.MySQL.InsertColumnMetadata.Value">
+            <summary>
+            The value to insert into the column.
+            </summary>
+        </member>
+        <member name="M:JunX.NET8.MySQL.InsertColumnMetadata.#ctor(System.String,JunX.NET8.MySQL.MySQLDataType,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:JunX.NET8.MySQL.InsertColumnMetadata"/> struct with the specified column name, data type, and value.
+            </summary>
+            <param name="ToColumn">The name of the column to insert into.</param>
+            <param name="WithDataType">The SQL data type of the column.</param>
+            <param name="WithValue">The value to insert into the column.</param>
+        </member>
+        <member name="T:JunX.NET8.MySQL.UpdateColumnMetadata">
+            <summary>
+            Represents metadata for a column to be updated in a SQL table.
+            </summary>
+        </member>
+        <member name="P:JunX.NET8.MySQL.UpdateColumnMetadata.Column">
+            <summary>
+            Gets or sets the name of the column to update.
+            </summary>
+        </member>
+        <member name="P:JunX.NET8.MySQL.UpdateColumnMetadata.DataType">
+            <summary>
+            Gets or sets the SQL data type of the column.
+            </summary>
+        </member>
+        <member name="P:JunX.NET8.MySQL.UpdateColumnMetadata.Value">
+            <summary>
+            Gets or sets the new value to assign to the column.
+            </summary>
+        </member>
+        <member name="M:JunX.NET8.MySQL.UpdateColumnMetadata.#ctor(System.String,JunX.NET8.MySQL.MySQLDataType,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:JunX.NET8.MySQL.UpdateColumnMetadata"/> struct with the specified column name, data type, and value.
+            </summary>
+            <param name="UpdateColumn">The name of the column to update.</param>
+            <param name="WithDataType">The SQL data type of the column.</param>
+            <param name="SetValueTo">The new value to assign to the column.</param>
+        </member>
+        <member name="T:JunX.NET8.MySQL.JoinMetadata">
+            <summary>
+            Represents metadata for the inner join, including table and column to join on.
+            </summary>
+        </member>
+        <member name="P:JunX.NET8.MySQL.JoinMetadata.Table">
+            <summary>
+            Gets or sets the name of the table to join.
+            </summary>
+        </member>
+        <member name="P:JunX.NET8.MySQL.JoinMetadata.Column">
+            <summary>
+            Gets or sets the name of the column used in the join condition.
+            </summary>
+        </member>
+        <member name="P:JunX.NET8.MySQL.JoinMetadata.Alias">
+            <summary>
+            Gets or sets the alias of the column used in the join condition.
+            </summary>
+        </member>
+        <member name="M:JunX.NET8.MySQL.JoinMetadata.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:JunX.NET8.MySQL.JoinMetadata"/> class with the specified table, column, and optional alias.
+            </summary>
+            <param name="FromTable">The source table to join from.</param>
+            <param name="SelectColumn">The column to select from the source table.</param>
+            <param name="As">An optional alias for the selected column.</param>
+        </member>
+        <member name="T:JunX.NET8.MySQL.ParametersMetadata">
+            <summary>
+            Represents metadata for a single SQL parameter, including its name and assigned value.
+            </summary>
+        </member>
+        <member name="P:JunX.NET8.MySQL.ParametersMetadata.Name">
+            <summary>
+            Gets or sets the name of the SQL parameter.
+            </summary>
+            <value>
+            A <see cref="T:System.String"/> representing the parameter's name.
+            </value>
+        </member>
+        <member name="P:JunX.NET8.MySQL.ParametersMetadata.Value">
+            <summary>
+            Gets or sets the value assigned to the SQL parameter.
+            </summary>
+            <value>
+            A <see cref="T:System.String"/> representing the parameter's value.
+            </value>
+        </member>
+        <member name="M:JunX.NET8.MySQL.ParametersMetadata.#ctor(System.String,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:JunX.NET8.MySQL.ParametersMetadata"/> struct with the specified name and value.
+            </summary>
+            <param name="ParameterName">The name of the SQL parameter.</param>
+            <param name="ParameterValue">The value assigned to the SQL parameter.</param>
+        </member>
+        <member name="T:JunX.NET8.MySQL.SelectAsMetadata">
+            <summary>
+            Represents a column-to-alias mapping used in SQL SELECT statements.
+            </summary>
+        </member>
+        <member name="P:JunX.NET8.MySQL.SelectAsMetadata.Column">
+            <summary>
+            The name of the column to be selected.
+            </summary>
+        </member>
+        <member name="P:JunX.NET8.MySQL.SelectAsMetadata.Alias">
+            <summary>
+            The alias to assign to the selected column.
+            </summary>
+        </member>
+        <member name="M:JunX.NET8.MySQL.SelectAsMetadata.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <c>SelectAsMetadata</c> struct with the specified column name and alias.
+            </summary>
+            <param name="ColumnName">The name of the column to select.</param>
+            <param name="As">The alias to assign to the selected column.</param>
+        </member>
+        <member name="T:JunX.NET8.MySQL.SelectMetadata">
+            <summary>
+            Represents metadata for a column selection in a SQL query, including its table and column name.
+            </summary>
+        </member>
+        <member name="P:JunX.NET8.MySQL.SelectMetadata.Table">
+            <summary>
+            Gets or sets the name of the table containing the column.
+            </summary>
+        </member>
+        <member name="P:JunX.NET8.MySQL.SelectMetadata.Column">
+            <summary>
+            Gets or sets the name of the column to be selected.
+            </summary>
+        </member>
+        <member name="M:JunX.NET8.MySQL.SelectMetadata.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:JunX.NET8.MySQL.SelectMetadata"/> struct with the specified table and column names.
+            </summary>
+            <param name="SetTable">The name of the table.</param>
+            <param name="SetColumn">The name of the column.</param>
+        </member>
+        <member name="T:JunX.NET8.Utilities.ThisEnum`1">
+            <summary>
+            Provides utility methods for working with enum types.
+            </summary>
+            <typeparam name="T">The enum type to operate on.</typeparam>
+        </member>
+        <member name="M:JunX.NET8.Utilities.ThisEnum`1.ToList">
+            <summary>
+            Returns all member names of the enum type <typeparamref name="T"/> as a list of strings.
+            </summary>
+            <returns>A list of enum member names.</returns>
+        </member>
+        <member name="T:JunX.NET8.WinForms.Forms">
+            <summary>
+            Provides additional functions for manipulating System.Windows.Forms.Form Controls.
+            </summary>
+        </member>
+        <member name="M:JunX.NET8.WinForms.Forms.SetControlEnabled(System.Windows.Forms.Control,System.Boolean)">
+            <summary>
+            Sets the enabled state of the specified control.
+            </summary>
+            <param name="FormControl">The control whose enabled state is to be set. Cannot be null.</param>
+            <param name="IsEnabled">A value indicating whether the control should be enabled. Set to <see langword="true"/> to enable the
+            control; otherwise, <see langword="false"/>.</param>
+        </member>
+        <member name="M:JunX.NET8.WinForms.Forms.SetControlEnabled(System.Collections.Generic.IEnumerable{System.Windows.Forms.Control},System.Boolean)">
+            <summary>
+            Sets the enabled state of each control in the specified collection.
+            </summary>
+            <remarks>This method updates the Enabled property for all controls in the provided list. No
+            action is taken if the list is empty.</remarks>
+            <param name="FormControls">The list of controls whose Enabled property will be set. Cannot be null.</param>
+            <param name="AreEnabled">A value indicating whether the controls should be enabled. Set to <see langword="true"/> to enable the
+            controls; otherwise, <see langword="false"/>.</param>
+        </member>
+        <member name="M:JunX.NET8.WinForms.Forms.HasEmptyFields(System.Collections.Generic.IEnumerable{System.Windows.Forms.Control})">
+            <summary>
+            Determines whether any control in the specified array has an empty Text property.
+            </summary>
+            <param name="FormControls">An array of Control objects to check for empty Text properties. Cannot be null.</param>
+            <returns>true if at least one control in the array has an empty Text property; otherwise, false.</returns>
+        </member>
+        <member name="M:JunX.NET8.WinForms.Forms.ClearControlText(System.Collections.Generic.IEnumerable{System.Windows.Forms.Control})">
+            <summary>
+            Clears the text of each control in the specified collection.
+            </summary>
+            <param name="FormControls">A list of controls whose Text properties will be set to an empty string. Cannot be null.</param>
+        </member>
+        <member name="M:JunX.NET8.WinForms.Forms.ClearComboBox(System.Windows.Forms.ComboBox)">
+            <summary>
+            Removes all items from the specified ComboBox control.
+            </summary>
+            <param name="FormComboBox">The ComboBox control whose items are to be cleared. Cannot be null.</param>
+        </member>
+        <member name="M:JunX.NET8.WinForms.Forms.ClearComboBox(System.Collections.Generic.IEnumerable{System.Windows.Forms.ComboBox})">
+            <summary>
+            Removes all items from each ComboBox in the specified list.
+            </summary>
+            <param name="FormComboBoxes">A list of ComboBox controls whose items will be cleared. Cannot be null. Each ComboBox in the list will have
+            its Items collection cleared.</param>
+        </member>
+        <member name="M:JunX.NET8.WinForms.Forms.FillComboBox(System.Windows.Forms.ComboBox,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Populates the specified ComboBox with the provided list of items, replacing any existing entries.
+            </summary>
+            <remarks>This method clears all existing items from the ComboBox before adding the new items.
+            The order of items in the ComboBox will match the order in the provided list.</remarks>
+            <param name="FormComboBox">The ComboBox control to be filled with items. Cannot be null.</param>
+            <param name="Items">The list of string items to add to the ComboBox. Cannot be null.</param>
+        </member>
+        <member name="M:JunX.NET8.WinForms.Forms.FillComboBox(System.Windows.Forms.ComboBox[],System.Collections.Generic.List{System.String}[])">
+            <summary>
+            Populates each ComboBox in the specified array with the corresponding list of items.
+            </summary>
+            <remarks>All ComboBoxes in FormComboBoxes are cleared before new items are added. If the
+            arrays are not of equal length, an exception may occur.</remarks>
+            <param name="FormComboBoxes">An array of ComboBox controls to be filled with items. Each ComboBox at index i will be populated with the
+            items from ItemsArray at the same index.</param>
+            <param name="ItemsArray">An array of string lists, where each list contains the items to add to the corresponding ComboBox in
+            FormComboBoxes. The length of ItemsArray must match the length of FormComboBoxes.</param>
+        </member>
+        <member name="M:JunX.NET8.WinForms.Forms.AppendComboBox(System.Windows.Forms.ComboBox,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Adds the specified items to the item collection of the given ComboBox control.
+            </summary>
+            <param name="FormComboBox">The ComboBox control to which the items will be added. Cannot be null.</param>
+            <param name="Items">A list of strings representing the items to add to the ComboBox. Cannot be null.</param>
+        </member>
+        <member name="M:JunX.NET8.WinForms.Forms.AppendComboBox(System.Windows.Forms.ComboBox[],System.Collections.Generic.List{System.String}[])">
+            <summary>
+            Adds the items from each list in the specified array to the corresponding ComboBox in the provided array.
+            </summary>
+            <remarks>The number of elements in FormComboBoxes must be equal to the number of elements in
+            ItemsArray. Each list in ItemsArray is added to the ComboBox at the same index in FormComboBoxes.</remarks>
+            <param name="FormComboBoxes">An array of ComboBox controls to which items will be added. Each ComboBox corresponds to a list in the
+            ItemsArray parameter.</param>
+            <param name="ItemsArray">An array of string lists, where each list contains the items to add to the corresponding ComboBox in the
+            FormComboBoxes array.</param>
+        </member>
+        <member name="M:JunX.NET8.WinForms.Forms.ClearListBox(System.Windows.Forms.ListBox)">
+            <summary>
+            Removes all items from the specified ListBox control.
+            </summary>
+            <param name="FormListBox">The ListBox control whose items are to be cleared. Cannot be null.</param>
+        </member>
+        <member name="M:JunX.NET8.WinForms.Forms.ClearListBox(System.Collections.Generic.IEnumerable{System.Windows.Forms.ListBox})">
+            <summary>
+            Removes all items from each ListBox in the specified collection.
+            </summary>
+            <param name="FormListBoxes">A list of ListBox controls whose items will be cleared. Cannot be null. Each ListBox in the list must not be
+            null.</param>
+        </member>
+        <member name="M:JunX.NET8.WinForms.Forms.FillListBox(System.Windows.Forms.ListBox,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Populates the specified ListBox control with the provided collection of items, replacing any existing
+            entries.
+            </summary>
+            <remarks>This method clears all existing items from the ListBox before adding the new items.
+            The order of items in the ListBox will match the order in the provided collection.</remarks>
+            <param name="FormListBox">The ListBox control to be filled with items. Cannot be null.</param>
+            <param name="Items">The collection of strings to add to the ListBox. Cannot be null.</param>
+        </member>
+        <member name="M:JunX.NET8.WinForms.Forms.FillListBox(System.Windows.Forms.ListBox[],System.Collections.Generic.List{System.String}[])">
+            <summary>
+            Populates each ListBox in the specified array with the corresponding collection of items.
+            </summary>
+            <remarks>All ListBox controls in FormListBoxes are cleared before new items are added. The
+            method assumes that both arrays are of equal length; otherwise, an exception may occur.</remarks>
+            <param name="FormListBoxes">An array of ListBox controls to be filled. Each ListBox at index i will receive items from the collection at
+            the same index in the ItemsArray parameter.</param>
+            <param name="ItemsArray">An array of string collections, where each collection contains the items to add to the corresponding ListBox
+            in the FormListBoxes array. The length of this array must match the length of FormListBoxes.</param>
+        </member>
+        <member name="M:JunX.NET8.WinForms.Forms.AppendListBox(System.Windows.Forms.ListBox,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Appends the specified collection of strings to the items of the given ListBox control.
+            </summary>
+            <param name="FormListBox">The ListBox control to which the items will be added. Cannot be null.</param>
+            <param name="Items">The collection of strings to append to the ListBox. Cannot be null.</param>
+        </member>
+        <member name="M:JunX.NET8.WinForms.Forms.AppendListBox(System.Windows.Forms.ListBox[],System.Collections.Generic.List{System.String}[])">
+            <summary>
+            Adds the items from each list in the specified array to the corresponding ListBox control in the provided
+            array.
+            </summary>
+            <remarks>The number of elements in FormListBoxes must be equal to the number of elements in
+            ItemsArray. Items from each list in ItemsArray are added to the Items collection of the ListBox at the same
+            index in FormListBoxes.</remarks>
+            <param name="FormListBoxes">An array of ListBox controls to which items will be added. Each ListBox corresponds to a list in the
+            ItemsArray parameter.</param>
+            <param name="ItemsArray">An array of string lists, where each list contains the items to add to the corresponding ListBox in the
+            FormListBoxes array.</param>
+        </member>
+        <member name="M:JunX.NET8.WinForms.Forms.SetDateTimePickerMaxDate(System.Windows.Forms.DateTimePicker,System.DateTime)">
+            <summary>
+            Sets the maximum selectable date for the specified DateTimePicker control.
+            </summary>
+            <param name="FormDateTimePicker">The DateTimePicker control whose maximum date is to be set. Cannot be null.</param>
+            <param name="MaxDate">The maximum date that can be selected in the DateTimePicker control.</param>
+        </member>
+        <member name="M:JunX.NET8.WinForms.Forms.SetDateTimePickerMaxDate(System.Collections.Generic.IEnumerable{System.Windows.Forms.DateTimePicker},System.DateTime)">
+            <summary>
+            Sets the maximum selectable date for each <see cref="T:System.Windows.Forms.DateTimePicker"/> in the provided list.
+            </summary>
+            <param name="FormDateTimePickers">A list of <see cref="T:System.Windows.Forms.DateTimePicker"/> controls to update.</param>
+            <param name="MaxDate">The maximum date to assign to each control.</param>
+            <remarks>
+            This method delegates to an overload that sets the <c>MaxDate</c> property for individual controls.
+            Ensure that all controls in the list are properly initialized before calling.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.WinForms.Forms.SetDateTimePickerMinDate(System.Windows.Forms.DateTimePicker,System.DateTime)">
+            <summary>
+            Sets the minimum selectable date for the specified DateTimePicker control.
+            </summary>
+            <param name="FormDateTimePicker">The DateTimePicker control whose minimum date is to be set. Cannot be null.</param>
+            <param name="MinDate">The minimum date that can be selected in the DateTimePicker control.</param>
+        </member>
+        <member name="M:JunX.NET8.WinForms.Forms.SetDateTimePickerMinDate(System.Collections.Generic.IEnumerable{System.Windows.Forms.DateTimePicker},System.DateTime)">
+            <summary>
+            Sets the minimum selectable date for each <see cref="T:System.Windows.Forms.DateTimePicker"/> in the provided list.
+            </summary>
+            <param name="FormDateTimePickers">A list of <see cref="T:System.Windows.Forms.DateTimePicker"/> controls to update.</param>
+            <param name="MinDate">The minimum date to assign to each control.</param>
+            <remarks>
+            This method delegates to an overload that sets the <c>MinDate</c> property for individual controls.
+            Ensure that all controls in the list are properly initialized before calling.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.WinForms.Forms.ResetDataGridView(System.Windows.Forms.DataGridView)">
+            <summary>
+            Resets the specified <see cref="T:System.Windows.Forms.DataGridView"/> by clearing its rows and removing its data source.
+            </summary>
+            <param name="FormDataGridView">
+            The <see cref="T:System.Windows.Forms.DataGridView"/> control to reset. This method clears all rows using <c>Rows.Clear()</c>
+            and sets the <c>DataSource</c> property to <c>null</c>, effectively removing bound data and manual entries.
+            </param>
+            <remarks>
+            Use this method to fully reset a grid before rebinding or reinitializing. It handles both bound and unbound scenarios.
+            Note that <c>Rows.Clear()</c> only applies to unbound rows; for bound grids, clearing the <c>DataSource</c> is sufficient.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.WinForms.Forms.ResetDataGridView(System.Collections.Generic.IEnumerable{System.Windows.Forms.DataGridView})">
+            <summary>
+            Resets a collection of <see cref="T:System.Windows.Forms.DataGridView"/> controls by clearing their rows and removing their data sources.
+            </summary>
+            <param name="FormDataGridView">
+            An <see cref="T:System.Collections.Generic.IEnumerable`1"/> of <see cref="T:System.Windows.Forms.DataGridView"/> controls to reset. Each grid will have its <c>Rows</c> cleared
+            and its <c>DataSource</c> property set to <c>null</c>, effectively removing both bound and unbound data.
+            </param>
+            <remarks>
+            This method delegates to <c>ResetDataGridView(DataGridView)</c> for each control in the collection.
+            Use it to batch-reset multiple grids before rebinding or reinitializing.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.WinForms.Forms.SetDataGridViewDataSet(System.Windows.Forms.DataGridView,System.Data.DataSet,System.Int32)">
+            <summary>
+            Binds a specific table from a <see cref="T:System.Data.DataSet"/> to the provided <see cref="T:System.Windows.Forms.DataGridView"/>.
+            </summary>
+            <param name="FormDataGridView">
+            The <see cref="T:System.Windows.Forms.DataGridView"/> control to populate with data.
+            </param>
+            <param name="UseDataSet">
+            The <see cref="T:System.Data.DataSet"/> containing one or more <see cref="T:System.Data.DataTable"/> objects to bind.
+            </param>
+            <param name="TableIndex">
+            The zero-based index of the <see cref="T:System.Data.DataTable"/> within the <paramref name="UseDataSet"/> to bind.
+            </param>
+            <remarks>
+            This method sets the <c>DataSource</c> of the grid to the specified table. Ensure that <paramref name="TableIndex"/>
+            is within bounds to avoid runtime exceptions. Use this to dynamically bind grids to different tables in a dataset.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.WinForms.Forms.SetDataGridViewDataSet(System.Collections.Generic.IEnumerable{System.Windows.Forms.DataGridView},System.Collections.Generic.IEnumerable{JunX.NET8.WinForms.SetDGVMetadata})">
+            <summary>
+            Binds a collection of <see cref="T:System.Windows.Forms.DataGridView"/> controls to corresponding tables from a sequence of <see cref="T:JunX.NET8.WinForms.SetDGVMetadata"/>.
+            </summary>
+            <param name="FormDataGridViews">
+            An <see cref="T:System.Collections.Generic.IEnumerable`1"/> of <see cref="T:System.Windows.Forms.DataGridView"/> controls to bind.
+            </param>
+            <param name="UsingDataSetMetadata">
+            An <see cref="T:System.Collections.Generic.IEnumerable`1"/> of <see cref="T:JunX.NET8.WinForms.SetDGVMetadata"/> objects, each containing a <see cref="T:System.Data.DataSet"/> and table index
+            to be bound to the corresponding grid.
+            </param>
+            <remarks>
+            This method pairs each grid with its respective metadata entry by index and binds the specified table using
+            <c>SetDataGridViewDataSet(DataGridView, DataSet, int)</c>. Ensure that both sequences are aligned and of equal length
+            to avoid index out-of-range errors.
+            </remarks>
+        </member>
+        <member name="T:JunX.NET8.WinForms.Forms.ControlType`1">
+            <summary>
+            Provides recursive extraction of controls of type <typeparamref name="T"/> from a container,
+            optionally filtered by name prefix.
+            </summary>
+            <typeparam name="T">
+            The type of control to extract, constrained to <see cref="T:System.Windows.Forms.Control"/>. Examples include <see cref="T:System.Windows.Forms.TextBox"/>,
+            <see cref="T:System.Windows.Forms.Button"/>, <see cref="T:System.Windows.Forms.Label"/>, and other Windows Forms controls.
+            </typeparam>
+        </member>
+        <member name="M:JunX.NET8.WinForms.Forms.ControlType`1.Extract(System.Windows.Forms.Control,System.String)">
+            <summary>
+            Recursively extracts all controls of type <typeparamref name="T"/> from the specified container and its child controls,
+            optionally filtering by name prefix.
+            </summary>
+            <param name="Container">The root <see cref="T:System.Windows.Forms.Control"/> container to search within.</param>
+            <param name="StartsWith">
+            An optional prefix to match against each control's <c>Name</c> property. If specified, only controls whose names
+            begin with this value will be included; otherwise, all matching controls are returned.
+            </param>
+            <returns>A list of controls of type <typeparamref name="T"/> matching the specified criteria.</returns>
+            <remarks>
+            This method traverses the entire control hierarchy, including nested containers such as panels and group boxes.
+            Use this to selectively extract controls based on naming conventions or to gather all for batch operations.
+            </remarks>
+        </member>
+        <member name="T:JunX.NET8.WinForms.SetDGVMetadata">
+            <summary>
+            Encapsulates metadata for binding a specific <see cref="T:System.Data.DataTable"/> from a <see cref="P:JunX.NET8.WinForms.SetDGVMetadata.DataSet"/> to a <see cref="T:System.Windows.Forms.DataGridView"/>.
+            </summary>
+        </member>
+        <member name="P:JunX.NET8.WinForms.SetDGVMetadata.DataSet">
+            <summary>
+            The <see cref="P:JunX.NET8.WinForms.SetDGVMetadata.DataSet"/> containing one or more tables to bind.
+            </summary>
+        </member>
+        <member name="P:JunX.NET8.WinForms.SetDGVMetadata.Table">
+            <summary>
+            The zero-based index of the <see cref="T:System.Data.DataTable"/> within the <see cref="P:JunX.NET8.WinForms.SetDGVMetadata.DataSet"/> to bind.
+            </summary>
+        </member>
+        <member name="M:JunX.NET8.WinForms.SetDGVMetadata.#ctor(System.Data.DataSet,System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:JunX.NET8.WinForms.SetDGVMetadata"/> struct with the specified dataset and table index.
+            </summary>
+            <param name="UseDataSet">The <see cref="P:JunX.NET8.WinForms.SetDGVMetadata.DataSet"/> containing the target table.</param>
+            <param name="UseTable">The index of the table within the dataset to bind.</param>
+        </member>
+    </members>
+</doc>

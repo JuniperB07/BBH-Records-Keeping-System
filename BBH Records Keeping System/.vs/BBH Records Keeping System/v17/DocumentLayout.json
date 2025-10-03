@@ -1,0 +1,56 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\USER\\Documents\\Visual Studio\\C#\\BBH Records Keeping System\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{E00C4B72-2507-4F83-8B9F-67C9FE46FFF0}|BBH Records Keeping System.csproj|c:\\users\\user\\documents\\visual studio\\c#\\bbh records keeping system\\payments_bill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E00C4B72-2507-4F83-8B9F-67C9FE46FFF0}|BBH Records Keeping System.csproj|solutionrelative:payments_bill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E00C4B72-2507-4F83-8B9F-67C9FE46FFF0}|BBH Records Keeping System.csproj|C:\\Users\\USER\\Documents\\Visual Studio\\C#\\BBH Records Keeping System\\payments_bill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E00C4B72-2507-4F83-8B9F-67C9FE46FFF0}|BBH Records Keeping System.csproj|solutionrelative:payments_bill.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Payments_BILL.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Documents\\Visual Studio\\C#\\BBH Records Keeping System\\Payments_BILL.cs",
+              "RelativeDocumentMoniker": "Payments_BILL.cs",
+              "ToolTip": "C:\\Users\\USER\\Documents\\Visual Studio\\C#\\BBH Records Keeping System\\Payments_BILL.cs",
+              "RelativeToolTip": "Payments_BILL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJ4BAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-01T02:59:16.288Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Payments_BILL.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\USER\\Documents\\Visual Studio\\C#\\BBH Records Keeping System\\Payments_BILL.cs",
+              "RelativeDocumentMoniker": "Payments_BILL.cs",
+              "ToolTip": "C:\\Users\\USER\\Documents\\Visual Studio\\C#\\BBH Records Keeping System\\Payments_BILL.cs [Design]",
+              "RelativeToolTip": "Payments_BILL.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-01T02:58:36.905Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <RootNamespace>BBH_Records_Keeping_System</RootNamespace>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>bbhLogo.ico</ApplicationIcon>
+    <SignAssembly>False</SignAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="bin\Debug\net8.0-windows7.0\TableEnums\tbAdditionals.cs" />
+    <Compile Include="bin\Debug\net8.0-windows7.0\TableEnums\tbbillpreview_receipts.cs" />
+    <Compile Include="bin\Debug\net8.0-windows7.0\TableEnums\tbBills.cs" />
+    <Compile Include="bin\Debug\net8.0-windows7.0\TableEnums\tbDeductions.cs" />
+    <Compile Include="bin\Debug\net8.0-windows7.0\TableEnums\tbElectricityBill.cs" />
+    <Compile Include="bin\Debug\net8.0-windows7.0\TableEnums\tbEmergency.cs" />
+    <Compile Include="bin\Debug\net8.0-windows7.0\TableEnums\tbInternetBill.cs" />
+    <Compile Include="bin\Debug\net8.0-windows7.0\TableEnums\tbInternetPlans.cs" />
+    <Compile Include="bin\Debug\net8.0-windows7.0\TableEnums\tbMetadata.cs" />
+    <Compile Include="bin\Debug\net8.0-windows7.0\TableEnums\tbPaymentMethod.cs" />
+    <Compile Include="bin\Debug\net8.0-windows7.0\TableEnums\tbpaymentpreview_receipts.cs" />
+    <Compile Include="bin\Debug\net8.0-windows7.0\TableEnums\tbpayments.cs" />
+    <Compile Include="bin\Debug\net8.0-windows7.0\TableEnums\tbRentalBill.cs" />
+    <Compile Include="bin\Debug\net8.0-windows7.0\TableEnums\tbRooms.cs" />
+    <Compile Include="bin\Debug\net8.0-windows7.0\TableEnums\tbTenants.cs" />
+    <Compile Include="bin\Debug\net8.0-windows7.0\TableEnums\tbWaterBill.cs" />
+    <Compile Include="bin\Debug\net8.0-windows\TableEnums\tbdashboard_overdues.cs" />
+    <Compile Include="bin\Debug\net8.0-windows\TableEnums\tbdashboard_unpaidbills.cs" />
+    <Compile Include="bin\Debug\net8.0-windows\TableEnums\tbusers.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="bbhLogo.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="9.4.0" />
+    <PackageReference Include="ReportViewerCore.WinForms" Version="15.1.26" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BBHRKS Library\BBHRKS Library.csproj" />
+    <ProjectReference Include="..\JunX.NET\JunX.NET.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="BBHRKS.MySQL" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="BBHRKS Database.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>BBHRKS Database.xsd</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="BBHRKS Database.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>BBHRKS Database.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="BillPreview.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="ReceiptPreview.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

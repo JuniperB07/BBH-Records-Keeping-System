@@ -1,0 +1,645 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BBHRKS Library</name>
+    </assembly>
+    <members>
+        <member name="M:BBHRKS.Interface.Interface.CheckForEmptyField(System.Windows.Forms.Control[])">
+            <summary>
+            Checks whether any <see cref="T:System.Windows.Forms.Control"/> in the specified array contains an empty <c>Text</c> value.
+            </summary>
+            <param name="TextBoxes">An array of <see cref="T:System.Windows.Forms.Control"/> objects to inspect.</param>
+            <returns>
+            <c>true</c> if at least one control has an empty <c>Text</c> property; otherwise, <c>false</c>.
+            </returns>
+            <remarks>
+            This method iterates through the provided controls and returns early upon detecting an empty field.
+            Useful in BBHRKS modules for validating required inputs across mixed control types such as <c>TextBox</c>, <c>MaskedTextBox</c>, or <c>RichTextBox</c>.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="TextBoxes"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.NullReferenceException">
+            Thrown if any element in the <paramref name="TextBoxes"/> array is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:BBHRKS.Interface.Interface.ClearLabels(System.Windows.Forms.Label[])">
+            <summary>
+            Clears the text content of each <see cref="T:System.Windows.Forms.Label"/> control in the specified array, if the array is not null.
+            </summary>
+            <param name="Labels">An array of <see cref="T:System.Windows.Forms.Label"/> controls whose <c>Text</c> properties will be reset.</param>
+            <remarks>
+            This method checks whether the <paramref name="Labels"/> array is non-null before iterating.
+            Each label's <c>Text</c> property is set to an empty string, effectively clearing its display.
+            Commonly used to reset form fields or UI indicators in BBHRKS modules.
+            </remarks>
+            <exception cref="T:System.NullReferenceException">
+            Thrown if any element within the <paramref name="Labels"/> array is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:BBHRKS.Interface.Interface.ClearControlText(System.Windows.Forms.Control[])">
+            <summary>
+            Clears the text content of each <see cref="T:System.Windows.Forms.Control"/> in the specified array.
+            </summary>
+            <param name="controls">An array of <see cref="T:System.Windows.Forms.Control"/> objects whose <c>Text</c> properties will be reset.</param>
+            <remarks>
+            This method iterates through the provided controls and sets each control's <c>Text</c> property to an empty string.
+            Commonly used to reset form fields or UI elements in BBHRKS modules.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if the <paramref name="controls"/> array is <c>null</c>.
+            </exception>
+            <exception cref="T:System.NullReferenceException">
+            Thrown if any element in the <paramref name="controls"/> array is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:BBHRKS.Interface.Interface.ClearComboBoxesItems(System.Windows.Forms.ComboBox[])">
+            <summary>
+            Clears all items from each <see cref="T:System.Windows.Forms.ComboBox"/> in the specified array.
+            </summary>
+            <param name="ComboBoxes">An array of <see cref="T:System.Windows.Forms.ComboBox"/> controls to be emptied.</param>
+            <remarks>
+            This method iterates through the provided combo boxes and removes all entries from each control.
+            Commonly used in BBHRKS modules to reset dropdowns before repopulating them with updated data.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="ComboBoxes"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.NullReferenceException">
+            Thrown if any element in the <paramref name="ComboBoxes"/> array is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:BBHRKS.Interface.Interface.FillDataGridView(System.Windows.Forms.DataGridView,System.String,MySql.Data.MySqlClient.MySqlConnection)">
+            <summary>
+            Executes a SQL SELECT command and binds the resulting data to a <see cref="T:System.Windows.Forms.DataGridView"/> control.
+            </summary>
+            <param name="DGVInterface">The <see cref="T:System.Windows.Forms.DataGridView"/> control to populate with query results.</param>
+            <param name="SQLSelectCommand">The SQL SELECT command string to execute.</param>
+            <param name="Connection">An open <see cref="T:MySql.Data.MySqlClient.MySqlConnection"/> used to perform the query.</param>
+            <remarks>
+            This method initializes a <see cref="T:MySql.Data.MySqlClient.MySqlDataAdapter"/> with the provided SQL command and connection,
+            fills a <see cref="T:System.Data.DataSet"/> with the results, and binds the first table to the <paramref name="DGVInterface"/>.
+            The control's <c>DataSource</c> is reset before binding to ensure clean refresh.
+            </remarks>
+            <exception cref="T:MySql.Data.MySqlClient.MySqlException">
+            Thrown if the SQL command fails to execute or the connection is invalid.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if the <paramref name="Connection"/> is closed or improperly configured.
+            </exception>
+        </member>
+        <member name="M:BBHRKS.Interface.Interface.FillComboBox(System.Windows.Forms.ComboBox,System.Collections.Generic.List{System.String})">
+            <summary>
+            Populates the specified <see cref="T:System.Windows.Forms.ComboBox"/> with a list of string items.
+            </summary>
+            <param name="comboBox">The <see cref="T:System.Windows.Forms.ComboBox"/> control to be filled.</param>
+            <param name="Items">A list of string values to add to the combo box.</param>
+            <remarks>
+            Clears any existing entries before adding the provided items.
+            Commonly used in BBHRKS modules to refresh dropdown options based on dynamic data or user context.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="comboBox"/> or <paramref name="Items"/> is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:BBHRKS.Interface.Interface.FillComboBox(System.Windows.Forms.ComboBox,System.String[])">
+            <summary>
+            Populates the specified <see cref="T:System.Windows.Forms.ComboBox"/> with a list of string items.
+            </summary>
+            <param name="comboBox">The <see cref="T:System.Windows.Forms.ComboBox"/> control to be filled.</param>
+            <param name="Items">A list of string values to add to the combo box.</param>
+            <remarks>
+            This method clears any existing entries before adding the provided items.
+            Commonly used in BBHRKS modules to refresh dropdown options based on dynamic data or user context.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="comboBox"/> or <paramref name="Items"/> is <c>null</c>.
+            </exception>
+        </member>
+        <member name="M:BBHRKS.Interface.Interface.SetControlEnabled(System.Windows.Forms.Control[],System.Boolean)">
+            <summary>
+            Sets the enabled state of each <see cref="T:System.Windows.Forms.Control"/> in the specified array.
+            </summary>
+            <param name="controls">An array of <see cref="T:System.Windows.Forms.Control"/> objects whose <c>Enabled</c> properties will be updated.</param>
+            <param name="enabled">A boolean value indicating whether the controls should be enabled or disabled.</param>
+            <remarks>
+            This method iterates through the provided controls and applies the specified enabled state.
+            Commonly used to toggle form interactivity in BBHRKS modules, such as locking fields during processing or enabling inputs after validation.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if the <paramref name="controls"/> array is <c>null</c>.
+            </exception>
+            <exception cref="T:System.NullReferenceException">
+            Thrown if any element in the <paramref name="controls"/> array is <c>null</c>.
+            </exception>
+        </member>
+        <member name="T:BBHRKS.Metadata.Metadata">
+            <summary>
+            Provides structured access to metadata values used across BBHRKS modules, including tenants, rooms, utilities, payments, and billing.
+            </summary>
+            <remarks>
+            The <c>Metadata</c> class organizes static metadata into nested categories, each exposing constants, value lists, and database-driven properties.
+            It supports both hardcoded enumerations (e.g., status labels) and dynamic retrieval from the <c>tbmetadata</c> table in <c>dbBBHRKS</c>.
+            This class is designed for centralized reference, reducing duplication and ensuring consistency across business logic and UI components.
+            </remarks>
+        </member>
+        <member name="P:BBHRKS.Metadata.Metadata.Water.Consumption.UnitPrice">
+            <summary>
+            Retrieves the unit price value from the <c>tbmetadata</c> table where category is <c>Water Consumption</c>
+            and details is <c>Unit Price</c>.
+            </summary>
+            <remarks>
+            This property establishes a new MySQL connection to the <c>dbBBHRKS</c> database, executes a SELECT query,
+            reads the result, and converts the first column to a <see cref="T:System.Double"/>. The connection and reader are closed after use.
+            </remarks>
+            <exception cref="T:MySql.Data.MySqlClient.MySqlException">
+            Thrown if the connection or command execution fails due to server issues, query errors, or other MySQL-related problems.
+            </exception>
+            <exception cref="T:System.InvalidCastException">
+            Thrown if the retrieved value cannot be converted to a <see cref="T:System.Double"/>.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Metadata.Metadata.Electricity.Consumption.UnitPrice">
+            <summary>
+            Retrieves the unit price value from the <c>tbmetadata</c> table where category is <c>Electricity Consumption</c>
+            and details is <c>Unit Price</c>.
+            </summary>
+            <remarks>
+            This property initializes a new MySQL connection to the <c>dbBBHRKS</c> database, executes a SELECT query,
+            reads the first result, and converts it to a <see cref="T:System.Double"/>. The connection and reader are closed after execution.
+            </remarks>
+            <exception cref="T:MySql.Data.MySqlClient.MySqlException">
+            Thrown if the connection or command execution fails due to server issues, query errors, or other MySQL-related problems.
+            </exception>
+            <exception cref="T:System.InvalidCastException">
+            Thrown if the retrieved value cannot be converted to a <see cref="T:System.Double"/>.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Metadata.Metadata.Payment.LastReceipt">
+            <summary>
+            Retrieves the last receipt number from the <c>tbmetadata</c> table where category is <c>Payment</c>
+            and details is <c>Last Receipt</c>.
+            </summary>
+            <remarks>
+            This property creates a new MySQL connection to the <c>dbBBHRKS</c> database, executes a SELECT query,
+            reads the first result, and converts it to an <see cref="T:System.Int32"/>. The connection and reader are explicitly closed and disposed after use.
+            </remarks>
+            <exception cref="T:MySql.Data.MySqlClient.MySqlException">
+            Thrown if the connection or command execution fails due to server issues, query errors, or other MySQL-related problems.
+            </exception>
+            <exception cref="T:System.InvalidCastException">
+            Thrown if the retrieved value cannot be converted to an <see cref="T:System.Int32"/>.
+            </exception>
+        </member>
+        <member name="M:BBHRKS.Metadata.Metadata.Payment.GenerateNewReceipt(System.DateTime)">
+            <summary>
+            Generates a new receipt number based on the current date, resetting the counter on January 1st if necessary.
+            </summary>
+            <param name="CurrentDate">The current date used to determine whether the receipt counter should be reset.</param>
+            <returns>
+            An incremented receipt number. If the date is January 1st and the last receipt is non-zero, the counter is reset before incrementing.
+            </returns>
+            <remarks>
+            This method opens a MySQL connection to the <c>dbBBHRKS</c> database and checks if the current date is January 1st.
+            If so, and the last receipt number is non-zero, it resets the <c>Last Receipt</c> value in the <c>tbmetadata</c> table to zero.
+            The connection is closed and disposed after execution. The receipt number is then incremented and returned.
+            </remarks>
+            <exception cref="T:MySql.Data.MySqlClient.MySqlException">
+            Thrown if the connection or command execution fails due to server issues, query errors, or other MySQL-related problems.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Metadata.Metadata.Payment.Method.PaymentMethods">
+            <summary>
+            Retrieves a sorted list of enabled payment methods from the database.
+            </summary>
+            <returns>
+            A <see cref="!:List&lt;string&gt;"/> containing all enabled payment method names from <c>tbpaymentmethod</c>,
+            sorted in ascending order by the <c>Method</c> column.
+            </returns>
+            <remarks>
+            This property executes a SELECT query on the <c>tbpaymentmethod</c> table, retrieving the <c>Method</c> column
+            where <c>Status='Enabled'</c>. The <c>Method</c> column is formatted as <c>VARCHAR</c>, and values are returned
+            as strings. Results are ordered using <c>ORDER BY Method ASC</c>. The command connection is configured via
+            <c>BBHRKS_DB.SetupMySQLCommandConnection</c>, and all resources are properly disposed after execution.
+            </remarks>
+            <exception cref="T:MySql.Data.MySqlClient.MySqlException">
+            Thrown if the database connection or command execution fails.
+            </exception>
+            <exception cref="T:System.InvalidCastException">
+            Thrown if the retrieved <c>VARCHAR</c> value cannot be converted to a string.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Metadata.Metadata.Internet.DueDate">
+            <summary>
+            Retrieves the next Internet due date based on the current date and the configured due day.
+            </summary>
+            <returns>
+            A <see cref="T:System.DateTime"/> value representing the next due date.
+            If today's day exceeds the configured due day, the result rolls over to the same day in the next month.
+            </returns>
+            <remarks>
+            This property queries the <c>tbmetadata</c> table for the Internet due day value under the condition
+            <c>category='Internet' AND details='Due Date'</c>. It then calculates the next due date by comparing
+            the current day with the configured due day, adjusting for month rollover and clamping to the last valid
+            day of the target month (including leap year handling).
+            </remarks>
+            <exception cref="T:MySql.Data.MySqlClient.MySqlException">
+            Thrown if the database connection or query execution fails.
+            </exception>
+            <exception cref="T:System.FormatException">
+            Thrown if the retrieved value cannot be converted to an integer.
+            </exception>
+        </member>
+        <member name="P:BBHRKS.Metadata.Metadata.Rental.MonthlyDue">
+            <summary>
+            Retrieves the configured monthly due amount for rental billing from the database.
+            </summary>
+            <returns>
+            A <see cref="T:System.Double"/> value representing the monthly rental charge.
+            </returns>
+            <remarks>
+            This property queries the <c>tbmetadata</c> table using the condition <c>mid=7</c> to fetch the value associated with rental billing.
+            The result is parsed as a double and returned. The connection is properly initialized, opened, and disposed after execution.
+            </remarks>
+            <exception cref="T:MySql.Data.MySqlClient.MySqlException">
+            Thrown if the database connection or command execution fails.
+            </exception>
+            <exception cref="T:System.FormatException">
+            Thrown if the retrieved value cannot be converted to a double.
+            </exception>
+        </member>
+        <member name="M:BBHRKS.Metadata.Metadata.ListValues(System.String[])">
+            <summary>
+            Converts an array of strings into a list of strings.
+            </summary>
+            <param name="Values">The array of string values to be copied into the list.</param>
+            <returns>
+            A <see cref="T:System.Collections.Generic.List`1"/> containing all elements from the input array.
+            </returns>
+            <remarks>
+            This method iterates through the input array and adds each element to a newly instantiated list.
+            </remarks>
+        </member>
+        <member name="P:BBHRKS.MySQL.Database.Connection">
+            <summary>
+            Gets the active MySQL connection used by the BBH Records Keeping System.
+            </summary>
+            <remarks>
+            This static property provides access to the underlying <see cref="T:MySql.Data.MySqlClient.MySqlConnection"/> instance.
+            Ensure the connection is properly initialized before accessing this property.
+            </remarks>
+            <returns>
+            The current <see cref="T:MySql.Data.MySqlClient.MySqlConnection"/> object.
+            </returns>
+        </member>
+        <member name="M:BBHRKS.MySQL.Database.Initialize">
+            <summary>
+            Initializes the database connection for BBHRKS operations.
+            </summary>
+            <remarks>
+            Configures the connection string and attempts to open the connection if it is not already active.
+            This method ensures that the system is ready to execute database commands and handle data transactions.
+            Any connection errors are displayed through a message dialog.
+            </remarks>
+            <exception cref="T:MySql.Data.MySqlClient.MySqlException">
+            Thrown if the connection attempt fails due to server issues, authentication errors, or configuration problems.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if the connection state is invalid or the connection object is misconfigured.
+            </exception>
+        </member>
+        <member name="M:BBHRKS.MySQL.Database.SetupMySQLCommandConnection(MySql.Data.MySqlClient.MySqlCommand,MySql.Data.MySqlClient.MySqlConnection,System.Data.CommandType)">
+            <summary>
+            Configures a <see cref="T:MySql.Data.MySqlClient.MySqlCommand"/> with the specified connection and command type.
+            </summary>
+            <param name="Command">The <see cref="T:MySql.Data.MySqlClient.MySqlCommand"/> instance to configure.</param>
+            <param name="Connection">The <see cref="T:MySql.Data.MySqlClient.MySqlConnection"/> to associate with the command.</param>
+            <param name="Type">The <see cref="T:System.Data.CommandType"/> indicating how the command text is interpreted.</param>
+            <remarks>
+            This method sets the <c>Connection</c> and <c>CommandType</c> properties of the provided command object.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.MySQL.Database.ExtractToList(MySql.Data.MySqlClient.MySqlConnection,MySql.Data.MySqlClient.MySqlCommand,System.String)">
+            <summary>
+            Executes a SQL SELECT command and extracts the first column of each row into a list of strings.
+            </summary>
+            <param name="Connection">An active <see cref="T:MySql.Data.MySqlClient.MySqlConnection"/> used to execute the query.</param>
+            <param name="Command">A <see cref="T:MySql.Data.MySqlClient.MySqlCommand"/> instance whose command text will be set and executed.</param>
+            <param name="SelectCommand">The SQL SELECT statement to execute.</param>
+            <returns>
+            A <see cref="T:System.Collections.Generic.List`1"/> containing the string representations of the first column from each result row.
+            </returns>
+            <remarks>
+            This method sets the command text, executes the query, and reads each row from the result set.
+            Only the first column of each row is extracted. The result is commonly used to populate UI elements such as combo boxes or list views in BBHRKS modules.
+            </remarks>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if the connection is not open or the command is improperly configured.
+            </exception>
+            <exception cref="T:MySql.Data.MySqlClient.MySqlException">
+            Thrown if the query execution fails due to syntax errors or connection issues.
+            </exception>
+        </member>
+        <member name="T:BBHRKS.MySQL.Generate">
+            <summary>
+            Provides static methods and supporting types for constructing SQL command strings dynamically.
+            </summary>
+            <remarks>
+            The <c>Generate</c> class includes utility functions for building SQL <c>SELECT</c>, <c>INSERT</c>, <c>UPDATE</c>, and <c>DELETE</c> statements.
+            It also defines supporting enumerations and structures for data typing, sorting, and update metadata.
+            Designed for use in modular database operations where command text needs to be assembled programmatically.
+            </remarks>
+        </member>
+        <member name="T:BBHRKS.MySQL.Generate.DataTypes">
+            <summary>
+            Represents supported data types for metadata classification or value interpretation.
+            </summary>
+            <remarks>
+            This enumeration defines common primitive types used for parsing, validation, or dynamic type handling.
+            </remarks>
+        </member>
+        <member name="F:BBHRKS.MySQL.Generate.DataTypes.Int">
+            <summary>
+            Represents a 32-bit signed integer value.
+            </summary>
+        </member>
+        <member name="F:BBHRKS.MySQL.Generate.DataTypes.Double">
+            <summary>
+            Represents a double-precision floating-point value.
+            </summary>
+        </member>
+        <member name="F:BBHRKS.MySQL.Generate.DataTypes.String">
+            <summary>
+            Represents a sequence of Unicode characters.
+            </summary>
+        </member>
+        <member name="F:BBHRKS.MySQL.Generate.DataTypes.DateTime">
+            <summary>
+            Represents a date and time value.
+            </summary>
+        </member>
+        <member name="T:BBHRKS.MySQL.Generate.SortBy">
+            <summary>
+            Specifies sorting direction for SQL queries or data operations.
+            </summary>
+            <remarks>
+            This enumeration defines sorting behavior for ordered results, typically used in <c>ORDER BY</c> clauses.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.MySQL.Generate.SelectAllCommand(System.String,System.String)">
+            <summary>
+            Constructs a SQL SELECT command string that retrieves all columns from the specified table.
+            </summary>
+            <param name="TableName">The name of the table to query.</param>
+            <param name="WhereStatement">An optional WHERE clause to filter results. If empty, no filtering is applied.</param>
+            <returns>
+            A formatted SQL SELECT command string using <c>SELECT *</c> syntax.
+            </returns>
+            <remarks>
+            This method builds a SQL SELECT statement that targets all columns in the specified table.
+            If a <c>WhereStatement</c> is provided, it appends a <c>WHERE</c> clause to the query.
+            The final command string is terminated with a semicolon.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.MySQL.Generate.SelectCommand(System.String[],System.String,System.String)">
+            <summary>
+            Constructs an SQL SELECT command string using the specified columns, table name, and optional WHERE clause.
+            </summary>
+            <param name="SelectColumns">An array of column names to include in the SELECT statement.</param>
+            <param name="FromTable">The name of the table to query.</param>
+            <param name="WhereStatement">
+            An optional WHERE clause to filter the results. If empty or <c>null</c>, no filtering is applied.
+            </param>
+            <returns>
+            A formatted SQL SELECT command string.
+            </returns>
+            <remarks>
+            This method dynamically builds an SQL query by concatenating column names, the target table, and an optional WHERE clause.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.MySQL.Generate.SelectCommand(System.String[],System.String,System.String,System.String,BBHRKS.MySQL.Generate.SortBy)">
+            <summary>
+            Constructs a SQL SELECT command string using specified columns, table name, optional WHERE clause, and optional sorting.
+            </summary>
+            <param name="SelectColumns">An array of column names to include in the SELECT clause.</param>
+            <param name="FromTable">The name of the table to query.</param>
+            <param name="WhereStatement">An optional WHERE clause to filter results. If empty, no filtering is applied.</param>
+            <param name="SortColumn">The column name to apply sorting on, if sorting is enabled.</param>
+            <param name="Sort">The sorting direction, specified by the <see cref="T:BBHRKS.MySQL.Generate.SortBy"/> enum. Defaults to <c>None</c>.</param>
+            <returns>
+            A formatted SQL SELECT command string.
+            </returns>
+            <remarks>
+            This method builds a SQL SELECT statement by listing the selected columns, specifying the source table,
+            appending a WHERE clause if provided, and applying ORDER BY sorting if enabled.
+            Sorting uses standard SQL syntax and supports ascending or descending order.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.MySQL.Generate.UpdateCommand(System.String,System.String[],System.String[],BBHRKS.MySQL.Generate.DataTypes[],System.String)">
+            <summary>
+            Constructs a SQL UPDATE command string using the specified table, columns, values, data types, and optional WHERE clause.
+            </summary>
+            <param name="Table">The name of the table to update.</param>
+            <param name="Columns">An array of column names to be updated.</param>
+            <param name="Values">An array of values to assign to the corresponding columns.</param>
+            <param name="Types">An array of <see cref="T:BBHRKS.MySQL.Generate.DataTypes"/> indicating how each value should be formatted.</param>
+            <param name="WhereCondition">
+            An optional WHERE clause to restrict which rows are updated. If empty, all rows will be affected.
+            </param>
+            <returns>
+            A formatted SQL UPDATE command string.
+            </returns>
+            <remarks>
+            This method builds a SQL UPDATE statement by pairing each column with its corresponding value,
+            applying apostrophes for string and datetime types, and appending a WHERE clause if provided.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.MySQL.Generate.UpdateCommand(System.String,BBHRKS.MySQL.Generate.UpdateInfo[],System.String)">
+            <summary>
+            Constructs a SQL UPDATE command string using the specified table name, update values, and optional WHERE clause.
+            </summary>
+            <param name="Table">The name of the table to update.</param>
+            <param name="UpdateValues">
+            An array of <see cref="T:BBHRKS.MySQL.Generate.UpdateInfo"/> structures containing column names, values, and data types for the update operation.
+            </param>
+            <param name="WhereStatement">
+            An optional WHERE clause to restrict which rows are updated. If empty, all rows will be affected.
+            </param>
+            <returns>
+            A formatted SQL UPDATE command string.
+            </returns>
+            <remarks>
+            This method builds a SQL UPDATE statement by iterating through the <see cref="T:BBHRKS.MySQL.Generate.UpdateInfo"/> array,
+            formatting each value according to its <see cref="T:BBHRKS.MySQL.Generate.DataTypes"/> type, and appending a WHERE clause if provided.
+            Apostrophes are automatically applied to string and datetime values.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.MySQL.Generate.InsertIntoCommand(System.String,System.String[],BBHRKS.MySQL.Generate.DataTypes[],System.String[])">
+            <summary>
+            Constructs a SQL INSERT command string for inserting values into the specified table.
+            </summary>
+            <param name="TableName">The name of the table to insert into.</param>
+            <param name="Values">An array of values to be inserted. Each value must correspond to a defined <see cref="T:BBHRKS.MySQL.Generate.DataTypes"/> entry.</param>
+            <param name="Types">An array of <see cref="T:BBHRKS.MySQL.Generate.DataTypes"/> indicating the data type of each value. Used to format values correctly in SQL.</param>
+            <param name="Columns">
+            An optional array of column names to insert into. If <c>null</c>, the command assumes positional mapping to all columns.
+            </param>
+            <returns>
+            A formatted SQL <c>INSERT INTO</c> command string with properly quoted and typed values.
+            </returns>
+            <remarks>
+            This method builds a SQL INSERT statement by optionally specifying column names and formatting each value
+            according to its declared <see cref="T:BBHRKS.MySQL.Generate.DataTypes"/>. String and DateTime values are enclosed in single quotes.
+            Numeric types are inserted directly. The final command string is terminated with a semicolon.
+            </remarks>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="Values"/> and <paramref name="Types"/> arrays do not match in length.
+            </exception>
+        </member>
+        <member name="M:BBHRKS.MySQL.Generate.InsertIntoCommand(System.String,BBHRKS.MySQL.Generate.InsertInfo[])">
+            <summary>
+            Constructs a SQL <c>INSERT INTO</c> command using the specified table name and structured insert data.
+            </summary>
+            <param name="TableName">The name of the target table.</param>
+            <param name="InsertData">An array of <see cref="T:BBHRKS.MySQL.Generate.InsertInfo"/> objects containing column names, values, and data types.</param>
+            <returns>
+            A formatted SQL <c>INSERT</c> statement as a string.
+            </returns>
+            <remarks>
+            This method builds a parameterless SQL command by iterating through the provided insert data.
+            String and date-time values are wrapped in single quotes; numeric types are inserted directly.
+            Commonly used in BBHRKS modules for dynamic record creation based on structured input.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="TableName"/> or <paramref name="InsertData"/> is <c>null</c>.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            Thrown if <paramref name="InsertData"/> contains unsupported or uninitialized type values.
+            </exception>
+        </member>
+        <member name="M:BBHRKS.MySQL.Generate.DeleteCommand(System.String,System.String)">
+            <summary>
+            Constructs a SQL DELETE command string for removing records from the specified table.
+            </summary>
+            <param name="TableName">The name of the table from which records will be deleted.</param>
+            <param name="WhereStatement">
+            An optional WHERE clause to filter which records are deleted. If empty, all records in the table will be removed.
+            </param>
+            <returns>
+            A formatted SQL <c>DELETE FROM</c> command string.
+            </returns>
+            <remarks>
+            This method builds a SQL DELETE statement targeting the specified table. If a <c>WhereStatement</c> is provided,
+            it appends a <c>WHERE</c> clause to restrict deletion to matching rows. If omitted, the command deletes all rows.
+            The final command string is terminated with a semicolon.
+            </remarks>
+            <exception cref="T:System.ArgumentException">
+            Thrown if <paramref name="TableName"/> is null or empty.
+            </exception>
+        </member>
+        <member name="T:BBHRKS.MySQL.Generate.UpdateInfo">
+            <summary>
+            Represents metadata for constructing SQL update operations, including column identity, value, and type.
+            </summary>
+            <remarks>
+            This structure supports flexible initialization for either alias-based referencing or direct value assignment.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.MySQL.Generate.UpdateInfo.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BBHRKS.MySQL.Generate.UpdateInfo"/> struct using a column name and alias reference.
+            </summary>
+            <param name="Column">The name of the column to be updated.</param>
+            <param name="ColumnAlias">An alias used to reference the column in external contexts.</param>
+            <remarks>
+            This constructor sets the <c>DataType</c> to <see cref="F:BBHRKS.MySQL.Generate.DataTypes.Int"/> by default and initializes other fields to empty strings.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.MySQL.Generate.UpdateInfo.#ctor(System.String,System.String,BBHRKS.MySQL.Generate.DataTypes)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BBHRKS.MySQL.Generate.UpdateInfo"/> struct using a column name, value, and data type.
+            </summary>
+            <param name="Column">The name of the column to be updated.</param>
+            <param name="ColumnValue">The value to assign to the specified column.</param>
+            <param name="ValueType">The data type of the value, used to determine SQL formatting.</param>
+            <remarks>
+            This constructor sets the <c>TableName</c> and <c>Alias</c> fields to empty strings by default.
+            </remarks>
+        </member>
+        <member name="T:BBHRKS.MySQL.Generate.InsertInfo">
+            <summary>
+            Represents a structured unit of data for insertion into a database table.
+            </summary>
+        </member>
+        <member name="M:BBHRKS.MySQL.Generate.InsertInfo.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:BBHRKS.MySQL.Generate.InsertInfo"/> struct with default values.
+            </summary>
+            <remarks>
+            Sets <c>Column</c> and <c>Value</c> to empty strings, and assigns <c>DataTypes.Int</c> as the default type.
+            Useful for placeholder initialization or deferred assignment in BBHRKS-style insert routines.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.MySQL.Generate.InsertInfo.#ctor(System.String,System.String,BBHRKS.MySQL.Generate.DataTypes)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BBHRKS.MySQL.Generate.InsertInfo"/> struct with the specified column name, value, and data type.
+            </summary>
+            <param name="column">The name of the column to insert into.</param>
+            <param name="value">The value to be inserted.</param>
+            <param name="type">The data type classification for the value.</param>
+        </member>
+        <member name="T:BBHRKS.Utilities.Utilities.TenantsMenuAction">
+            <summary>
+            Defines the set of actions available in the tenant menu interface.
+            </summary>
+        </member>
+        <member name="T:BBHRKS.Utilities.Utilities.TenantsMenu">
+            <summary>
+            Represents a structured menu context for tenant-related operations, including the intended action and associated tenant name.
+            </summary>
+        </member>
+        <member name="M:BBHRKS.Utilities.Utilities.TenantsMenu.#ctor(BBHRKS.Utilities.Utilities.TenantsMenuAction,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:BBHRKS.Utilities.Utilities.TenantsMenu"/> class with the specified action and tenant name.
+            </summary>
+            <param name="action">
+            The action to be performed by the menu, represented by a <see cref="T:BBHRKS.Utilities.Utilities.TenantsMenuAction"/> enumeration.
+            Defaults to <c>TenantsMenuAction.None</c> if not specified.
+            </param>
+            <param name="tenantName">
+            An optional tenant name associated with the menu context. Defaults to an empty string if not specified.
+            </param>
+            <remarks>
+            This constructor sets the <c>Action</c> and <c>TenantName</c> properties based on the provided parameters.
+            It is typically used to initialize menu behavior for tenant-related operations in BBHRKS modules.
+            </remarks>
+        </member>
+        <member name="P:BBHRKS.Utilities.Utilities.TMenuAction">
+            <summary>
+            Gets or sets the current tenant menu context, including the selected action and associated tenant name.
+            </summary>
+            <value>
+            A <see cref="T:BBHRKS.Utilities.Utilities.TenantsMenu"/> structure representing the active state of tenant-related operations.
+            </value>
+            <remarks>
+            This static property provides controlled access to an internal store that maintains the current tenant menu state.
+            It is commonly used across BBHRKS modules to coordinate form behavior, menu routing, and tenant-specific workflows.
+            </remarks>
+        </member>
+        <member name="M:BBHRKS.Utilities.Utilities.FillEmptyField(System.String)">
+            <summary>
+            Replaces an empty string with a default placeholder value.
+            </summary>
+            <param name="field">The input string to evaluate.</param>
+            <returns>
+            <c>"N/A"</c> if the input is empty; otherwise, returns the original string.
+            </returns>
+            <remarks>
+            Commonly used in BBHRKS modules to ensure display consistency when optional fields are left blank.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown if <paramref name="field"/> is <c>null</c>.
+            </exception>
+        </member>
+    </members>
+</doc>

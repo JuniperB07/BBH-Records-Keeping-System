@@ -1,0 +1,130 @@
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\BBH Records Keeping System.exe
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\BBHRKS Database.xsd
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\BillPreview.rdlc
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\ReceiptPreview.rdlc
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\BBH Records Keeping System.deps.json
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\BBH Records Keeping System.runtimeconfig.json
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\BBH Records Keeping System.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\BBH Records Keeping System.pdb
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\BouncyCastle.Cryptography.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\Google.Protobuf.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\K4os.Compression.LZ4.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\K4os.Compression.LZ4.Streams.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\K4os.Hash.xxHash.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\Microsoft.CodeAnalysis.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\Microsoft.Extensions.ObjectPool.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\MySql.Data.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\Microsoft.ReportViewer.Common.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\Microsoft.ReportViewer.DataVisualization.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\Microsoft.ReportViewer.ProcessingObjectModel.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\Microsoft.ReportViewer.WinForms.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\System.IO.Packaging.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\System.IO.Pipelines.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\System.Security.Cryptography.Pkcs.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\System.Security.Cryptography.Xml.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\System.ServiceModel.Http.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\System.ServiceModel.Duplex.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\System.ServiceModel.Primitives.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\System.ServiceModel.Security.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\System.ServiceModel.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\System.Text.Encodings.Web.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\System.Text.Json.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\ZstdSharp.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\cs\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\de\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\es\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\fr\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\it\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\ja\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\ko\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\pl\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\pt-BR\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\ru\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\tr\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\zh-Hans\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\zh-Hant\Microsoft.CodeAnalysis.VisualBasic.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\cs\System.ServiceModel.Http.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\de\System.ServiceModel.Http.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\es\System.ServiceModel.Http.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\fr\System.ServiceModel.Http.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\it\System.ServiceModel.Http.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\ja\System.ServiceModel.Http.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\ko\System.ServiceModel.Http.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\pl\System.ServiceModel.Http.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\pt-BR\System.ServiceModel.Http.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\ru\System.ServiceModel.Http.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\tr\System.ServiceModel.Http.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\zh-Hans\System.ServiceModel.Http.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\zh-Hant\System.ServiceModel.Http.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\cs\System.ServiceModel.Primitives.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\de\System.ServiceModel.Primitives.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\es\System.ServiceModel.Primitives.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\fr\System.ServiceModel.Primitives.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\it\System.ServiceModel.Primitives.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\ja\System.ServiceModel.Primitives.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\ko\System.ServiceModel.Primitives.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\pl\System.ServiceModel.Primitives.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\pt-BR\System.ServiceModel.Primitives.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\ru\System.ServiceModel.Primitives.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\tr\System.ServiceModel.Primitives.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\zh-Hans\System.ServiceModel.Primitives.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\zh-Hant\System.ServiceModel.Primitives.resources.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\runtimes\win-x64\native\comerr64.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\runtimes\win-x64\native\gssapi64.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\runtimes\win-x64\native\k5sprt64.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\runtimes\win-x64\native\krb5_64.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\runtimes\win-x64\native\krbcc64.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\BBHRKS Library.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\JunX.NET.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\BBHRKS Library.pdb
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\BBHRKS Library.xml
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH Records Keeping System.csproj.AssemblyReference.cache
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH_Records_Keeping_System.Additionals_NEW.resources
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH_Records_Keeping_System.BillingPreview_SEARCH.resources
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH_Records_Keeping_System.Billing_MENU.resources
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH_Records_Keeping_System.Billing_New.resources
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH_Records_Keeping_System.BillPreview_EXPORT.resources
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH_Records_Keeping_System.BillPreview_PREVIEW.resources
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH_Records_Keeping_System.Dashboard.resources
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH_Records_Keeping_System.Login.resources
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH_Records_Keeping_System.MSG_Processing.resources
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH_Records_Keeping_System.Payments_ALL_ORs.resources
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH_Records_Keeping_System.Payments_BILL.resources
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH_Records_Keeping_System.Payments_PREVIEW.resources
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH_Records_Keeping_System.Properties.Resources.resources
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH_Records_Keeping_System.Tenants_MENU.resources
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH_Records_Keeping_System.Tenants_NEW.resources
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH_Records_Keeping_System.Tenants_UPDATE.resources
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH Records Keeping System.csproj.GenerateResource.cache
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH Records Keeping System.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH Records Keeping System.AssemblyInfoInputs.cache
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH Records Keeping System.AssemblyInfo.cs
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH Records Keeping System.csproj.CoreCompileInputs.cache
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH Reco.03FB28BC.Up2Date
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH Records Keeping System.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\refint\BBH Records Keeping System.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH Records Keeping System.pdb
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH Records Keeping System.genruntimeconfig.cache
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\ref\BBH Records Keeping System.dll
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\JunX.NET.pdb
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\JunX.NET.xml
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH_Records_Keeping_System.Additionals_VIEW.resources
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH_Records_Keeping_System.Payments_MENU.resources
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH_Records_Keeping_System.User_MANAGEMENT.resources
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH_Records_Keeping_System.Payments_ADVANCES.resources

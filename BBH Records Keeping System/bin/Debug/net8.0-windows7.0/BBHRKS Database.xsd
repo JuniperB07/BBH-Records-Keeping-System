@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="BBHRKS_Database" targetNamespace="http://tempuri.org/BBHRKS Database.xsd" xmlns:mstns="http://tempuri.org/BBHRKS Database.xsd" xmlns="http://tempuri.org/BBHRKS Database.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="BBHRKS_Database" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="BBHRKS_Database" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="BBHRKS_Database">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tbbillpreview_receipts" msprop:Generator_RowClassName="tbbillpreview_receiptsRow" msprop:Generator_RowEvHandlerName="tbbillpreview_receiptsRowChangeEventHandler" msprop:Generator_RowDeletedName="tbbillpreview_receiptsRowDeleted" msprop:Generator_RowDeletingName="tbbillpreview_receiptsRowDeleting" msprop:Generator_RowEvArgName="tbbillpreview_receiptsRowChangeEvent" msprop:Generator_TablePropName="tbbillpreview_receipts" msprop:Generator_RowChangedName="tbbillpreview_receiptsRowChanged" msprop:Generator_UserTableName="tbbillpreview_receipts" msprop:Generator_RowChangingName="tbbillpreview_receiptsRowChanging" msprop:Generator_TableClassName="tbbillpreview_receiptsDataTable" msprop:Generator_TableVarName="tabletbbillpreview_receipts">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BPRID" msprop:Generator_UserColumnName="BPRID" msprop:Generator_ColumnPropNameInTable="BPRIDColumn" msprop:Generator_ColumnPropNameInRow="BPRID" msprop:Generator_ColumnVarNameInTable="columnBPRID" type="xs:int" minOccurs="0" />
+              <xs:element name="ORNumber" msprop:Generator_UserColumnName="ORNumber" msprop:Generator_ColumnPropNameInTable="ORNumberColumn" msprop:Generator_ColumnPropNameInRow="ORNumber" msprop:Generator_ColumnVarNameInTable="columnORNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TransactionDateTime" msprop:Generator_UserColumnName="TransactionDateTime" msprop:Generator_ColumnPropNameInTable="TransactionDateTimeColumn" msprop:Generator_ColumnPropNameInRow="TransactionDateTime" msprop:Generator_ColumnVarNameInTable="columnTransactionDateTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="BillType" msprop:Generator_UserColumnName="BillType" msprop:Generator_ColumnPropNameInTable="BillTypeColumn" msprop:Generator_ColumnPropNameInRow="BillType" msprop:Generator_ColumnVarNameInTable="columnBillType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="15" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="AmountPaid" msprop:Generator_UserColumnName="AmountPaid" msprop:Generator_ColumnPropNameInTable="AmountPaidColumn" msprop:Generator_ColumnPropNameInRow="AmountPaid" msprop:Generator_ColumnVarNameInTable="columnAmountPaid" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="tbpaymentpreview_receipts" msprop:Generator_RowEvHandlerName="tbpaymentpreview_receiptsRowChangeEventHandler" msprop:Generator_RowDeletedName="tbpaymentpreview_receiptsRowDeleted" msprop:Generator_RowDeletingName="tbpaymentpreview_receiptsRowDeleting" msprop:Generator_RowEvArgName="tbpaymentpreview_receiptsRowChangeEvent" msprop:Generator_TablePropName="tbpaymentpreview_receipts" msprop:Generator_RowChangedName="tbpaymentpreview_receiptsRowChanged" msprop:Generator_RowChangingName="tbpaymentpreview_receiptsRowChanging" msprop:Generator_TableClassName="tbpaymentpreview_receiptsDataTable" msprop:Generator_RowClassName="tbpaymentpreview_receiptsRow" msprop:Generator_TableVarName="tabletbpaymentpreview_receipts" msprop:Generator_UserTableName="tbpaymentpreview_receipts">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="PPRID" msprop:Generator_ColumnPropNameInRow="PPRID" msprop:Generator_ColumnPropNameInTable="PPRIDColumn" msprop:Generator_ColumnVarNameInTable="columnPPRID" msprop:Generator_UserColumnName="PPRID" type="xs:int" minOccurs="0" />
+              <xs:element name="ORNumber" msprop:Generator_ColumnPropNameInRow="ORNumber" msprop:Generator_ColumnPropNameInTable="ORNumberColumn" msprop:Generator_ColumnVarNameInTable="columnORNumber" msprop:Generator_UserColumnName="ORNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="TransactionDateTime" msprop:Generator_ColumnPropNameInRow="TransactionDateTime" msprop:Generator_ColumnPropNameInTable="TransactionDateTimeColumn" msprop:Generator_ColumnVarNameInTable="columnTransactionDateTime" msprop:Generator_UserColumnName="TransactionDateTime" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="BillType" msprop:Generator_ColumnPropNameInRow="BillType" msprop:Generator_ColumnPropNameInTable="BillTypeColumn" msprop:Generator_ColumnVarNameInTable="columnBillType" msprop:Generator_UserColumnName="BillType" type="xs:string" minOccurs="0" />
+              <xs:element name="AmountPaid" msprop:Generator_ColumnPropNameInRow="AmountPaid" msprop:Generator_ColumnPropNameInTable="AmountPaidColumn" msprop:Generator_ColumnVarNameInTable="columnAmountPaid" msprop:Generator_UserColumnName="AmountPaid" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

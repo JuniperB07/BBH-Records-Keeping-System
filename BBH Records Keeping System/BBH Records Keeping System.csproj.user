@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Compile Update="Additionals_NEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Additionals_VIEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="BillingPreview_SEARCH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Billing_MENU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Billing_NEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="BillPreview_EXPORT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="BillPreview_PREVIEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Dashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MSG_Processing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Payments_ADVANCES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Payments_ALL_ORs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Payments_BILL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Payments_MENU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Payments_PREVIEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Tenants_MENU.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Tenants_NEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Tenants_UPDATE.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="User_MANAGEMENT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="BBHRKS Database.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+</Project>
