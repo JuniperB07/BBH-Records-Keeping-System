@@ -15,7 +15,23 @@
   <li><strong>Billing_NEW.cs</strong> - Subform that allows creation of new bills.</li>
   <li><strong>BillingPreview_SEARCH.cs</strong> - An intermediary subform that allows bill selection for bill preview or exportation to PDF.</li>
   <li><strong>BillPreview_EXPORT.cs</strong> - Subform that exports the selected bill into a PDF file.</li>
-  <li><strong></li>
+  <li><strong>BillPreview_PREVIEW.cs</strong> - Subform that displays the Print Preview of the selected bill.</li>
+  <li><strong>MSG_Processing.cs</strong> - An intermediary subform that appears during bill/receipt preview generation for viewing and exportation.</li>
+  <li><strong>Payments_ADVANCES.cs</strong> - Subform that allows Advance Payments for future bill/s to be made.</li>
+  <li><strong>Payments_ALL_ORs.cs</strong> - An intermediary subform that allows OR selection for print preview or printing.</li>
+  <li><strong>Payments_BILL.cs</strong> - Subform that allows payment of bills.</li>
+  <li><strong>Payments_MENU.cs</strong> - Subform that shows the Payments Menu.</li>
+  <li><strong>Payments_PREVIEW.cs</strong> - Subform that displays the Print Preview of the selected OR.</li>
+  <li><strong>Tenants_MENU.cs</strong> - Subform that shows the Tenants Menu.</li>
+  <li><strong>Tenants_NEW.cs</strong> - Subform that allows adding new tenant information.</li>
+  <li><strong>Tenants_UPDATE.cs</strong> - Subform that allows editing of an existing tenant's tenant information.</li>
+  <li><strong>User_MANAGEMENT.cs</strong> - Subform that allows creation, editing, enabling, disabling, and setting the access level of users to access the entire system. Credentials, particularly the
+    password, are encrypted before storing to database. The encryption and decryption process is accomplished with the use of JunX.NET8.EncryptionService. For more information about JunX.NET8 Library:
+    </li>
+  <ul>
+    <li><a href="https://github.com/JuniperB07/JunX.NET">JunX.NET8 GitHub Repository</a></li>
+    <li><a href="https://www.nuget.org/packages/JunX.NET8">JunX.NET8 NuGet Package</li>
+  </ul>
 </ul>
 
 # BBHRKS Library
