@@ -73,8 +73,8 @@
 </ul>
 <strong>NOTES</strong>
 <ul>
-  <li>This Solution generates C# enum files when the application starts. These files are stored in <i>\bin\Debug\net8.0-windows\TableEnums</i> and <i>\bin\Debug\net8.0-windows7.0\TableEnums</i>.
-    You may need to recreate these paths and folders in order to for the solution and program to function properly.</li>
+  <li>This Solution generates C# enum files when the application starts. These files are stored in <b><i>\bin\Debug\net8.0-windows\TableEnums</i></b> and <b><i>\bin\Debug\net8.0-windows7.0\TableEnums</i>
+  </b>. You may need to recreate these paths and folders in order to for the solution and program to function properly.</li>
   <li>Connection to WampServer MySQL Database uses the default <i>'root'</i> credentials with no passwords. If you want to change this, edit the connection string found in the method: 
     <b><i>BBHRKS.MySQL.Database.Initialize().</i></b></li>
 </ul>
