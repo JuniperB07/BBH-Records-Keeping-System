@@ -2,6 +2,7 @@
 <img src="BBH Records Keeping System/bbhLogo.png" align="right" width="150px" height="150px" /> 
 <p>This Records Keeping System is created for Bolabon Boarding House (BBH). It allows automated bill creation, transaction processing &amp; tracking, and tenant management.</p>
 <p>This system create bills for Water, Electricity, Internet, and Rental Bills.</p>
+<p><strong>TARGET FRAMEWORK:</strong> .net8.0-windows</p>
 <p><strong>FOR PDF EXPORT:</strong> Exported PDF files are saved to (C:\Users\USER\Documents\BOLABON BOARDING HOUSE)</p>
 
 <strong>BUILT-IN FORMS </strong>
@@ -48,6 +49,28 @@
 <ul>
   <li>BillPreview.rdlc</li>
   <li>ReceiptPreview.rdlc</li>
+</ul>
+<strong>PROJECT REFERENCES</strong>
+<ul>
+  <li><a href="https://github.com/JuniperB07/BBH-Records-Keeping-System/tree/f6f30b508ce5c1e29a0336a097f4186ffd35de1b/BBHRKS%20Library">BBHRKS Library 
+  (.csproj file)</a>
+  </li>
+  <li><a href="https://github.com/JuniperB07/JunX.NET">JunX.NET8 (.csproj file)</a></li>
+</ul>
+<strong>DEPENDENCIES</strong>
+<ul>
+  <li><a href="https://www.nuget.org/packages/MySql.Data/9.4.0?_src=template">MySql.Data v9.4.0 NuGet Package</a></li>
+  <li><a href="https://www.nuget.org/packages/ReportViewerCore.WinForms/15.1.26?_src=template">ReportViewerCore.WinForms v15.1.26 NuGet Package</li>
+</ul>
+<strong>VS EXTENSION REQUIREMENTS</strong>
+<ul>
+  <li><a href="https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftRdlcReportDesignerforVisualStudio2022">
+    Microsoft RDLC Report Designer </a>
+  </li>
+</ul>
+<strong>DATABASE MANAGEMENT SOFTWARE</strong>
+<ul>
+  <li><a href="https://www.wampserver.com/en/download-wampserver-64bits">WampServer 3.3.7 64-bit</a></li>
 </ul>
 
 # BBHRKS Library
