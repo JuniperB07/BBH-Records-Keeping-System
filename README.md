@@ -73,7 +73,7 @@
 </ul>
 <strong>NOTES</strong>
 <ul>
-  <li>This Solution generates C# enum files when the application starts. These files are stored in (\bin\Debug\net8.0-windows\TableEnums) and (\bin\Debug\net8.0-windows7.0\TableEnums).
+  <li>This Solution generates C# enum files when the application starts. These files are stored in <i>\bin\Debug\net8.0-windows\TableEnums</i> and <i>\bin\Debug\net8.0-windows7.0\TableEnums</i>.
     You may need to recreate these paths and folders in order to for the solution and program to function properly.</li>
 </ul>
 
