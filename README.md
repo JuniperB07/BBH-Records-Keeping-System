@@ -2,5 +2,5 @@
 <img src="BBH Records Keeping System/bbhLogo.png" align="right" width="150px" height="150px" /> 
 This Records Keeping System is created for Bolabon Boarding House (BBH). It allows automated bill creation, transaction processing &amp; tracking, and tenant management.
 
-#BBHRKS Library
+# BBHRKS Library
 A C#.NET Library used to provide functionalities to BBH Records Keeping System.
