@@ -71,6 +71,11 @@
 <ul>
   <li><a href="https://www.wampserver.com/en/download-wampserver-64bits">WampServer 3.3.7 64bits</a></li>
 </ul>
+<strong>NOTES</strong>
+<ul>
+  <li>This Solution generates C# enum files when the application starts. These files are stored in (\bin\Debug\net8.0-windows\TableEnums) and (\bin\Debug\net8.0-windows7.0\TableEnums).
+    You may need to recreate these paths and folders in order to for the solution and program to function properly.</li>
+</ul>
 
 # BBHRKS Library
 A C#.NET Library used to provide functionalities to BBH Records Keeping System.
