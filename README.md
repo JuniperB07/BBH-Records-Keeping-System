@@ -75,6 +75,7 @@
 <ul>
   <li>This Solution generates C# enum files when the application starts. These files are stored in <i>\bin\Debug\net8.0-windows\TableEnums</i> and <i>\bin\Debug\net8.0-windows7.0\TableEnums</i>.
     You may need to recreate these paths and folders in order to for the solution and program to function properly.</li>
+  <li>Connection to WampServer MySQL Database uses the default 'root' credentials with no passwords. If you want to change this, edit the connection string found in BBHRKS.MySQL.Database.Initialize().</li>
 </ul>
 
 # BBHRKS Library
@@ -122,9 +123,37 @@
 <ul>
   <li><a href="https://github.com/JuniperB07/JunX.NET">JunX.NET8 (.csproj file)</a></li>
 </ul>
-<strong>ENUM DEPENDENCIES</strong>
-<p>This Library uses the same C# Enum files and is added as links.</p>
 <strong>DEPENDENCIES</strong>
 <ul>
   <li><a href="https://www.nuget.org/packages/MySql.Data/9.4.0?_src=template">MySql.Data v9.4.0 NuGet Package</a></li>
+</ul>
+<strong>NOTES</strong>
+<ul>
+  <li>This Library uses the same C# Enum files and is added as links.</li>
+</ul>
+
+# Database (dbBBHRKS)
+<p>This SQL Database contains tables that are necessary for data storage. This is necessary for proper functionality of BBH Records Keeping System.</p>
+<br/>
+<strong>LIST OF TABLES</strong>
+<ul>
+  <li>tbadditionals</li>
+  <li>tbbillpreview_receipts</li>
+  <li>tbbills</li>
+  <li>tbdashboard_overdues</li>
+  <li>tbdashboard_unpaidbills</li>
+  <li>tbdeductions</li>
+  <li>tbelectricitybill</li>
+  <li>tbemergency</li>
+  <li>tbinternetbill</li>
+  <li>tbinternetplans</li>
+  <li>tbmetadata</li>
+  <li>tbpaymentmethod</li>
+  <li>tbpaymentpreview_receipts</li>
+  <li>tbpayments</li>
+  <li>tbrentalbill</li>
+  <li>tbrooms</li>
+  <li>tbtenants</li>
+  <li>tbusers</li>
+  <li>tbwaterbill</li>
 </ul>
