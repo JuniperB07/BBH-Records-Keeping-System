@@ -97,7 +97,6 @@
 <ul>
   <li><strong>BBHRKS.MySQL.Database</strong> - Allows the entirety of BBH Records Keeping System access to its database.</li>
   <li><strong>BBHRKS.MySQL.Generate</strong> - Provides methods for generating MySQL command strings. Gradualy being replaced by JunX.NET8.MySQL.Construct.</li>
-  <li><strong></li>
 </ul>
 <strong>BBHRKS.Payments</strong>
 <ul>
@@ -110,4 +109,22 @@
   <li><strong>BBHRKS.Reports.InvoicePage3</strong> - Provides ReportViewer Parameter Values for BBH RKS Invoice Page 3.</li>
   <li><strong>BBHRKS.Reports.InvoicePage4</strong> - Provides ReportViewer Parameter Values for BBH RKS Invoice Page 4.</li>
   <li><strong>BBHRKS.Reports.PaymentsPage1</strong> - Provides ReportViewer Parameter Values for BBH RKS Official Receipt Page 1.</li>
+</ul>
+<strong>BBHRKS.UserManagement</strong>
+<ul>
+  <li><strong>BBHRKS.UserManagement.UserManagement</strong> - Provides data and functionalities to BBH RKS User Management Form.</li>
+</ul>
+<strong>BBHRKS.Utilities</strong>
+<ul>
+  <li><strong>BBHRKS.Utilities.Utilities</strong> - Provides data and functionalities to various BBH RKS Forms.</li>
+</ul>
+<strong>PROJECT REFERENCES</strong>
+<ul>
+  <li><a href="https://github.com/JuniperB07/JunX.NET">JunX.NET8 (.csproj file)</a></li>
+</ul>
+<strong>ENUM DEPENDENCIES</strong>
+<p>This Library uses the same C# Enum files and is added as links.</p>
+<strong>DEPENDENCIES</strong>
+<ul>
+  <li><a href="https://www.nuget.org/packages/MySql.Data/9.4.0?_src=template">MySql.Data v9.4.0 NuGet Package</a></li>
 </ul>
