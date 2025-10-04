@@ -3,7 +3,7 @@
 <p>This Records Keeping System is created for Bolabon Boarding House (BBH). It allows automated bill creation, transaction processing &amp; tracking, and tenant management.</p>
 <p><strong>TARGET FRAMEWORK:</strong> .net8.0-windows</p>
 <p><strong>FOR PDF EXPORT:</strong> Exported PDF files are saved to (C:\Users\USER\Documents\BOLABON BOARDING HOUSE)</p>
-
+<br/>
 <strong>BUILT-IN FORMS </strong>
 <ul>
   <li><strong>Login.cs</strong> - BBH Records Keeping System login form.</li>
@@ -78,4 +78,36 @@
 </ul>
 
 # BBHRKS Library
-A C#.NET Library used to provide functionalities to BBH Records Keeping System.
+<p>This Library is custom made specifically for BBH Records Keeping System. This solution needs to be project referenced in the BBH Records Keeping System Solution.</p>
+<p>The following are the namespaces in this Library.</p>
+<br/>
+<strong>BBHRKS.Global</strong>
+<ul>
+  <li><strong>BBHRKS.Global.Global</strong> - Provides data and functionalities across the BBH Records Keeping System Forms and Subforms.</li>
+</ul>
+<strong>BBHRKS.Interface</strong>
+<ul>
+  <li><strong>BBHRKS.Interface.Interface</strong> - Provides methods for manipulating the BBH Records Keeping System Form Controls.</li>
+</ul>
+<strong>BBHRKS.Metadata</strong>
+<ul>
+  <li><strong>BBHRKS.Metadata.Metadata</strong> - Provides crucial metadata necessary for the proper functionality of the BBH Records Keeping System Form Controls.</li>
+</ul>
+<strong>BBHRKS.MySQL</strong>
+<ul>
+  <li><strong>BBHRKS.MySQL.Database</strong> - Allows the entirety of BBH Records Keeping System access to its database.</li>
+  <li><strong>BBHRKS.MySQL.Generate</strong> - Provides methods for generating MySQL command strings. Gradualy being replaced by JunX.NET8.MySQL.Construct.</li>
+  <li><strong></li>
+</ul>
+<strong>BBHRKS.Payments</strong>
+<ul>
+  <li><strong>BBHRKS.Payments.Payments</strong> - Provides functionalities and data for BBH Records Keeping System - Payments</li>
+</ul>
+<strong>BBHRKS.Reports</strong>
+<ul>
+  <li><strong>BBHRKS.Reports.InvoicePage1</strong> - Provides ReportViewer Paramater Values for BBH RKS Invoice Page 1.</li>
+  <li><strong>BBHRKS.Reports.InvoicePage2</strong>- Provides ReportViewer Parameter Values for BBH RKS Invoice Page 2.</li>
+  <li><strong>BBHRKS.Reports.InvoicePage3</strong> - Provides ReportViewer Parameter Values for BBH RKS Invoice Page 3.</li>
+  <li><strong>BBHRKS.Reports.InvoicePage4</strong> - Provides ReportViewer Parameter Values for BBH RKS Invoice Page 4.</li>
+  <li><strong>BBHRKS.Reports.PaymentsPage1</strong> - Provides ReportViewer Parameter Values for BBH RKS Official Receipt Page 1.</li>
+</ul>
