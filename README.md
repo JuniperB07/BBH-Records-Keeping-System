@@ -33,6 +33,22 @@
     <li><a href="https://www.nuget.org/packages/JunX.NET8">JunX.NET8 NuGet Package</li>
   </ul>
 </ul>
+<strong>CLASSES</strong>
+<ul>
+  <li><strong>AdditionalsHelper.cs</strong> - Contains properties to be passed to other subforms under the <b>Additionals</b> category.</li>
+  <li><strong>BillPreviewHelper.cs</strong> - Contains properties to be used by or passed to other subforms under the <b>Billing</b> category</li>
+  <li><strong>DashboardHelper.cs</strong> - Used for passing data to or from <b>Dashbaord.cs</b>.</li>
+  <li><strong>ExportToPDF.cs</strong> - Used for passing data to <b>BillPreview_EXPORT.cs</b>.</li>
+  <li><strong>LoginHelper.cs</strong> - Used for passing data to or from <b>Login.cs</b>.</li>
+  <li><strong>Program.cs</strong> - Contains the MAIN method. This class is the applications entry point. Edit with caution.</li>
+  <li><strong>ReceiptPreviewHelper.cs</strong> - Used for passing data to or from <b>Payments_PREVIEW.cs</b>.</li>
+  <li><strong>UserManagementHelper.cs</strong> - Used for passing data to or from <b>User_MANAGEMENT.cs</b>.</li>
+</ul>
+<strong>RDLCs</strong>
+<ul>
+  <li>BillPreview.rdlc</li>
+  <li>ReceiptPreview.rdlc</li>
+</ul>
 
 # BBHRKS Library
 A C#.NET Library used to provide functionalities to BBH Records Keeping System.
