@@ -70,7 +70,7 @@
 </ul>
 <strong>DATABASE MANAGEMENT SOFTWARE</strong>
 <ul>
-  <li><a href="https://www.wampserver.com/en/download-wampserver-64bits">WampServer 3.3.7 64-bit</a></li>
+  <li><a href="https://www.wampserver.com/en/download-wampserver-64bits">WampServer 3.3.7 64bits</a></li>
 </ul>
 
 # BBHRKS Library
