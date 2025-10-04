@@ -1,7 +1,7 @@
 # BBH-Records-Keeping-System
 <img src="BBH Records Keeping System/bbhLogo.png" align="right" width="150px" height="150px" /> 
-This Records Keeping System is created for Bolabon Boarding House (BBH). It allows automated bill creation, transaction processing &amp; tracking, and tenant management.
-This system create bills for Water, Electricity, Internet, and Rental Bills.
+<p>This Records Keeping System is created for Bolabon Boarding House (BBH). It allows automated bill creation, transaction processing &amp; tracking, and tenant management.</p>
+<p>This system create bills for Water, Electricity, Internet, and Rental Bills.</p>
 
 <strong>BUILT-IN FORMS </strong>
 <ul>
