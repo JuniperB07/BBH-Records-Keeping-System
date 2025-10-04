@@ -1,7 +1,6 @@
 # BBH Records Keeping System
 <img src="BBH Records Keeping System/bbhLogo.png" align="right" width="150px" height="150px" /> 
 <p>This Records Keeping System is created for Bolabon Boarding House (BBH). It allows automated bill creation, transaction processing &amp; tracking, and tenant management.</p>
-<p>This system create bills for Water, Electricity, Internet, and Rental Bills.</p>
 <p><strong>TARGET FRAMEWORK:</strong> .net8.0-windows</p>
 <p><strong>FOR PDF EXPORT:</strong> Exported PDF files are saved to (C:\Users\USER\Documents\BOLABON BOARDING HOUSE)</p>
 
