@@ -2,6 +2,7 @@
 <img src="BBH Records Keeping System/bbhLogo.png" align="right" width="150px" height="150px" /> 
 <p>This Records Keeping System is created for Bolabon Boarding House (BBH). It allows automated bill creation, transaction processing &amp; tracking, and tenant management.</p>
 <p>This system create bills for Water, Electricity, Internet, and Rental Bills.</p>
+<p><strong>FOR PDF EXPORT: Exported files are saved to C:\Users\USER\Documents\BOLABON BOARDING HOUSE</strong></p>
 
 <strong>BUILT-IN FORMS </strong>
 <ul>
@@ -12,7 +13,9 @@
   <li><strong>Additionals_VIEW.cs</strong> - Subform that shows the details of a selected Additional Charge.</li>
   <li><strong>Billing_MENU.cs</strong> - Subform that shows the Billing Menu.</li>
   <li><strong>Billing_NEW.cs</strong> - Subform that allows creation of new bills.</li>
-  
+  <li><strong>BillingPreview_SEARCH.cs</strong> - An intermediary subform that allows bill selection for bill preview or exportation to PDF.</li>
+  <li><strong>BillPreview_EXPORT.cs</strong> - Subform that exports the selected bill into a PDF file.</li>
+  <li><strong></li>
 </ul>
 
 # BBHRKS Library
