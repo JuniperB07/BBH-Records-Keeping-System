@@ -28,10 +28,12 @@
   <li><strong>User_MANAGEMENT.cs</strong> - Subform that allows creation, editing, enabling, disabling, and setting the access level of users to access the entire system. Credentials, particularly the
     password, are encrypted before storing to database. The encryption and decryption process is accomplished with the use of JunX.NET8.EncryptionService. For more information about JunX.NET8 Library:
     </li>
-  <ul>
-    <li><a href="https://github.com/JuniperB07/JunX.NET">JunX.NET8 GitHub Repository</a></li>
-    <li><a href="https://www.nuget.org/packages/JunX.NET8">JunX.NET8 NuGet Package</li>
-  </ul>
+    <ul>
+      <li><a href="https://github.com/JuniperB07/JunX.NET">JunX.NET8 GitHub Repository</a></li>
+      <li><a href="https://www.nuget.org/packages/JunX.NET8">JunX.NET8 NuGet Package</li>
+    </ul>
+  <li><strong>Settings_MENU.cs</strong> - An intermediary subform that displays the Settings Menu.</li>
+  <li></li>
 </ul>
 <strong>CLASSES</strong>
 <ul>
