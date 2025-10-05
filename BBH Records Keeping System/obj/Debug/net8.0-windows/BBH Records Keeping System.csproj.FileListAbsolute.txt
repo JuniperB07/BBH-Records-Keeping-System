@@ -1,7 +1,5 @@
 C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\BBH Records Keeping System.exe
 C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\BBHRKS Database.xsd
-C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\BillPreview.rdlc
-C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\ReceiptPreview.rdlc
 C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\BBH Records Keeping System.deps.json
 C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\BBH Records Keeping System.runtimeconfig.json
 C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\BBH Records Keeping System.dll
@@ -130,3 +128,5 @@ C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\ne
 C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH_Records_Keeping_System.Payments_ADVANCES.resources
 C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH_Records_Keeping_System.Exports_PATH.resources
 C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH_Records_Keeping_System.Settings_MENU.resources
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\Billing\BillPreview.rdlc
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\bin\Debug\net8.0-windows\Payments\ReceiptPreview.rdlc

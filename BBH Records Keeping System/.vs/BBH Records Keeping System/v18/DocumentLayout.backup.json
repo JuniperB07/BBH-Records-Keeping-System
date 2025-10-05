@@ -3,20 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\USER\\Documents\\Visual Studio\\C#\\BBH Records Keeping System\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E00C4B72-2507-4F83-8B9F-67C9FE46FFF0}|BBH Records Keeping System.csproj|c:\\users\\user\\documents\\visual studio\\c#\\bbh records keeping system\\exports_path.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E00C4B72-2507-4F83-8B9F-67C9FE46FFF0}|BBH Records Keeping System.csproj|solutionrelative:exports_path.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E00C4B72-2507-4F83-8B9F-67C9FE46FFF0}|BBH Records Keeping System.csproj|c:\\users\\user\\documents\\visual studio\\c#\\bbh records keeping system\\payments\\payments_preview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E00C4B72-2507-4F83-8B9F-67C9FE46FFF0}|BBH Records Keeping System.csproj|solutionrelative:payments\\payments_preview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E00C4B72-2507-4F83-8B9F-67C9FE46FFF0}|BBH Records Keeping System.csproj|c:\\users\\user\\documents\\visual studio\\c#\\bbh records keeping system\\exports_path.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E00C4B72-2507-4F83-8B9F-67C9FE46FFF0}|BBH Records Keeping System.csproj|solutionrelative:exports_path.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{E00C4B72-2507-4F83-8B9F-67C9FE46FFF0}|BBH Records Keeping System.csproj|c:\\users\\user\\documents\\visual studio\\c#\\bbh records keeping system\\payments\\payments_preview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E00C4B72-2507-4F83-8B9F-67C9FE46FFF0}|BBH Records Keeping System.csproj|solutionrelative:payments\\payments_preview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E00C4B72-2507-4F83-8B9F-67C9FE46FFF0}|BBH Records Keeping System.csproj|c:\\users\\user\\documents\\visual studio\\c#\\bbh records keeping system\\settings_menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{E00C4B72-2507-4F83-8B9F-67C9FE46FFF0}|BBH Records Keeping System.csproj|solutionrelative:settings_menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{E00C4B72-2507-4F83-8B9F-67C9FE46FFF0}|BBH Records Keeping System.csproj|c:\\users\\user\\documents\\visual studio\\c#\\bbh records keeping system\\billing\\billpreview_export.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E00C4B72-2507-4F83-8B9F-67C9FE46FFF0}|BBH Records Keeping System.csproj|solutionrelative:billing\\billpreview_export.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E00C4B72-2507-4F83-8B9F-67C9FE46FFF0}|BBH Records Keeping System.csproj|c:\\users\\user\\documents\\visual studio\\c#\\bbh records keeping system\\settings_menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E00C4B72-2507-4F83-8B9F-67C9FE46FFF0}|BBH Records Keeping System.csproj|solutionrelative:settings_menu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{E00C4B72-2507-4F83-8B9F-67C9FE46FFF0}|BBH Records Keeping System.csproj|c:\\users\\user\\documents\\visual studio\\c#\\bbh records keeping system\\billing\\billpreview_preview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E00C4B72-2507-4F83-8B9F-67C9FE46FFF0}|BBH Records Keeping System.csproj|solutionrelative:billing\\billpreview_preview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E00C4B72-2507-4F83-8B9F-67C9FE46FFF0}|BBH Records Keeping System.csproj|c:\\users\\user\\documents\\visual studio\\c#\\bbh records keeping system\\billing\\billpreview_preview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{E00C4B72-2507-4F83-8B9F-67C9FE46FFF0}|BBH Records Keeping System.csproj|solutionrelative:billing\\billpreview_preview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +30,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -38,52 +42,65 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Settings_MENU.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Documents\\Visual Studio\\C#\\BBH Records Keeping System\\Settings_MENU.cs",
-              "RelativeDocumentMoniker": "Settings_MENU.cs",
-              "ToolTip": "C:\\Users\\USER\\Documents\\Visual Studio\\C#\\BBH Records Keeping System\\Settings_MENU.cs",
-              "RelativeToolTip": "Settings_MENU.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAIAywBwAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T02:03:15.688Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Settings_MENU.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\USER\\Documents\\Visual Studio\\C#\\BBH Records Keeping System\\Settings_MENU.cs",
-              "RelativeDocumentMoniker": "Settings_MENU.cs",
-              "ToolTip": "C:\\Users\\USER\\Documents\\Visual Studio\\C#\\BBH Records Keeping System\\Settings_MENU.cs [Design]",
-              "RelativeToolTip": "Settings_MENU.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T01:58:03.701Z",
-              "EditorCaption": " [Design]"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Exports_PATH.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\Documents\\Visual Studio\\C#\\BBH Records Keeping System\\Exports_PATH.cs",
-              "RelativeDocumentMoniker": "Exports_PATH.cs",
-              "ToolTip": "C:\\Users\\USER\\Documents\\Visual Studio\\C#\\BBH Records Keeping System\\Exports_PATH.cs",
-              "RelativeToolTip": "Exports_PATH.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAYwEoAAABAAAAAAAAAAA==",
+              "Title": "Payments_PREVIEW.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Documents\\Visual Studio\\C#\\BBH Records Keeping System\\Payments\\Payments_PREVIEW.cs",
+              "RelativeDocumentMoniker": "Payments\\Payments_PREVIEW.cs",
+              "ToolTip": "C:\\Users\\USER\\Documents\\Visual Studio\\C#\\BBH Records Keeping System\\Payments\\Payments_PREVIEW.cs",
+              "RelativeToolTip": "Payments\\Payments_PREVIEW.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAUwCQAAAAwAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T01:47:46.425Z",
+              "WhenOpened": "2025-10-05T07:48:03.609Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Exports_PATH.cs [Design]",
-              "DocumentMoniker": "C:\\Users\\USER\\Documents\\Visual Studio\\C#\\BBH Records Keeping System\\Exports_PATH.cs",
-              "RelativeDocumentMoniker": "Exports_PATH.cs",
-              "ToolTip": "C:\\Users\\USER\\Documents\\Visual Studio\\C#\\BBH Records Keeping System\\Exports_PATH.cs [Design]",
-              "RelativeToolTip": "Exports_PATH.cs [Design]",
+              "Title": "Payments_PREVIEW.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\USER\\Documents\\Visual Studio\\C#\\BBH Records Keeping System\\Payments\\Payments_PREVIEW.cs",
+              "RelativeDocumentMoniker": "Payments\\Payments_PREVIEW.cs",
+              "ToolTip": "C:\\Users\\USER\\Documents\\Visual Studio\\C#\\BBH Records Keeping System\\Payments\\Payments_PREVIEW.cs [Design]",
+              "RelativeToolTip": "Payments\\Payments_PREVIEW.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-05T01:42:37.098Z",
+              "WhenOpened": "2025-10-05T07:48:02.384Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BillPreview_EXPORT.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Documents\\Visual Studio\\C#\\BBH Records Keeping System\\Billing\\BillPreview_EXPORT.cs",
+              "RelativeDocumentMoniker": "Billing\\BillPreview_EXPORT.cs",
+              "ToolTip": "C:\\Users\\USER\\Documents\\Visual Studio\\C#\\BBH Records Keeping System\\Billing\\BillPreview_EXPORT.cs",
+              "RelativeToolTip": "Billing\\BillPreview_EXPORT.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAMwB8AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-05T07:46:47.06Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "BillPreview_PREVIEW.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\Documents\\Visual Studio\\C#\\BBH Records Keeping System\\Billing\\BillPreview_PREVIEW.cs",
+              "RelativeDocumentMoniker": "Billing\\BillPreview_PREVIEW.cs",
+              "ToolTip": "C:\\Users\\USER\\Documents\\Visual Studio\\C#\\BBH Records Keeping System\\Billing\\BillPreview_PREVIEW.cs",
+              "RelativeToolTip": "Billing\\BillPreview_PREVIEW.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAjwCoAAABLAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-05T07:45:22.036Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "BillPreview_PREVIEW.cs [Design]",
+              "DocumentMoniker": "C:\\Users\\USER\\Documents\\Visual Studio\\C#\\BBH Records Keeping System\\Billing\\BillPreview_PREVIEW.cs",
+              "RelativeDocumentMoniker": "Billing\\BillPreview_PREVIEW.cs",
+              "ToolTip": "C:\\Users\\USER\\Documents\\Visual Studio\\C#\\BBH Records Keeping System\\Billing\\BillPreview_PREVIEW.cs [Design]",
+              "RelativeToolTip": "Billing\\BillPreview_PREVIEW.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-05T07:45:15.901Z",
               "EditorCaption": " [Design]"
             }
           ]

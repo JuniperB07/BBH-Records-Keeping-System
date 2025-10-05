@@ -85,10 +85,10 @@
       <LastGenOutput>BBHRKS Database.Designer.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="BillPreview.rdlc">
+    <None Update="Billing\BillPreview.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ReceiptPreview.rdlc">
+    <None Update="Payments\ReceiptPreview.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

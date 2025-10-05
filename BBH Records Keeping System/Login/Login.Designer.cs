@@ -41,7 +41,7 @@
             // pictureBox1
             // 
             pictureBox1.Anchor = AnchorStyles.Top;
-            pictureBox1.Image = Properties.Resources.bbhLogo;
+            pictureBox1.Image = Properties.Resources.bbhLogo1;
             pictureBox1.Location = new Point(138, 59);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(224, 203);

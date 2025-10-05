@@ -64,7 +64,7 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.Image = Properties.Resources.USER_MANAGEMENT;
+            pictureBox2.Image = Properties.Resources.USER_MANAGEMENT1;
             pictureBox2.Location = new Point(12, 159);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(130, 121);

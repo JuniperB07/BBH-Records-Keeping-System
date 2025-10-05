@@ -4,4 +4,5 @@ public enum tbrooms
     RoomID,
     RoomName,
     Status,
+    TenantID,
 }

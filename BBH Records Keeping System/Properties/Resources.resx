@@ -118,31 +118,31 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="BILL PAYMENT" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\BILL PAYMENT.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PAY ADDITIONALS1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PAY ADDITIONALS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ADDITIONALS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ADDITIONALS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BILL PAYMENT1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BILL PAYMENT.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="ADVANCES" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\ADVANCES.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="ADVANCES1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ADVANCES.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bbhLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bbhLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PAY ADDITIONALS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\PAY ADDITIONALS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="USER MANAGEMENT" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\USER MANAGEMENT.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="LogoutICON" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\LogoutICON.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="NEW BILL" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\NEW BILL.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="USER MANAGEMENT1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\USER MANAGEMENT.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="EXPORTS PATH" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EXPORTS PATH.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ADDITIONALS1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ADDITIONALS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NEW BILL1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NEW BILL.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bbhLogo1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bbhLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LogoutICON1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LogoutICON.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -39,7 +39,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.NEW_BILL;
+            pictureBox1.Image = Properties.Resources.NEW_BILL1;
             pictureBox1.Location = new Point(12, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(130, 121);
@@ -49,7 +49,7 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.Image = Properties.Resources.ADDITIONALS;
+            pictureBox2.Image = Properties.Resources.ADDITIONALS1;
             pictureBox2.Location = new Point(12, 156);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(130, 121);

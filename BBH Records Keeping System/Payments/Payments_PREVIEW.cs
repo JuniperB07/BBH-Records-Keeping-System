@@ -34,7 +34,7 @@ namespace BBH_Records_Keeping_System
         private void InitializeReportViewer()
         {
             rvReceipt.Dock = DockStyle.Fill;
-            rvReceipt.LocalReport.ReportPath = "ReceiptPreview.rdlc";
+            rvReceipt.LocalReport.ReportPath = @"Payments\ReceiptPreview.rdlc";
             rvReceipt.SetDisplayMode(DisplayMode.PrintLayout);
             rvReceipt.RefreshReport();
             this.Controls.Add(rvReceipt);

@@ -63,9 +63,9 @@ namespace BBH_Records_Keeping_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ADDITIONALS {
+        internal static System.Drawing.Bitmap ADDITIONALS1 {
             get {
-                object obj = ResourceManager.GetObject("ADDITIONALS", resourceCulture);
+                object obj = ResourceManager.GetObject("ADDITIONALS1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace BBH_Records_Keeping_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ADVANCES {
+        internal static System.Drawing.Bitmap ADVANCES1 {
             get {
-                object obj = ResourceManager.GetObject("ADVANCES", resourceCulture);
+                object obj = ResourceManager.GetObject("ADVANCES1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace BBH_Records_Keeping_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bbhLogo {
+        internal static System.Drawing.Bitmap bbhLogo1 {
             get {
-                object obj = ResourceManager.GetObject("bbhLogo", resourceCulture);
+                object obj = ResourceManager.GetObject("bbhLogo1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace BBH_Records_Keeping_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap BILL_PAYMENT {
+        internal static System.Drawing.Bitmap BILL_PAYMENT1 {
             get {
-                object obj = ResourceManager.GetObject("BILL PAYMENT", resourceCulture);
+                object obj = ResourceManager.GetObject("BILL PAYMENT1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,9 +113,9 @@ namespace BBH_Records_Keeping_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap LogoutICON {
+        internal static System.Drawing.Bitmap LogoutICON1 {
             get {
-                object obj = ResourceManager.GetObject("LogoutICON", resourceCulture);
+                object obj = ResourceManager.GetObject("LogoutICON1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -123,9 +123,9 @@ namespace BBH_Records_Keeping_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap NEW_BILL {
+        internal static System.Drawing.Bitmap NEW_BILL1 {
             get {
-                object obj = ResourceManager.GetObject("NEW BILL", resourceCulture);
+                object obj = ResourceManager.GetObject("NEW BILL1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -133,9 +133,9 @@ namespace BBH_Records_Keeping_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap PAY_ADDITIONALS {
+        internal static System.Drawing.Bitmap PAY_ADDITIONALS1 {
             get {
-                object obj = ResourceManager.GetObject("PAY ADDITIONALS", resourceCulture);
+                object obj = ResourceManager.GetObject("PAY ADDITIONALS1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +143,9 @@ namespace BBH_Records_Keeping_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap USER_MANAGEMENT {
+        internal static System.Drawing.Bitmap USER_MANAGEMENT1 {
             get {
-                object obj = ResourceManager.GetObject("USER MANAGEMENT", resourceCulture);
+                object obj = ResourceManager.GetObject("USER MANAGEMENT1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -42,7 +42,7 @@
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources.BILL_PAYMENT;
+            pictureBox1.Image = Properties.Resources.BILL_PAYMENT1;
             pictureBox1.Location = new Point(12, 12);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(130, 121);
@@ -52,7 +52,7 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.Image = Properties.Resources.ADVANCES;
+            pictureBox2.Image = Properties.Resources.ADVANCES1;
             pictureBox2.Location = new Point(12, 159);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(130, 121);
@@ -62,7 +62,7 @@
             // 
             // pictureBox3
             // 
-            pictureBox3.Image = Properties.Resources.PAY_ADDITIONALS;
+            pictureBox3.Image = Properties.Resources.PAY_ADDITIONALS1;
             pictureBox3.Location = new Point(12, 305);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(130, 121);

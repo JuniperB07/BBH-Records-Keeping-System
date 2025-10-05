@@ -40,7 +40,7 @@ namespace BBH_Records_Keeping_System
         private void InitializeReportViewer()
         {
             rvInvoice.Dock = DockStyle.Fill;
-            rvInvoice.LocalReport.ReportPath = "BillPreview.rdlc";
+            rvInvoice.LocalReport.ReportPath = @"Billing\BillPreview.rdlc";
             rvInvoice.SetDisplayMode(DisplayMode.PrintLayout);
             rvInvoice.RefreshReport();
             this.Controls.Add(rvInvoice);

@@ -29,7 +29,7 @@ namespace BBH_Records_Keeping_System
 
             LocalReport invoice = new LocalReport
             {
-                ReportPath = "BillPreview.rdlc"
+                ReportPath = @"Billing\BillPreview.rdlc"
             };
 
             invoice.SetParameters(ExportToPDFHelper.Parameters);
