@@ -74,6 +74,260 @@
             </summary>
             <returns>A string that represents the current object.</returns>
         </member>
+        <member name="T:JunX.NET8.Excel.JXcel">
+            <summary>
+            Provides .NET functionalities for interacting with Excel Workbooks and Worksheets.
+            </summary>
+        </member>
+        <member name="M:JunX.NET8.Excel.JXcel.#ctor(Microsoft.Office.Interop.Excel.Worksheet)">
+            <summary>
+            Initializes a new instance of the <see cref="T:JunX.NET8.Excel.JXcel"/> class using the specified worksheet.
+            </summary>
+            <param name="SetWorksheet">
+            The <see cref="P:JunX.NET8.Excel.JXcel.Worksheet"/> instance to operate on. Must not be <c>null</c>.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown when <paramref name="SetWorksheet"/> is <c>null</c>.
+            </exception>
+            <remarks>
+            This constructor sets the internal worksheet context for all subsequent operations.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.Excel.JXcel.#ctor(Microsoft.Office.Interop.Excel.Workbook)">
+            <summary>
+            Initializes a new instance of the <see cref="T:JunX.NET8.Excel.JXcel"/> class using the specified workbook.
+            </summary>
+            <param name="SetWorkbook">
+            The <see cref="P:JunX.NET8.Excel.JXcel.Workbook"/> instance to operate on. Must not be <c>null</c>.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown when <paramref name="SetWorkbook"/> is <c>null</c>.
+            </exception>
+            <remarks>
+            This constructor sets the internal workbook context for all subsequent worksheet-level operations.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.Excel.JXcel.#ctor(Microsoft.Office.Interop.Excel.Workbook,Microsoft.Office.Interop.Excel.Worksheet)">
+            <summary>
+            Initializes a new instance of the <see cref="T:JunX.NET8.Excel.JXcel"/> class using the specified workbook and worksheet.
+            </summary>
+            <param name="SetWorkbook">
+            The <see cref="P:JunX.NET8.Excel.JXcel.Workbook"/> instance to operate on. Must not be <c>null</c>.
+            </param>
+            <param name="SetWorksheet">
+            The <see cref="P:JunX.NET8.Excel.JXcel.Worksheet"/> instance to operate on. Must not be <c>null</c>.
+            </param>
+            <exception cref="T:System.ArgumentNullException">
+            Thrown when <paramref name="SetWorkbook"/> or <paramref name="SetWorksheet"/> is <c>null</c>.
+            </exception>
+            <remarks>
+            This constructor sets both workbook and worksheet contexts for subsequent operations.
+            Use this overload when both scopes are required for initialization.
+            </remarks>
+        </member>
+        <member name="P:JunX.NET8.Excel.JXcel.Worksheet">
+            <summary>
+            Gets or sets the current <see cref="P:JunX.NET8.Excel.JXcel.Worksheet"/> context used by this instance.
+            </summary>
+            <value>
+            The <see cref="P:JunX.NET8.Excel.JXcel.Worksheet"/> instance associated with this object. This property can be updated dynamically.
+            </value>
+            <remarks>
+            Changing this property will redirect all subsequent operations to the new worksheet.
+            Ensure the assigned worksheet is properly initialized before use.
+            </remarks>
+        </member>
+        <member name="P:JunX.NET8.Excel.JXcel.Workbook">
+            <summary>
+            Gets or sets the current <see cref="P:JunX.NET8.Excel.JXcel.Workbook"/> context used by this instance.
+            </summary>
+            <value>
+            The <see cref="P:JunX.NET8.Excel.JXcel.Workbook"/> instance associated with this object. This property can be reassigned at runtime.
+            </value>
+            <remarks>
+            Changing this property will redirect all workbook-scoped operations to the new instance.
+            Ensure the assigned workbook is properly initialized before use.
+            </remarks>
+        </member>
+        <member name="P:JunX.NET8.Excel.JXcel.FilePath">
+            <summary>
+            Gets or sets the absolute file path associated with this instance.
+            </summary>
+            <value>
+            A fully qualified file path derived from the internal <c>_filePath</c> field.
+            </value>
+            <remarks>
+            The getter returns the canonical full path using <see cref="M:System.IO.Path.GetFullPath(System.String)"/>.
+            The setter stores the raw input path without validation.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.Excel.JXcel.LastRow(System.Object)">
+            <summary>
+            Returns the next available row index in the specified column by scanning upward from the bottom.
+            </summary>
+            <param name="ColumnIndex">
+            The column index to scan, typically an integer (e.g., <c>1</c> for column A).
+            </param>
+            <returns>
+            The row index where new data can be inserted. If the last non-empty cell is at row <c>n</c>, returns <c>n + 1</c>.
+            </returns>
+            <exception cref="T:System.Exception">
+            Thrown when the internal worksheet reference is <c>null</c>.
+            </exception>
+            <remarks>
+            This method uses Excel's <see cref="F:Microsoft.Office.Interop.Excel.XlDirection.xlUp"/> to find the last non-empty cell in the column.
+            If the last cell is empty, it returns that row; otherwise, it returns the next row.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.Excel.JXcel.CellValue(System.Object,System.Object)">
+            <summary>
+            Retrieves the value of a cell at the specified row and column index.
+            </summary>
+            <param name="RowIndex">
+            The row index of the target cell. Typically an integer starting from <c>1</c>.
+            </param>
+            <param name="ColumnIndex">
+            The column index of the target cell. Can be an integer or string (e.g., <c>"A"</c>).
+            </param>
+            <returns>
+            The value of the specified cell, or <c>string.Empty</c> if the cell is <c>null</c>.
+            </returns>
+            <remarks>
+            This method provides a dynamic return type to accommodate various Excel cell contents.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.Excel.JXcel.RangeValue(System.Object)">
+            <summary>
+            Retrieves the value of the specified Excel range.
+            </summary>
+            <param name="Range">
+            The range reference, typically a string like <c>"A1:B2"</c> or a named range.
+            </param>
+            <returns>
+            The value of the specified range, or <c>string.Empty</c> if the range is <c>null</c>.
+            </returns>
+            <remarks>
+            This method supports dynamic return types to accommodate single-cell values, arrays, or complex range contents.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.Excel.JXcel.Exists(System.Object,System.Int32,System.Object)">
+            <summary>
+            Determines whether a specified value exists in a given column, starting from a specified row index.
+            </summary>
+            <param name="CheckValue">
+            The value to search for within the column.
+            </param>
+            <param name="FirstRowIndex">
+            The starting row index for the search. Typically begins at <c>1</c>.
+            </param>
+            <param name="CheckColumn">
+            The column index to search within. Can be an integer or string (e.g., <c>"A"</c>).
+            </param>
+            <returns>
+            <c>true</c> if the value is found in the column; otherwise, <c>false</c>.
+            </returns>
+            <remarks>
+            This method scans upward from the bottom of the worksheet using <see cref="M:JunX.NET8.Excel.JXcel.LastRow(System.Object)"/> to determine the search boundary.
+            It performs a linear search and stops at the first match.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.Excel.JXcel.InsertRow(System.Object,System.Int32,System.Int32,System.Object[])">
+            <summary>
+            Inserts a row of values into the worksheet across a specified column range.
+            </summary>
+            <param name="RowIndex">
+            The row index where the values will be inserted.
+            </param>
+            <param name="FromColumnIndex">
+            The starting column index for insertion.
+            </param>
+            <param name="ToColumnIndex">
+            The ending column index for insertion. Must be greater than or equal to <paramref name="FromColumnIndex"/>.
+            </param>
+            <param name="Values">
+            An array of values to insert into the specified row and column range. Its length must match the column span.
+            </param>
+            <exception cref="T:System.Exception">
+            Thrown when the column range is invalid or the number of values does not match the number of columns.
+            </exception>
+            <remarks>
+            This method performs a direct cell assignment across the specified range. It assumes the worksheet is initialized and accessible.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.Excel.JXcel.InsertRow(System.Int32,System.Int32,System.Int32,System.Int32,System.Object[][])">
+            <summary>
+            Inserts a block of values into the worksheet across a specified row and column range.
+            </summary>
+            <param name="FromRowIndex">
+            The starting row index for insertion.
+            </param>
+            <param name="ToRowIndex">
+            The ending row index for insertion. Must be greater than or equal to <paramref name="FromRowIndex"/>.
+            </param>
+            <param name="FromColumnIndex">
+            The starting column index for insertion.
+            </param>
+            <param name="ToColumnIndex">
+            The ending column index for insertion. Must be greater than or equal to <paramref name="FromColumnIndex"/>.
+            </param>
+            <param name="Values">
+            A two-dimensional array of values to insert. The first dimension represents rows, and the second represents columns.
+            </param>
+            <exception cref="T:System.Exception">
+            Thrown when the specified range is invalid or the dimensions of <paramref name="Values"/> do not match the target range.
+            </exception>
+            <remarks>
+            This method performs a direct cell assignment for each value in the array. It assumes the worksheet is initialized and accessible.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.Excel.JXcel.UpdateValue(System.Object,System.Object,System.Object)">
+            <summary>
+            Updates the value of a specific cell in the worksheet.
+            </summary>
+            <param name="Row">
+            The row index of the target cell.
+            </param>
+            <param name="Column">
+            The column index of the target cell. Can be an integer or string (e.g., <c>"A"</c>).
+            </param>
+            <param name="Value">
+            The value to assign to the specified cell.
+            </param>
+            <remarks>
+            This method performs a direct assignment to the cell's <c>Value</c> property. It assumes the worksheet is initialized and accessible.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.Excel.JXcel.UpdateValue(System.Object,System.Object)">
+            <summary>
+            Updates the value of a specified range in the worksheet.
+            </summary>
+            <param name="Range">
+            The target range to update. Can be a string reference (e.g., <c>"A1:B2"</c>) or a named range.
+            </param>
+            <param name="Value">
+            The value to assign to the specified range. Can be a scalar, array, or formula-compatible input.
+            </param>
+            <remarks>
+            This method performs a direct assignment to the range's <c>Value</c> property. It assumes the worksheet is initialized and accessible.
+            </remarks>
+        </member>
+        <member name="M:JunX.NET8.Excel.JXcel.UpdateValues(System.Object[],System.Object[])">
+            <summary>
+            Updates multiple ranges in the worksheet with corresponding values.
+            </summary>
+            <param name="Ranges">
+            An array of range references to update. Each entry can be a string (e.g., <c>"A1"</c>, <c>"B2:C3"</c>) or a named range.
+            </param>
+            <param name="Values">
+            An array of values to assign to the corresponding ranges. The length must match <paramref name="Ranges"/>.
+            </param>
+            <exception cref="T:System.Exception">
+            Thrown when the array lengths mismatch or a range update fails.
+            </exception>
+            <remarks>
+            This method performs a one-to-one assignment of values to ranges. It throws a detailed exception if any update fails.
+            </remarks>
+        </member>
         <member name="T:JunX.NET8.MySQL.Construct">
             <summary>
             Provides method that will construct various MySQL Command strings.
@@ -2082,6 +2336,25 @@
             Returns all member names of the enum type <typeparamref name="T"/> as a list of strings.
             </summary>
             <returns>A list of enum member names.</returns>
+        </member>
+        <member name="T:JunX.NET8.Utilities.Utilities">
+            <summary>
+            Provides additional utilities and functionalities for working with .NET.
+            </summary>
+        </member>
+        <member name="M:JunX.NET8.Utilities.Utilities.FillEmptyString(System.String)">
+            <summary>
+            Returns a fallback string if the input is null, empty, or consists only of whitespace.
+            </summary>
+            <param name="Value">
+            The input string to evaluate.
+            </param>
+            <returns>
+            <c>"N/A"</c> if the input is null, empty, or whitespace; otherwise, returns the original string.
+            </returns>
+            <remarks>
+            This method is useful for normalizing display values in reports, logs, or UI elements.
+            </remarks>
         </member>
         <member name="T:JunX.NET8.WinForms.Forms">
             <summary>

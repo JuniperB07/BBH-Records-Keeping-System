@@ -25,6 +25,9 @@
     <Compile Update="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Exports_PATH.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -44,6 +47,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Payments_PREVIEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Settings_MENU.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Tenants_MENU.cs">

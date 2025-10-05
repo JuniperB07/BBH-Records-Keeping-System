@@ -130,16 +130,19 @@
   <data name="bbhLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bbhLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="NEW BILL" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\NEW BILL.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="LogoutICON" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\LogoutICON.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="PAY ADDITIONALS" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\PAY ADDITIONALS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="USER MANAGEMENT" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\USER MANAGEMENT.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LogoutICON" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\LogoutICON.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NEW BILL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\NEW BILL.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EXPORTS PATH" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EXPORTS PATH.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

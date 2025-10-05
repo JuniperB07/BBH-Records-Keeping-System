@@ -292,8 +292,8 @@ namespace BBH_Records_Keeping_System
         private void btnSettings_Click(object sender, EventArgs e)
         {
             UserManagementHelper.Username = LoginHelper.User;
-            User_MANAGEMENT UM = new User_MANAGEMENT();
-            UM.ShowDialog();
+            Settings_MENU SM = new Settings_MENU();
+            SM.ShowDialog();
         }
 
         private void btnTenants_Click(object sender, EventArgs e)
@@ -477,6 +477,7 @@ namespace BBH_Records_Keeping_System
         private void dgvUnpaids_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             BillPreviewHelper.FromBillPreview = false;
+            Utilities.SetBillPreviewMode = Utilities.BillPreviewMode.Preview;
             BillPreviewHelper.InvoiceNumber = dgvUnpaids.SelectedCells[5].Value.ToString();
             BillPreview_PREVIEW BPP = new BillPreview_PREVIEW();
             BPP.ShowDialog();
@@ -485,6 +486,7 @@ namespace BBH_Records_Keeping_System
         private void dgvOverdues_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             BillPreviewHelper.FromBillPreview = false;
+            Utilities.SetBillPreviewMode = Utilities.BillPreviewMode.Preview;
             BillPreviewHelper.InvoiceNumber = dgvOverdues.SelectedCells[5].Value.ToString();
             BillPreview_PREVIEW BPP = new BillPreview_PREVIEW();
             BPP.ShowDialog();

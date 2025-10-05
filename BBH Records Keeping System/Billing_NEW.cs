@@ -516,6 +516,7 @@ namespace BBH_Records_Keeping_System
                     Database.Tables.tbTenants.TenantID.ToString() + "=" + TenantID.ToString());
             DBC.ExecuteReader();
             reader = DBC.Reader;
+            reader.Read();
             plan = reader[0].ToString();
             reader.Close();
             DBC.CloseReader();
@@ -527,6 +528,7 @@ namespace BBH_Records_Keeping_System
                     Database.Tables.tbInternetPlans.Details.ToString() + "='" + plan + "'");
             DBC.ExecuteReader();
             reader = DBC.Reader;
+            reader.Read();
             sFee = Convert.ToDouble(reader[0].ToString());
             reader.Close();
             DBC.CloseReader();
@@ -1005,7 +1007,7 @@ namespace BBH_Records_Keeping_System
 
             if (txtSearch.Text != "")
             {
-                DBC.ConnectionString = Generate.SelectCommand(
+                DBC.CommandString = Generate.SelectCommand(
                     SelectColumns: new string[] { Database.Tables.tbTenants.FullName.ToString() },
                     FromTable: Database.Tables.tbTenants.tbTenants.ToString(),
                     WhereStatement: Database.Tables.tbTenants.FullName.ToString() + " LIKE @Search",
@@ -1015,7 +1017,7 @@ namespace BBH_Records_Keeping_System
             }
             else
             {
-                DBC.ConnectionString = Generate.SelectCommand(
+                DBC.CommandString = Generate.SelectCommand(
                     SelectColumns: new string[] { Database.Tables.tbTenants.FullName.ToString() },
                     FromTable: Database.Tables.tbTenants.tbTenants.ToString(),
                     SortColumn: Database.Tables.tbTenants.FullName.ToString(),
@@ -1041,7 +1043,7 @@ namespace BBH_Records_Keeping_System
                 this.Text = "BBH Records Keeping System - New Bill - [" + lstTenants.SelectedItem.ToString().ToUpper() + "]";
 
                 //Check TENANCY STATUS. Proceed if TENANCY STATUS == ACTIVE
-                DBC.ConnectionString = Generate.SelectCommand(
+                DBC.CommandString = Generate.SelectCommand(
                     SelectColumn: Database.Tables.tbTenants.Status.ToString(),
                     FromTable: Database.Tables.tbTenants.tbTenants.ToString(),
                     WhereStatement:
@@ -1197,7 +1199,7 @@ namespace BBH_Records_Keeping_System
 
                     cons = presRead - prevRead;
 
-                    DBC.ConnectionString = Generate.SelectCommand(
+                    DBC.CommandString = Generate.SelectCommand(
                         SelectColumn: Database.Tables.tbMetadata.Value.ToString(),
                         FromTable: Database.Tables.tbMetadata.tbMetadata.ToString(),
                         WhereStatement:
@@ -1267,7 +1269,7 @@ namespace BBH_Records_Keeping_System
 
                     cons = presRead - prevRead;
 
-                    DBC.ConnectionString = Generate.SelectCommand(
+                    DBC.CommandString = Generate.SelectCommand(
                         SelectColumn: Database.Tables.tbMetadata.Value.ToString(),
                         FromTable: Database.Tables.tbMetadata.tbMetadata.ToString(),
                         WhereStatement:

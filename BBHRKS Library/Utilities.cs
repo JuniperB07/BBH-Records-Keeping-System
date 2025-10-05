@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using JunX.NET8.MySQL;
 
 namespace BBHRKS.Utilities
 {
@@ -146,8 +147,17 @@ namespace BBHRKS.Utilities
         /// </exception>
         public static string GeneratePDFOutputPath(string TenantName, DateTime DueDate)
         {
-            string output = @"C:\Users\USER\Documents\BOLABON BOARDING HOUSE\BILLS\" + TenantName;
+            DBConnect DBC = new DBConnect(MySQL.Database.Connection);
+            string output = "";
             string fileName = $"Invoice_[" + TenantName.ToUpper() + "_" + DueDate.ToString("MMMM_yyyy") + "].pdf";
+
+            DBC.CommandString = Construct.SelectCommand(
+                Select: tbmetadata.Value.ToString(),
+                From: tbmetadata.tbmetadata.ToString(),
+                Where: tbmetadata.MID.ToString() + "=9");
+            DBC.ExecuteReader();
+            DBC.GetValues();
+            output = @"" + DBC.Values[0] + "\\" + TenantName;
 
             if (!Directory.Exists(output))
                 Directory.CreateDirectory(output);

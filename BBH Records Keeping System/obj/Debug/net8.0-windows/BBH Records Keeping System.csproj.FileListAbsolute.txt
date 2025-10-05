@@ -128,3 +128,5 @@ C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\ne
 C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH_Records_Keeping_System.Payments_MENU.resources
 C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH_Records_Keeping_System.User_MANAGEMENT.resources
 C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH_Records_Keeping_System.Payments_ADVANCES.resources
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH_Records_Keeping_System.Exports_PATH.resources
+C:\Users\USER\Documents\Visual Studio\C#\BBH Records Keeping System\obj\Debug\net8.0-windows\BBH_Records_Keeping_System.Settings_MENU.resources

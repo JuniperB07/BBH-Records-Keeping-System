@@ -103,6 +103,16 @@ namespace BBH_Records_Keeping_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap EXPORTS_PATH {
+            get {
+                object obj = ResourceManager.GetObject("EXPORTS PATH", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap LogoutICON {
             get {
                 object obj = ResourceManager.GetObject("LogoutICON", resourceCulture);
